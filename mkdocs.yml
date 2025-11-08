@@ -1,0 +1,79 @@
+site_name: Enterprise Data Architecture
+site_url: https://sunilp.github.io/enterprise-data-architecture/
+site_description: Architecture position pack for enterprise data platforms -- strategy, blueprints, and decision frameworks
+site_author: Sunil Patel
+repo_url: https://github.com/sunilp/enterprise-data-architecture
+repo_name: sunilp/enterprise-data-architecture
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Position:
+    - What EDP Is: position/what-edp-is.md
+    - EDP vs Operational: position/edp-vs-operational.md
+    - Anti-Patterns: position/anti-patterns.md
+  - Blueprints:
+    - Target State Architecture: blueprints/target-state.md
+    - AI/ML Platform Relationship: blueprints/ai-ml-platform.md
+  - Glossary: glossary.md
+  - What's New: changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sunilp
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/sunilp
+
+copyright: >
+  Copyright &copy; 2026 Sunil Patel --
+  <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
