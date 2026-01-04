@@ -8,7 +8,7 @@
 - This is not a vendor recommendation. It is an architectural pattern that maps to any major cloud provider.
 - Cloud-specific variants (GCP, Azure) show how the conceptual layers map to real services.
 
-<!-- ![Target State Architecture](../images/hero-target-state.svg) -->
+![Target State Architecture](../images/hero-target-state.svg)
 
 ## The Seven Layers
 

@@ -1,7 +1,7 @@
 site_name: Enterprise Data Architecture
 site_url: https://sunilp.github.io/enterprise-data-architecture/
 site_description: Architecture position pack for enterprise data platforms -- strategy, blueprints, and decision frameworks
-site_author: Sunil Patel
+site_author: Sunil Prakash
 repo_url: https://github.com/sunilp/enterprise-data-architecture
 repo_name: sunilp/enterprise-data-architecture
 edit_uri: edit/main/docs/
@@ -75,5 +75,5 @@ extra_css:
   - css/custom.css
 
 copyright: >
-  Copyright &copy; 2026 Sunil Patel --
+  Copyright &copy; 2026 Sunil Prakash --
   <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
