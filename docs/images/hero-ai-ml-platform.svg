@@ -1,0 +1,348 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .section-label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .section-title { font-size: 18px; font-weight: 500; }
+      .section-desc { font-size: 13px; fill: #6b6b6b; }
+      .service-box text { font-size: 12px; }
+      .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-accent { stroke: #1a1a1a; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-accent); }
+      .arrow-dashed { stroke: #999; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrowhead); }
+      .table-header { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; }
+      .table-cell { font-size: 12px; fill: #1a1a1a; }
+      .table-label { font-size: 12px; fill: #6b6b6b; font-weight: 500; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1"/>
+    </marker>
+    <marker id="arrowhead-accent" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </marker>
+    <marker id="arrowhead-dashed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#fafaf8"/>
+
+  <!-- Title -->
+  <text x="960" y="48" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#1a1a1a">AI/ML Platform Relationship</text>
+  <text x="960" y="74" text-anchor="middle" font-size="14" fill="#6b6b6b">Data flow from Enterprise Data Platform through ML infrastructure to serving</text>
+
+  <!-- ============================================================ -->
+  <!-- LEFT SECTION: Enterprise Data Platform                        -->
+  <!-- ============================================================ -->
+  <rect x="60" y="120" width="560" height="380" rx="4" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="80" y="150" class="section-label" fill="#999">SOURCE</text>
+  <text x="155" y="150" class="section-title" fill="#1a1a1a">Enterprise Data Platform</text>
+  <text x="80" y="170" class="section-desc">Analytical heart -- historical, governed, integrated data</text>
+
+  <!-- Bronze -->
+  <rect x="90" y="200" width="110" height="90" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="90" y="200" width="110" height="26" rx="3" fill="#8d6e63" stroke="none"/>
+  <rect x="90" y="223" width="110" height="0" rx="0" fill="none"/>
+  <text x="145" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">BRONZE</text>
+  <text x="145" y="248" text-anchor="middle" font-size="10" fill="#6b6b6b">Raw ingestion</text>
+  <text x="145" y="262" text-anchor="middle" font-size="10" fill="#6b6b6b">Source-aligned</text>
+  <text x="145" y="276" text-anchor="middle" font-size="10" fill="#6b6b6b">Immutable</text>
+
+  <!-- Arrow Bronze -> Silver -->
+  <path d="M200,245 L225,245" class="arrow-accent"/>
+
+  <!-- Silver -->
+  <rect x="230" y="200" width="110" height="90" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="230" y="200" width="110" height="26" rx="3" fill="#78909c" stroke="none"/>
+  <text x="285" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">SILVER</text>
+  <text x="285" y="248" text-anchor="middle" font-size="10" fill="#6b6b6b">Cleansed</text>
+  <text x="285" y="262" text-anchor="middle" font-size="10" fill="#6b6b6b">Conformed</text>
+  <text x="285" y="276" text-anchor="middle" font-size="10" fill="#6b6b6b">Quality validated</text>
+
+  <!-- Arrow Silver -> Gold -->
+  <path d="M340,245 L365,245" class="arrow-accent"/>
+
+  <!-- Gold -->
+  <rect x="370" y="200" width="110" height="90" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="370" y="200" width="110" height="26" rx="3" fill="#c9a84c" stroke="none"/>
+  <text x="425" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">GOLD</text>
+  <text x="425" y="248" text-anchor="middle" font-size="10" fill="#6b6b6b">Business-ready</text>
+  <text x="425" y="262" text-anchor="middle" font-size="10" fill="#6b6b6b">Aggregated</text>
+  <text x="425" y="276" text-anchor="middle" font-size="10" fill="#6b6b6b">Domain models</text>
+
+  <!-- Arrow Gold -> Data Products -->
+  <path d="M425,290 L425,315" class="arrow-accent"/>
+
+  <!-- Data Products -->
+  <rect x="90" y="320" width="500" height="60" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="340" y="346" text-anchor="middle" font-size="14" font-weight="500" fill="#1a1a1a">Data Products</text>
+  <text x="340" y="366" text-anchor="middle" font-size="11" fill="#6b6b6b">Customer 360  ·  Risk Analytics  ·  ML Features  ·  Executive MI</text>
+
+  <!-- EDP SLA badges -->
+  <rect x="90" y="400" width="100" height="22" rx="11" fill="none" stroke="#999"/>
+  <text x="140" y="414" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">SLA: 99.5%</text>
+  <rect x="200" y="400" width="120" height="22" rx="11" fill="none" stroke="#999"/>
+  <text x="260" y="414" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">Latency: min-hrs</text>
+  <rect x="330" y="400" width="100" height="22" rx="11" fill="none" stroke="#999"/>
+  <text x="380" y="414" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">Columnar</text>
+
+  <!-- EDP infra boxes -->
+  <rect x="90" y="440" width="155" height="36" rx="3" fill="#1a1a1a"/>
+  <text x="167" y="463" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">Lakehouse / Warehouse</text>
+  <rect x="255" y="440" width="155" height="36" rx="3" fill="#1a1a1a"/>
+  <text x="332" y="463" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">Orchestration</text>
+  <rect x="420" y="440" width="170" height="36" rx="3" fill="#1a1a1a"/>
+  <text x="505" y="463" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">Lineage &amp; Catalog</text>
+
+
+  <!-- ============================================================ -->
+  <!-- CENTER SECTION: ML Infrastructure                             -->
+  <!-- ============================================================ -->
+  <rect x="680" y="120" width="620" height="380" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="700" y="150" class="section-label" fill="#999">CORE</text>
+  <text x="745" y="150" class="section-title" fill="#1a1a1a">ML Infrastructure</text>
+  <text x="700" y="170" class="section-desc">Training, registry, and serving pipeline</text>
+
+  <!-- Feature Store (Offline) -->
+  <rect x="710" y="200" width="200" height="80" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="710" y="200" width="200" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="810" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Feature Store (Offline)</text>
+  <text x="810" y="248" text-anchor="middle" font-size="11" fill="#6b6b6b">Historical features</text>
+  <text x="810" y="264" text-anchor="middle" font-size="11" fill="#6b6b6b">Batch computation</text>
+
+  <!-- Arrow: Data Products -> Feature Store Offline -->
+  <path d="M590,350 L700,248" class="arrow-accent"/>
+  <text x="635" y="286" font-size="10" fill="#6b6b6b" transform="rotate(-28, 635, 286)">features</text>
+
+  <!-- Arrow: Feature Store Offline -> Model Training -->
+  <path d="M810,280 L810,310" class="arrow-accent"/>
+
+  <!-- Model Training -->
+  <rect x="710" y="315" width="200" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="710" y="315" width="200" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="810" y="333" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Model Training</text>
+  <text x="810" y="358" text-anchor="middle" font-size="11" fill="#6b6b6b">Experiments &amp; pipelines</text>
+  <text x="810" y="374" text-anchor="middle" font-size="11" fill="#6b6b6b">Hyperparameter tuning</text>
+
+  <!-- Arrow: Model Training -> Model Registry -->
+  <path d="M910,350 L960,350" class="arrow-accent"/>
+
+  <!-- Model Registry -->
+  <rect x="965" y="315" width="200" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="965" y="315" width="200" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="1065" y="333" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Model Registry</text>
+  <text x="1065" y="358" text-anchor="middle" font-size="11" fill="#6b6b6b">Versioned artifacts</text>
+  <text x="1065" y="374" text-anchor="middle" font-size="11" fill="#6b6b6b">Approval workflows</text>
+
+  <!-- Feature Store (Online) -->
+  <rect x="965" y="200" width="200" height="80" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="965" y="200" width="200" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="1065" y="218" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Feature Store (Online)</text>
+  <text x="1065" y="248" text-anchor="middle" font-size="11" fill="#6b6b6b">Pre-computed features</text>
+  <text x="1065" y="264" text-anchor="middle" font-size="11" fill="#6b6b6b">Low-latency key-value</text>
+
+  <!-- Arrow: Feature Store Offline -> Feature Store Online (materialization) -->
+  <path d="M910,240 L955,240" class="arrow-accent"/>
+  <text x="933" y="234" text-anchor="middle" font-size="9" fill="#6b6b6b">mat.</text>
+
+  <!-- Model Serving -->
+  <rect x="965" y="415" width="200" height="70" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="965" y="415" width="200" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="1065" y="433" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Model Serving</text>
+  <text x="1065" y="458" text-anchor="middle" font-size="11" fill="#6b6b6b">Real-time inference</text>
+  <text x="1065" y="474" text-anchor="middle" font-size="11" fill="#6b6b6b">Batch predictions</text>
+
+  <!-- Arrow: Model Registry -> Model Serving -->
+  <path d="M1065,385 L1065,410" class="arrow-accent"/>
+
+  <!-- Arrow: Feature Store Online -> Model Serving -->
+  <path d="M1165,260 L1230,260 L1230,450 L1170,450" class="arrow-accent"/>
+  <text x="1242" y="360" font-size="10" fill="#6b6b6b" transform="rotate(90, 1242, 360)">online features</text>
+
+  <!-- ML infra badges -->
+  <rect x="710" y="410" width="90" height="22" rx="11" fill="#1a1a1a"/>
+  <text x="755" y="424" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">GPU/TPU</text>
+  <rect x="810" y="410" width="120" height="22" rx="11" fill="none" stroke="#1a1a1a"/>
+  <text x="870" y="424" text-anchor="middle" font-size="10" font-weight="500" fill="#1a1a1a">MLflow / Vertex</text>
+
+
+  <!-- ============================================================ -->
+  <!-- RIGHT SECTION: Serving Layer                                  -->
+  <!-- ============================================================ -->
+  <rect x="1360" y="120" width="500" height="380" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="1380" y="150" class="section-label" fill="#999">CONSUMERS</text>
+  <text x="1472" y="150" class="section-title" fill="#1a1a1a">Serving Layer</text>
+  <text x="1380" y="170" class="section-desc">Applications consuming model predictions</text>
+
+  <!-- Arrow: Model Serving -> Prediction APIs -->
+  <path d="M1165,450 L1390,280" class="arrow-accent"/>
+  <text x="1270" y="350" font-size="10" fill="#6b6b6b" transform="rotate(-35, 1270, 350)">predictions</text>
+
+  <!-- Prediction APIs -->
+  <rect x="1400" y="210" width="220" height="80" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="1400" y="210" width="220" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="1510" y="228" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Prediction APIs</text>
+  <text x="1510" y="253" text-anchor="middle" font-size="11" fill="#6b6b6b">REST / gRPC endpoints</text>
+  <text x="1510" y="269" text-anchor="middle" font-size="11" fill="#6b6b6b">Auth, rate limiting, caching</text>
+  <text x="1510" y="285" text-anchor="middle" font-size="11" fill="#6b6b6b">A/B traffic routing</text>
+
+  <!-- Arrow: Prediction APIs -> Applications -->
+  <path d="M1510,290 L1510,330" class="arrow"/>
+
+  <!-- Applications -->
+  <rect x="1400" y="335" width="220" height="130" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="1400" y="335" width="220" height="26" rx="3" fill="#1a1a1a"/>
+  <text x="1510" y="353" text-anchor="middle" font-size="11" font-weight="600" fill="#fafaf8">Applications</text>
+
+  <rect x="1420" y="375" width="85" height="32" rx="3" fill="#fff" stroke="#e8e8e8"/>
+  <text x="1462" y="395" text-anchor="middle" font-size="10" fill="#1a1a1a">Fraud Detection</text>
+
+  <rect x="1515" y="375" width="85" height="32" rx="3" fill="#fff" stroke="#e8e8e8"/>
+  <text x="1557" y="395" text-anchor="middle" font-size="10" fill="#1a1a1a">Recommender</text>
+
+  <rect x="1420" y="415" width="85" height="32" rx="3" fill="#fff" stroke="#e8e8e8"/>
+  <text x="1462" y="435" text-anchor="middle" font-size="10" fill="#1a1a1a">Risk Scoring</text>
+
+  <rect x="1515" y="415" width="85" height="32" rx="3" fill="#fff" stroke="#e8e8e8"/>
+  <text x="1557" y="435" text-anchor="middle" font-size="10" fill="#1a1a1a">NLP / Chat</text>
+
+  <!-- Serving SLA badges -->
+  <rect x="1660" y="220" width="100" height="22" rx="11" fill="#1a1a1a"/>
+  <text x="1710" y="234" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">SLA: 99.9%</text>
+  <rect x="1660" y="250" width="100" height="22" rx="11" fill="none" stroke="#1a1a1a"/>
+  <text x="1710" y="264" text-anchor="middle" font-size="10" font-weight="500" fill="#1a1a1a">Latency: ms</text>
+  <rect x="1660" y="280" width="100" height="22" rx="11" fill="none" stroke="#1a1a1a"/>
+  <text x="1710" y="294" text-anchor="middle" font-size="10" font-weight="500" fill="#1a1a1a">High concur.</text>
+
+
+  <!-- ============================================================ -->
+  <!-- FEEDBACK LOOPS                                                -->
+  <!-- ============================================================ -->
+
+  <!-- Predictions as events: Model Serving -> Bronze (dashed) -->
+  <path d="M965,470 L920,470 L920,530 L145,530 L145,295" class="arrow-dashed"/>
+  <rect x="440" y="518" width="160" height="20" rx="3" fill="#fafaf8"/>
+  <text x="520" y="532" text-anchor="middle" font-size="10" font-weight="500" fill="#999">predictions as events</text>
+
+  <!-- Monitoring box -->
+  <rect x="680" y="530" width="200" height="50" rx="3" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="680" y="530" width="200" height="24" rx="3" fill="#999"/>
+  <text x="780" y="547" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Monitoring</text>
+  <text x="780" y="570" text-anchor="middle" font-size="10" fill="#6b6b6b">Performance &amp; data drift</text>
+
+  <!-- Model Serving -> Monitoring (dashed) -->
+  <path d="M1065,485 L1065,555 L885,555" class="arrow-dashed"/>
+  <text x="1000" y="544" font-size="10" font-weight="500" fill="#999">drift / metrics</text>
+
+  <!-- Monitoring -> EDP (dashed) -->
+  <path d="M680,555 L620,555 L620,470 L595,470" class="arrow-dashed"/>
+  <text x="650" y="504" font-size="10" font-weight="500" fill="#999" transform="rotate(-90, 650, 504)">retrain signal</text>
+
+
+  <!-- ============================================================ -->
+  <!-- BOTTOM: Comparison Table                                      -->
+  <!-- ============================================================ -->
+  <rect x="200" y="630" width="1520" height="40" rx="4" fill="#1a1a1a"/>
+  <text x="960" y="656" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="500" fill="#fafaf8">Offline vs Online Feature Serving</text>
+
+  <!-- Table container -->
+  <rect x="200" y="670" width="1520" height="350" rx="0" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- Column headers -->
+  <rect x="200" y="670" width="380" height="44" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="390" y="697" text-anchor="middle" class="table-header" fill="#6b6b6b">DIMENSION</text>
+
+  <rect x="580" y="670" width="570" height="44" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="865" y="697" text-anchor="middle" class="table-header" fill="#1a1a1a">OFFLINE (TRAINING)</text>
+
+  <rect x="1150" y="670" width="570" height="44" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1435" y="697" text-anchor="middle" class="table-header" fill="#1a1a1a">ONLINE (SERVING)</text>
+
+  <!-- Row 1: Latency -->
+  <line x1="200" y1="714" x2="1720" y2="714" stroke="#e8e8e8"/>
+  <rect x="200" y="714" width="380" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <text x="390" y="740" text-anchor="middle" class="table-label">Latency</text>
+  <text x="390" y="758" text-anchor="middle" font-size="10" fill="#999">End-to-end response time</text>
+
+  <rect x="580" y="714" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="720" y="728" width="90" height="24" rx="12" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="765" y="744" text-anchor="middle" class="table-cell" font-weight="600">Hours</text>
+  <text x="865" y="758" text-anchor="middle" font-size="11" fill="#6b6b6b">Batch jobs, full dataset recomputation, scheduled runs</text>
+
+  <rect x="1150" y="714" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="1290" y="728" width="90" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="1335" y="744" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">p99 &lt; ms</text>
+  <text x="1435" y="758" text-anchor="middle" font-size="11" fill="#6b6b6b">Sub-millisecond lookups, pre-materialized, cached in memory</text>
+
+  <!-- Row 2: Storage -->
+  <rect x="200" y="774" width="380" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <text x="390" y="800" text-anchor="middle" class="table-label">Storage</text>
+  <text x="390" y="818" text-anchor="middle" font-size="10" fill="#999">Underlying data format</text>
+
+  <rect x="580" y="774" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="720" y="788" width="120" height="24" rx="12" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="780" y="804" text-anchor="middle" class="table-cell" font-weight="600">Columnar</text>
+  <text x="865" y="818" text-anchor="middle" font-size="11" fill="#6b6b6b">Parquet, Delta Lake, Iceberg -- optimized for scan throughput</text>
+
+  <rect x="1150" y="774" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="1290" y="788" width="120" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="1350" y="804" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Key-Value</text>
+  <text x="1435" y="818" text-anchor="middle" font-size="11" fill="#6b6b6b">Redis, DynamoDB, Bigtable -- optimized for point lookups</text>
+
+  <!-- Row 3: Source -->
+  <rect x="200" y="834" width="380" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <text x="390" y="860" text-anchor="middle" class="table-label">Source</text>
+  <text x="390" y="878" text-anchor="middle" font-size="10" fill="#999">Where features originate</text>
+
+  <rect x="580" y="834" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="720" y="848" width="60" height="24" rx="12" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="750" y="864" text-anchor="middle" class="table-cell" font-weight="600">EDP</text>
+  <text x="865" y="878" text-anchor="middle" font-size="11" fill="#6b6b6b">Gold-layer tables, data products, full history available</text>
+
+  <rect x="1150" y="834" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="1272" y="848" width="126" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="1335" y="864" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Precomputed</text>
+  <text x="1435" y="878" text-anchor="middle" font-size="11" fill="#6b6b6b">Materialized from offline store, pushed to low-latency serving</text>
+
+  <!-- Row 4: Scale -->
+  <rect x="200" y="894" width="380" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <text x="390" y="920" text-anchor="middle" class="table-label">Scale</text>
+  <text x="390" y="938" text-anchor="middle" font-size="10" fill="#999">Primary scaling dimension</text>
+
+  <rect x="580" y="894" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="705" y="908" width="120" height="24" rx="12" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="765" y="924" text-anchor="middle" class="table-cell" font-weight="600">Throughput</text>
+  <text x="865" y="938" text-anchor="middle" font-size="11" fill="#6b6b6b">Maximize data processed per unit time, bulk read patterns</text>
+
+  <rect x="1150" y="894" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="1278" y="908" width="114" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="1335" y="924" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Concurrency</text>
+  <text x="1435" y="938" text-anchor="middle" font-size="11" fill="#6b6b6b">Thousands of concurrent requests, horizontal auto-scaling</text>
+
+  <!-- Row 5: Freshness -->
+  <rect x="200" y="954" width="380" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <text x="390" y="980" text-anchor="middle" class="table-label">Freshness</text>
+  <text x="390" y="998" text-anchor="middle" font-size="10" fill="#999">How current the data is</text>
+
+  <rect x="580" y="954" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="712" y="968" width="106" height="24" rx="12" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="765" y="984" text-anchor="middle" class="table-cell" font-weight="600">T+1 / batch</text>
+  <text x="865" y="998" text-anchor="middle" font-size="11" fill="#6b6b6b">Scheduled pipelines, daily or hourly refreshes from EDP</text>
+
+  <rect x="1150" y="954" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
+  <rect x="1280" y="968" width="110" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="1335" y="984" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Near real-time</text>
+  <text x="1435" y="998" text-anchor="middle" font-size="11" fill="#6b6b6b">Streaming materialization, event-driven updates, seconds-fresh</text>
+
+  <!-- Table bottom border -->
+  <line x1="200" y1="1014" x2="1720" y2="1014" stroke="#e8e8e8"/>
+
+  <!-- Flow direction labels at top -->
+  <text x="340" y="108" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">DATA FOUNDATION</text>
+  <text x="990" y="108" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">ML PIPELINE</text>
+  <text x="1610" y="108" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">CONSUMPTION</text>
+
+  <!-- Horizontal flow arrow indicators -->
+  <path d="M625,300 L670,300" class="arrow" stroke="#1a1a1a" marker-end="url(#arrowhead-accent)"/>
+  <path d="M1300,300 L1350,300" class="arrow" stroke="#1a1a1a" marker-end="url(#arrowhead-accent)"/>
+
+</svg>

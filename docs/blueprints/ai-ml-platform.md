@@ -8,7 +8,10 @@
 - "Just query the lakehouse from the model" breaks at production scale
 - Getting this relationship right is the difference between AI experiments and AI in production
 
-<!-- ![AI/ML Platform Relationship](../images/hero-ai-ml-platform.svg) -->
+<figure markdown="span">
+  ![AI/ML Platform Relationship](../images/hero-ai-ml-platform.svg){ width="100%" }
+  <figcaption>Data flow from EDP through ML infrastructure to serving -- with feedback loop</figcaption>
+</figure>
 
 ## The EDP as AI Foundation
 

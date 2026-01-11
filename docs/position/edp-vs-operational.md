@@ -8,7 +8,10 @@
 - Neither platform is "better" -- they coexist. The question is which workload belongs where.
 - If you are building one platform to rule them all, you are building zero platforms that work.
 
-<!-- ![EDP vs Operational](../images/hero-edp-vs-operational.svg) -->
+<figure markdown="span">
+  ![EDP vs Operational Platform](../images/hero-edp-vs-operational.svg){ width="100%" }
+  <figcaption>Enterprise data platform (systems of insight) vs operational platform (systems of record)</figcaption>
+</figure>
 
 ## The Comparison
 

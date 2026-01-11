@@ -8,7 +8,10 @@
 - Recognizing these patterns early saves millions in rework and years of architectural debt.
 - The root cause is almost always positioning, not technology.
 
-<!-- ![Anti-Patterns](../images/hero-anti-patterns.svg) -->
+<figure markdown="span">
+  ![Anti-Patterns](../images/hero-anti-patterns.svg){ width="100%" }
+  <figcaption>Six architectural anti-patterns -- root cause is positioning, not technology</figcaption>
+</figure>
 
 ## Anti-Pattern 1: The Lakehouse as System of Record
 

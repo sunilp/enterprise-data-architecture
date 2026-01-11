@@ -1,0 +1,283 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .title { font-family: Fraunces, Georgia, serif; font-size: 28px; font-weight: 500; fill: #1a1a1a; }
+      .subtitle { font-size: 14px; fill: #6b6b6b; }
+      .platform-title { font-family: Fraunces, Georgia, serif; font-size: 24px; font-weight: 500; fill: #1a1a1a; }
+      .platform-subtitle { font-size: 14px; fill: #6b6b6b; font-style: italic; }
+      .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; fill: #6b6b6b; }
+      .char-label { font-size: 13px; font-weight: 500; fill: #1a1a1a; }
+      .char-value { font-size: 13px; fill: #6b6b6b; }
+      .use-case-tag { font-size: 12px; font-weight: 500; fill: #1a1a1a; }
+      .storage-tag { font-size: 12px; fill: #6b6b6b; }
+      .center-label { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; fill: #1a1a1a; }
+      .flow-label { font-size: 12px; font-weight: 500; fill: #6b6b6b; }
+      .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-accent { stroke: #1a1a1a; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-dark); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1"/>
+    </marker>
+    <marker id="arrowhead-dark" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#fafaf8"/>
+
+  <!-- Page Title -->
+  <text x="960" y="52" text-anchor="middle" class="title">Enterprise Data Platform vs Operational Platform</text>
+  <text x="960" y="78" text-anchor="middle" class="subtitle">Two distinct platform archetypes serving complementary concerns</text>
+
+  <!-- Thin horizontal rule under title -->
+  <line x1="760" y1="96" x2="1160" y2="96" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ================================================================== -->
+  <!-- LEFT SIDE: Enterprise Data Platform                                 -->
+  <!-- ================================================================== -->
+  <rect x="60" y="120" width="820" height="900" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Platform header -->
+  <text x="470" y="168" text-anchor="middle" class="platform-title">Enterprise Data Platform</text>
+  <text x="470" y="194" text-anchor="middle" class="platform-subtitle">Systems of Insight</text>
+
+  <!-- Divider under header -->
+  <line x1="100" y1="216" x2="840" y2="216" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- Section: Characteristics -->
+  <text x="100" y="254" class="section-label">Characteristics</text>
+
+  <!-- Characteristic rows - label : value -->
+  <g transform="translate(100, 280)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="700" height="40" rx="4" fill="#f5f5f3"/>
+    <text x="16" y="26" class="char-label">Data Model</text>
+    <text x="360" y="26" class="char-value">Historical data, append-only</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="48" width="700" height="40" rx="4" fill="#fff"/>
+    <text x="16" y="74" class="char-label">Mutation Pattern</text>
+    <text x="360" y="74" class="char-value">Append-only / immutable</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="96" width="700" height="40" rx="4" fill="#f5f5f3"/>
+    <text x="16" y="122" class="char-label">Latency</text>
+    <text x="360" y="122" class="char-value">Batch / interactive (minutes to hours)</text>
+
+    <!-- Row 4 -->
+    <rect x="0" y="144" width="700" height="40" rx="4" fill="#fff"/>
+    <text x="16" y="170" class="char-label">Schema Strategy</text>
+    <text x="360" y="170" class="char-value">Schema-on-read</text>
+
+    <!-- Row 5 -->
+    <rect x="0" y="192" width="700" height="40" rx="4" fill="#f5f5f3"/>
+    <text x="16" y="218" class="char-label">Optimization</text>
+    <text x="360" y="218" class="char-value">Query throughput optimized</text>
+
+    <!-- Row 6 -->
+    <rect x="0" y="240" width="700" height="40" rx="4" fill="#fff"/>
+    <text x="16" y="266" class="char-label">Availability SLA</text>
+    <text x="360" y="266" class="char-value">99.5%</text>
+  </g>
+
+  <!-- Section: Use Cases -->
+  <text x="100" y="620" class="section-label">Use Cases</text>
+
+  <!-- Use case tags -->
+  <g transform="translate(100, 640)">
+    <rect x="0" y="0" width="100" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="50" y="21" text-anchor="middle" class="use-case-tag">Analytics</text>
+
+    <rect x="112" y="0" width="100" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="162" y="21" text-anchor="middle" class="use-case-tag">Reporting</text>
+
+    <rect x="224" y="0" width="118" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="283" y="21" text-anchor="middle" class="use-case-tag">ML Training</text>
+
+    <rect x="354" y="0" width="116" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="412" y="21" text-anchor="middle" class="use-case-tag">Regulatory</text>
+
+    <rect x="482" y="0" width="138" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="551" y="21" text-anchor="middle" class="use-case-tag">Data Products</text>
+  </g>
+
+  <!-- Section: Storage -->
+  <text x="100" y="724" class="section-label">Storage Types</text>
+
+  <g transform="translate(100, 744)">
+    <rect x="0" y="0" width="108" height="32" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="54" y="21" text-anchor="middle" class="storage-tag">Columnar</text>
+
+    <rect x="120" y="0" width="116" height="32" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="178" y="21" text-anchor="middle" class="storage-tag">Partitioned</text>
+
+    <rect x="248" y="0" width="88" height="32" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="292" y="21" text-anchor="middle" class="storage-tag">Tiered</text>
+  </g>
+
+  <!-- Decorative icon: stacked layers (analytical) -->
+  <g transform="translate(700, 148)" opacity="0.15">
+    <ellipse cx="0" cy="0" rx="40" ry="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <ellipse cx="0" cy="14" rx="40" ry="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <ellipse cx="0" cy="28" rx="40" ry="12" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+  </g>
+
+
+  <!-- ================================================================== -->
+  <!-- RIGHT SIDE: Operational Platform                                    -->
+  <!-- ================================================================== -->
+  <rect x="1040" y="120" width="820" height="900" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Platform header -->
+  <text x="1450" y="168" text-anchor="middle" class="platform-title">Operational Platform</text>
+  <text x="1450" y="194" text-anchor="middle" class="platform-subtitle">Systems of Record</text>
+
+  <!-- Divider under header -->
+  <line x1="1080" y1="216" x2="1820" y2="216" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- Section: Characteristics -->
+  <text x="1080" y="254" class="section-label">Characteristics</text>
+
+  <!-- Characteristic rows -->
+  <g transform="translate(1080, 280)">
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="700" height="40" rx="4" fill="#f5f5f3"/>
+    <text x="16" y="26" class="char-label">Data Model</text>
+    <text x="360" y="26" class="char-value">Current state, point-in-time</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="48" width="700" height="40" rx="4" fill="#fff"/>
+    <text x="16" y="74" class="char-label">Mutation Pattern</text>
+    <text x="360" y="74" class="char-value">In-place updates</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="96" width="700" height="40" rx="4" fill="#f5f5f3"/>
+    <text x="16" y="122" class="char-label">Latency</text>
+    <text x="360" y="122" class="char-value">Low latency (milliseconds)</text>
+
+    <!-- Row 4 -->
+    <rect x="0" y="144" width="700" height="40" rx="4" fill="#fff"/>
+    <text x="16" y="170" class="char-label">Schema Strategy</text>
+    <text x="360" y="170" class="char-value">Schema-on-write</text>
+
+    <!-- Row 5 -->
+    <rect x="0" y="192" width="700" height="40" rx="4" fill="#f5f5f3"/>
+    <text x="16" y="218" class="char-label">Optimization</text>
+    <text x="360" y="218" class="char-value">Transaction optimized</text>
+
+    <!-- Row 6 -->
+    <rect x="0" y="240" width="700" height="40" rx="4" fill="#fff"/>
+    <text x="16" y="266" class="char-label">Availability SLA</text>
+    <text x="360" y="266" class="char-value">99.9%+</text>
+  </g>
+
+  <!-- Section: Use Cases -->
+  <text x="1080" y="620" class="section-label">Use Cases</text>
+
+  <g transform="translate(1080, 640)">
+    <rect x="0" y="0" width="108" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="54" y="21" text-anchor="middle" class="use-case-tag">Payments</text>
+
+    <rect x="120" y="0" width="110" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="175" y="21" text-anchor="middle" class="use-case-tag">Workflows</text>
+
+    <rect x="242" y="0" width="110" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="297" y="21" text-anchor="middle" class="use-case-tag">Case Mgmt</text>
+
+    <rect x="364" y="0" width="118" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="423" y="21" text-anchor="middle" class="use-case-tag">API Serving</text>
+
+    <rect x="494" y="0" width="156" height="32" rx="16" fill="#f5f5f3" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="572" y="21" text-anchor="middle" class="use-case-tag">Event Processing</text>
+  </g>
+
+  <!-- Section: Storage -->
+  <text x="1080" y="724" class="section-label">Storage Types</text>
+
+  <g transform="translate(1080, 744)">
+    <rect x="0" y="0" width="124" height="32" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="62" y="21" text-anchor="middle" class="storage-tag">Row-oriented</text>
+
+    <rect x="136" y="0" width="96" height="32" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="184" y="21" text-anchor="middle" class="storage-tag">Indexed</text>
+
+    <rect x="244" y="0" width="130" height="32" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="309" y="21" text-anchor="middle" class="storage-tag">Point lookups</text>
+  </g>
+
+  <!-- Decorative icon: database (transactional) -->
+  <g transform="translate(1680, 148)" opacity="0.15">
+    <rect x="-30" y="-10" width="60" height="40" rx="4" fill="none" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="-30" y1="4" x2="30" y2="4" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="-30" y1="18" x2="30" y2="18" stroke="#1a1a1a" stroke-width="2"/>
+    <circle cx="-18" cy="-3" r="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+    <circle cx="-18" cy="11" r="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+    <circle cx="-18" cy="25" r="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  </g>
+
+
+  <!-- ================================================================== -->
+  <!-- CENTER: Integration / Event Backbone                                -->
+  <!-- ================================================================== -->
+
+  <!-- Central vertical strip background -->
+  <rect x="896" y="120" width="128" height="900" rx="0" fill="#fafaf8"/>
+
+  <!-- Event Backbone label (vertical, centered) -->
+  <rect x="940" y="340" width="40" height="200" rx="4" fill="#1a1a1a"/>
+  <text x="960" y="445" text-anchor="middle" transform="rotate(-90, 960, 445)" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#fafaf8" style="text-transform: uppercase;">EVENT BACKBONE</text>
+
+  <!-- Top flow: CDC / Events (Operational -> EDP) -->
+  <!-- Arrow from right platform to center -->
+  <line x1="1040" y1="380" x2="990" y2="380" class="arrow-accent"/>
+  <!-- Arrow from center to left platform -->
+  <line x1="930" y1="380" x2="880" y2="380" class="arrow-accent"/>
+
+  <!-- Flow label -->
+  <text x="960" y="360" text-anchor="middle" class="flow-label">CDC / Events</text>
+  <!-- Direction indicator -->
+  <text x="960" y="316" text-anchor="middle" font-size="11" fill="#6b6b6b">Operational to Analytical</text>
+
+  <!-- Bottom flow: Serving / Features (EDP -> Operational) -->
+  <!-- Arrow from left platform to center -->
+  <line x1="880" y1="500" x2="930" y2="500" class="arrow-accent"/>
+  <!-- Arrow from center to right platform -->
+  <line x1="990" y1="500" x2="1040" y2="500" class="arrow-accent"/>
+
+  <!-- Flow label -->
+  <text x="960" y="530" text-anchor="middle" class="flow-label">Serving / Features</text>
+  <!-- Direction indicator -->
+  <text x="960" y="556" text-anchor="middle" font-size="11" fill="#6b6b6b">Analytical to Operational</text>
+
+  <!-- Decorative dots on backbone -->
+  <circle cx="960" cy="600" r="3" fill="#e8e8e8"/>
+  <circle cx="960" cy="620" r="3" fill="#e8e8e8"/>
+  <circle cx="960" cy="640" r="3" fill="#e8e8e8"/>
+
+
+  <!-- ================================================================== -->
+  <!-- BOTTOM: Shared summary bar                                          -->
+  <!-- ================================================================== -->
+  <rect x="60" y="860" width="820" height="148" rx="0" ry="0" fill="none"/>
+  <rect x="1040" y="860" width="820" height="148" rx="0" ry="0" fill="none"/>
+
+  <!-- Left summary -->
+  <text x="100" y="894" class="section-label">Design Principle</text>
+  <text x="100" y="924" font-size="14" fill="#1a1a1a" font-weight="400">Optimize for breadth of analysis across</text>
+  <text x="100" y="946" font-size="14" fill="#1a1a1a" font-weight="400">large volumes of historical data.</text>
+  <text x="100" y="980" font-size="13" fill="#6b6b6b">Read-heavy, scan-optimized, cost-efficient at scale.</text>
+
+  <!-- Right summary -->
+  <text x="1080" y="894" class="section-label">Design Principle</text>
+  <text x="1080" y="924" font-size="14" fill="#1a1a1a" font-weight="400">Optimize for correctness and speed of</text>
+  <text x="1080" y="946" font-size="14" fill="#1a1a1a" font-weight="400">individual business transactions.</text>
+  <text x="1080" y="980" font-size="13" fill="#6b6b6b">Write-heavy, ACID-compliant, low-latency guarantees.</text>
+
+  <!-- Center bottom integration note -->
+  <text x="960" y="700" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Integration Pattern</text>
+  <text x="960" y="722" text-anchor="middle" font-size="12" fill="#6b6b6b">Loose coupling via events.</text>
+  <text x="960" y="742" text-anchor="middle" font-size="12" fill="#6b6b6b">Each platform owns its</text>
+  <text x="960" y="762" text-anchor="middle" font-size="12" fill="#6b6b6b">storage and SLAs.</text>
+
+</svg>
