@@ -1,0 +1,440 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .layer-label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .layer-title { font-size: 18px; font-weight: 500; }
+      .layer-desc { font-size: 13px; fill: #6b6b6b; }
+      .service-box text { font-size: 12px; }
+      .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dashed { stroke: #999; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrowhead); }
+      .cross-cut-label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; fill: #6b6b6b; }
+      .azure-icon { fill: #0078D4; }
+      .azure-icon-sym { fill: #fff; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1"/>
+    </marker>
+    <marker id="arrowhead-accent" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1200" fill="#fafaf8"/>
+
+  <!-- ============ TITLE BAR ============ -->
+  <text x="960" y="42" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#1a1a1a">Target-State Architecture -- Microsoft Azure</text>
+  <!-- Azure badge -->
+  <rect x="860" y="54" width="200" height="22" rx="4" fill="#0078D4"/>
+  <text x="960" y="69" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Microsoft Azure</text>
+
+  <!-- ============ CROSS-CUTTING CONCERNS - LEFT ============ -->
+  <rect x="40" y="100" width="44" height="1060" rx="4" fill="#1a1a1a"/>
+  <!-- Microsoft Purview -->
+  <rect x="44" y="130" width="36" height="120" rx="3" fill="#222"/>
+  <rect x="50" y="138" width="24" height="24" rx="4" fill="#0078D4"/>
+  <path d="M56,144 L68,144 L68,156 L56,156 Z M60,148 L64,148 M60,152 L64,152" stroke="#fff" stroke-width="1.2" fill="none"/>
+  <text x="62" y="186" text-anchor="middle" font-size="8" font-weight="500" fill="#fafaf8">Purview</text>
+  <text x="62" y="196" text-anchor="middle" font-size="7" fill="#999">Governance</text>
+  <!-- Unity Catalog -->
+  <rect x="44" y="260" width="36" height="120" rx="3" fill="#222"/>
+  <rect x="50" y="268" width="24" height="24" rx="4" fill="#0078D4"/>
+  <path d="M57,274 L67,274 L67,284 L57,284 Z M59,278 L65,278 M59,281 L63,281" stroke="#fff" stroke-width="1.2" fill="none"/>
+  <text x="62" y="316" text-anchor="middle" font-size="8" font-weight="500" fill="#fafaf8">Unity</text>
+  <text x="62" y="326" text-anchor="middle" font-size="8" font-weight="500" fill="#fafaf8">Catalog</text>
+  <text x="62" y="338" text-anchor="middle" font-size="7" fill="#999">Lineage</text>
+
+  <!-- ============ CROSS-CUTTING CONCERNS - RIGHT ============ -->
+  <rect x="1836" y="100" width="44" height="1060" rx="4" fill="#1a1a1a"/>
+  <!-- Azure AD / Entra ID -->
+  <rect x="1840" y="130" width="36" height="120" rx="3" fill="#222"/>
+  <rect x="1846" y="138" width="24" height="24" rx="4" fill="#0078D4"/>
+  <path d="M1853,149 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0 M1851,158 L1865,158" stroke="#fff" stroke-width="1.2" fill="none"/>
+  <text x="1858" y="186" text-anchor="middle" font-size="8" font-weight="500" fill="#fafaf8">Entra ID</text>
+  <text x="1858" y="196" text-anchor="middle" font-size="7" fill="#999">Security</text>
+  <!-- Azure Monitor -->
+  <rect x="1840" y="260" width="36" height="120" rx="3" fill="#222"/>
+  <rect x="1846" y="268" width="24" height="24" rx="4" fill="#0078D4"/>
+  <path d="M1852,280 L1856,274 L1860,282 L1864,276" stroke="#fff" stroke-width="1.5" fill="none"/>
+  <text x="1858" y="316" text-anchor="middle" font-size="8" font-weight="500" fill="#fafaf8">Azure</text>
+  <text x="1858" y="326" text-anchor="middle" font-size="8" font-weight="500" fill="#fafaf8">Monitor</text>
+  <text x="1858" y="338" text-anchor="middle" font-size="7" fill="#999">Observability</text>
+
+  <!-- ============ LAYER 1: SOURCE SYSTEMS ============ -->
+  <rect x="120" y="100" width="1680" height="100" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="130" class="layer-label" fill="#999">LAYER 1</text>
+  <text x="220" y="130" class="layer-title" fill="#1a1a1a">Source Systems</text>
+
+  <rect x="160" y="145" width="120" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="220" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">ERP</text>
+
+  <rect x="300" y="145" width="120" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="360" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">CRM</text>
+
+  <rect x="440" y="145" width="180" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="530" y="164" text-anchor="middle" font-size="12" fill="#1a1a1a">Core Banking /</text>
+  <text x="530" y="180" text-anchor="middle" font-size="12" fill="#1a1a1a">Insurance</text>
+
+  <rect x="640" y="145" width="120" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="700" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">Payments</text>
+
+  <rect x="780" y="145" width="140" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="850" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">Custom Apps</text>
+
+  <rect x="940" y="145" width="130" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1005" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">Third Party</text>
+
+  <rect x="1090" y="145" width="100" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1140" y="170" text-anchor="middle" font-size="12" fill="#1a1a1a">IoT</text>
+
+  <!-- Arrow Layer 1 to Layer 2 -->
+  <path d="M960,200 L960,220" class="arrow"/>
+
+  <!-- ============ LAYER 2: EVENT / MESSAGE BACKBONE ============ -->
+  <rect x="120" y="225" width="1680" height="85" rx="4" fill="#1a1a1a"/>
+  <text x="140" y="255" class="layer-label" fill="#666">LAYER 2</text>
+  <text x="220" y="255" font-size="18" font-weight="500" fill="#fafaf8">Event / Message Backbone</text>
+
+  <!-- Azure Event Hubs icon + label -->
+  <g transform="translate(360, 268)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M6,8 L18,8 M6,12 L18,12 M6,16 L18,16" stroke="#fff" stroke-width="1.3" fill="none"/>
+    <circle cx="12" cy="8" r="2" fill="#fff"/>
+    <circle cx="12" cy="16" r="2" fill="#fff"/>
+    <text x="30" y="16" font-size="12" fill="#fafaf8" font-weight="400">Azure Event Hubs</text>
+  </g>
+
+  <!-- Azure Service Bus icon + label -->
+  <g transform="translate(640, 268)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M6,12 L12,7 L18,12 L12,17 Z" stroke="#fff" stroke-width="1.3" fill="none"/>
+    <circle cx="12" cy="12" r="2.5" fill="#fff"/>
+    <text x="30" y="16" font-size="12" fill="#fafaf8" font-weight="400">Azure Service Bus</text>
+  </g>
+
+  <!-- Azure Data Factory icon + label (CDC/ingestion) -->
+  <g transform="translate(960, 268)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M7,8 L17,8 L17,18 L7,18 Z M10,8 L10,18 M7,13 L17,13" stroke="#fff" stroke-width="1.2" fill="none"/>
+    <text x="30" y="16" font-size="12" fill="#fafaf8" font-weight="400">Azure Data Factory (CDC)</text>
+  </g>
+
+  <!-- Split arrows from backbone -->
+  <path d="M480,310 L480,345" class="arrow"/>
+  <path d="M1200,310 L1200,345" class="arrow"/>
+
+  <!-- ============ BOUNDARY LABELS ============ -->
+  <text x="450" y="340" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">OPERATIONAL PLATFORM</text>
+  <text x="1320" y="340" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">ANALYTICAL PLATFORM (EDP)</text>
+
+  <!-- ============ LEFT SIDE: OPERATIONAL ============ -->
+
+  <!-- Layer 3: Operational Services -->
+  <rect x="120" y="355" width="720" height="195" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="385" class="layer-label" fill="#999">LAYER 3</text>
+  <text x="220" y="385" class="layer-title" fill="#1a1a1a">Operational Services</text>
+  <text x="140" y="405" class="layer-desc">Business process execution -- the systems that run the business</text>
+
+  <!-- Azure Functions -->
+  <g transform="translate(160, 420)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M8,6 L16,12 L8,18" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <text x="30" y="16" font-size="11" fill="#1a1a1a" font-weight="500">Azure Functions</text>
+  </g>
+
+  <!-- AKS -->
+  <g transform="translate(340, 420)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M12,6 L18,12 L12,18 L6,12 Z" stroke="#fff" stroke-width="1.3" fill="none"/>
+    <circle cx="12" cy="12" r="2.5" fill="#fff"/>
+    <text x="30" y="16" font-size="11" fill="#1a1a1a" font-weight="500">AKS</text>
+  </g>
+
+  <!-- Logic Apps -->
+  <g transform="translate(480, 420)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M7,12 L11,8 L15,12 L11,16 Z M11,12 L17,12" stroke="#fff" stroke-width="1.3" fill="none"/>
+    <text x="30" y="16" font-size="11" fill="#1a1a1a" font-weight="500">Logic Apps</text>
+  </g>
+
+  <!-- Durable Functions -->
+  <g transform="translate(640, 420)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M8,6 L16,12 L8,18" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <circle cx="14" cy="12" r="2" fill="#50E6FF"/>
+    <text x="30" y="16" font-size="11" fill="#1a1a1a" font-weight="500">Durable Functions</text>
+  </g>
+
+  <!-- SLA badges -->
+  <rect x="160" y="460" width="100" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="210" y="476" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">SLA: 99.9%+</text>
+
+  <rect x="275" y="460" width="100" height="24" rx="12" fill="none" stroke="#1a1a1a"/>
+  <text x="325" y="476" text-anchor="middle" font-size="10" font-weight="500" fill="#1a1a1a">Latency: ms</text>
+
+  <rect x="390" y="460" width="80" height="24" rx="12" fill="none" stroke="#1a1a1a"/>
+  <text x="430" y="476" text-anchor="middle" font-size="10" font-weight="500" fill="#1a1a1a">ACID</text>
+
+  <!-- Arrow Layer 3 to 3a -->
+  <path d="M480,550 L480,575" class="arrow"/>
+
+  <!-- Layer 3a: ODS -->
+  <rect x="120" y="580" width="720" height="140" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="610" class="layer-label" fill="#999">LAYER 3A</text>
+  <text x="240" y="610" class="layer-title" fill="#1a1a1a">Operational Data Store / Serving Stores</text>
+  <text x="140" y="630" class="layer-desc">Current-state, low-latency, transactionally consistent</text>
+
+  <!-- Azure SQL Database -->
+  <g transform="translate(160, 645)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M6,9 a6,3 0 0,0 12,0 L18,17 a6,3 0 0,1 -12,0 Z" stroke="#fff" stroke-width="1" fill="none"/>
+    <ellipse cx="12" cy="9" rx="6" ry="3" fill="none" stroke="#fff" stroke-width="1"/>
+  </g>
+  <text x="192" y="672" font-size="11" font-weight="500" fill="#1a1a1a">Azure SQL Database</text>
+
+  <!-- Cosmos DB -->
+  <g transform="translate(340, 645)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <circle cx="12" cy="12" r="6" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <ellipse cx="12" cy="12" rx="6" ry="3" fill="none" stroke="#fff" stroke-width="0.8"/>
+    <ellipse cx="12" cy="12" rx="3" ry="6" fill="none" stroke="#fff" stroke-width="0.8"/>
+  </g>
+  <text x="372" y="672" font-size="11" font-weight="500" fill="#1a1a1a">Cosmos DB</text>
+
+  <!-- Azure Cache for Redis -->
+  <g transform="translate(490, 645)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <rect x="6" y="8" width="12" height="8" rx="1" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <path d="M8,11 L16,11 M8,14 L16,14" stroke="#fff" stroke-width="0.8"/>
+  </g>
+  <text x="522" y="672" font-size="11" font-weight="500" fill="#1a1a1a">Azure Cache for Redis</text>
+
+  <!-- Azure Cognitive Search -->
+  <g transform="translate(660, 645)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <circle cx="11" cy="11" r="4" fill="none" stroke="#fff" stroke-width="1.3"/>
+    <path d="M14,14 L18,18" stroke="#fff" stroke-width="1.5"/>
+  </g>
+  <text x="692" y="672" font-size="11" font-weight="500" fill="#1a1a1a">AI Search</text>
+
+  <!-- ============ RIGHT SIDE: EDP ============ -->
+
+  <!-- Layer 4: EDP -->
+  <rect x="880" y="355" width="920" height="365" rx="4" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="900" y="385" class="layer-label" fill="#999">LAYER 4</text>
+  <text x="980" y="385" class="layer-title" fill="#1a1a1a">Enterprise Data Platform</text>
+  <text x="900" y="405" class="layer-desc">Analytical heart -- Azure Databricks + ADLS Gen2 + Synapse</text>
+
+  <!-- Bronze / Raw -->
+  <rect x="920" y="425" width="260" height="120" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="920" y="425" width="260" height="30" rx="3" fill="#8d6e63" stroke="none"/>
+  <text x="1050" y="445" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">BRONZE / RAW</text>
+  <!-- ADLS Gen2 icon -->
+  <g transform="translate(990, 462)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M8,8 L16,8 L16,18 L8,18 Z M10,11 L14,11 M10,14 L14,14" stroke="#fff" stroke-width="1" fill="none"/>
+    <path d="M12,6 L16,8 L12,8 Z" fill="#50E6FF"/>
+    <text x="30" y="16" font-size="11" fill="#6b6b6b" font-weight="500">ADLS Gen2</text>
+  </g>
+  <text x="1050" y="504" text-anchor="middle" font-size="10" fill="#999">Raw landing zone</text>
+  <text x="1050" y="518" text-anchor="middle" font-size="10" fill="#999">Source-aligned schemas</text>
+  <text x="1050" y="532" text-anchor="middle" font-size="10" fill="#999">Append-only, immutable</text>
+
+  <!-- Arrow bronze to silver -->
+  <path d="M1180,485 L1210,485" class="arrow" stroke="#1a1a1a" marker-end="url(#arrowhead-accent)"/>
+
+  <!-- Silver / Curated -->
+  <rect x="1220" y="425" width="260" height="120" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="1220" y="425" width="260" height="30" rx="3" fill="#78909c" stroke="none"/>
+  <text x="1350" y="445" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">SILVER / CURATED</text>
+  <!-- Databricks icon -->
+  <g transform="translate(1290, 462)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M12,7 L18,10 L12,13 L6,10 Z M6,14 L12,17 L18,14" stroke="#fff" stroke-width="1" fill="none"/>
+    <text x="30" y="16" font-size="11" fill="#6b6b6b" font-weight="500">Databricks</text>
+  </g>
+  <text x="1350" y="504" text-anchor="middle" font-size="10" fill="#999">Cleansed and conformed</text>
+  <text x="1350" y="518" text-anchor="middle" font-size="10" fill="#999">Business keys applied</text>
+  <text x="1350" y="532" text-anchor="middle" font-size="10" fill="#999">Quality validated</text>
+
+  <!-- Arrow silver to gold -->
+  <path d="M1480,485 L1510,485" class="arrow" stroke="#1a1a1a" marker-end="url(#arrowhead-accent)"/>
+
+  <!-- Gold / Consumption -->
+  <rect x="1520" y="425" width="260" height="120" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="1520" y="425" width="260" height="30" rx="3" fill="#c9a84c" stroke="none"/>
+  <text x="1650" y="445" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">GOLD / CONSUMPTION</text>
+  <!-- Databricks SQL / Synapse icon -->
+  <g transform="translate(1570, 462)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M6,9 a6,3 0 0,0 12,0 L18,17 a6,3 0 0,1 -12,0 Z" stroke="#fff" stroke-width="1" fill="none"/>
+    <ellipse cx="12" cy="9" rx="6" ry="3" fill="none" stroke="#fff" stroke-width="1"/>
+    <text x="30" y="10" font-size="11" fill="#6b6b6b" font-weight="500">Databricks SQL</text>
+    <text x="30" y="24" font-size="11" fill="#6b6b6b" font-weight="500">/ Synapse</text>
+  </g>
+  <text x="1650" y="510" text-anchor="middle" font-size="10" fill="#999">Business-ready aggregates</text>
+  <text x="1650" y="524" text-anchor="middle" font-size="10" fill="#999">Domain-specific models</text>
+  <text x="1650" y="538" text-anchor="middle" font-size="10" fill="#999">SCD / historized</text>
+
+  <!-- EDP supporting services row -->
+  <!-- Unity Catalog -->
+  <g transform="translate(920, 565)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M7,9 L17,9 L17,19 L7,19 Z M9,12 L15,12 M9,15 L13,15" stroke="#fff" stroke-width="1" fill="none"/>
+    <text x="30" y="16" font-size="11" fill="#1a1a1a" font-weight="500">Unity Catalog</text>
+    <text x="30" y="28" font-size="9" fill="#999">Governance + Lineage</text>
+  </g>
+
+  <!-- Azure Data Factory (orchestration) -->
+  <g transform="translate(1120, 565)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M7,8 L17,8 L17,18 L7,18 Z M10,8 L10,18 M7,13 L17,13" stroke="#fff" stroke-width="1.2" fill="none"/>
+    <text x="30" y="16" font-size="11" fill="#1a1a1a" font-weight="500">Azure Data Factory</text>
+    <text x="30" y="28" font-size="9" fill="#999">Orchestration</text>
+  </g>
+
+  <!-- dbt -->
+  <g transform="translate(1350, 565)">
+    <rect width="80" height="28" rx="3" fill="#1a1a1a"/>
+    <text x="40" y="18" text-anchor="middle" font-size="11" font-weight="500" fill="#fafaf8">dbt</text>
+    <text x="86" y="18" font-size="9" fill="#999">Transformation</text>
+  </g>
+
+  <!-- Delta Lake -->
+  <g transform="translate(1560, 565)">
+    <rect width="100" height="28" rx="3" fill="#1a1a1a"/>
+    <text x="50" y="18" text-anchor="middle" font-size="11" font-weight="500" fill="#fafaf8">Delta Lake</text>
+    <text x="106" y="18" font-size="9" fill="#999">Table format</text>
+  </g>
+
+  <!-- EDP SLA badges -->
+  <rect x="920" y="614" width="120" height="24" rx="12" fill="none" stroke="#999"/>
+  <text x="980" y="630" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">SLA: 99.5%</text>
+
+  <rect x="1055" y="614" width="140" height="24" rx="12" fill="none" stroke="#999"/>
+  <text x="1125" y="630" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">Latency: min-hrs</text>
+
+  <rect x="1210" y="614" width="120" height="24" rx="12" fill="none" stroke="#999"/>
+  <text x="1270" y="630" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">Append-only</text>
+
+  <!-- EDP governance note -->
+  <rect x="1345" y="614" width="180" height="24" rx="12" fill="none" stroke="#0078D4"/>
+  <text x="1435" y="630" text-anchor="middle" font-size="10" font-weight="500" fill="#0078D4">Databricks-managed</text>
+
+  <!-- Arrow from EDP to Layer 5 -->
+  <path d="M1340,720 L1340,750" class="arrow"/>
+
+  <!-- ============ LAYER 5: DATA PRODUCTS ============ -->
+  <rect x="880" y="755" width="920" height="110" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="900" y="785" class="layer-label" fill="#999">LAYER 5</text>
+  <text x="980" y="785" class="layer-title" fill="#1a1a1a">Data Products</text>
+  <text x="1180" y="785" class="layer-desc">Unity Catalog datasets + Databricks SQL endpoints</text>
+
+  <rect x="920" y="805" width="150" height="40" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="995" y="830" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Customer 360</text>
+
+  <rect x="1085" y="805" width="150" height="40" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="1160" y="830" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Risk Analytics</text>
+
+  <rect x="1250" y="805" width="160" height="40" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="1330" y="830" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Regulatory Reports</text>
+
+  <rect x="1425" y="805" width="150" height="40" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="1500" y="830" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">ML Features</text>
+
+  <rect x="1590" y="805" width="150" height="40" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="1665" y="830" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Executive MI</text>
+
+  <!-- Arrow from Layer 5 to Layer 6 -->
+  <path d="M1340,865 L1340,895" class="arrow"/>
+
+  <!-- ============ LAYER 6: AI/ML CONSUMPTION ============ -->
+  <rect x="120" y="900" width="1680" height="155" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="930" class="layer-label" fill="#999">LAYER 6</text>
+  <text x="220" y="930" class="layer-title" fill="#1a1a1a">AI / ML / Analytics Consumption</text>
+
+  <!-- Azure Machine Learning -->
+  <g transform="translate(160, 950)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <circle cx="12" cy="10" r="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <path d="M8,16 L12,13 L16,16" stroke="#fff" stroke-width="1.2" fill="none"/>
+    <path d="M12,13 L12,18" stroke="#fff" stroke-width="1.2"/>
+  </g>
+  <text x="192" y="960" font-size="11" font-weight="500" fill="#1a1a1a">Azure Machine</text>
+  <text x="192" y="974" font-size="11" font-weight="500" fill="#1a1a1a">Learning</text>
+  <text x="192" y="988" font-size="10" fill="#999">Training</text>
+
+  <!-- Databricks Feature Store -->
+  <g transform="translate(380, 950)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <path d="M12,7 L18,10 L12,13 L6,10 Z" stroke="#fff" stroke-width="1" fill="none"/>
+    <path d="M6,13 L12,16 L18,13" stroke="#fff" stroke-width="1" fill="none"/>
+    <path d="M6,16 L12,19 L18,16" stroke="#fff" stroke-width="1" fill="none"/>
+  </g>
+  <text x="412" y="960" font-size="11" font-weight="500" fill="#1a1a1a">Databricks</text>
+  <text x="412" y="974" font-size="11" font-weight="500" fill="#1a1a1a">Feature Store</text>
+  <text x="412" y="988" font-size="10" fill="#999">Offline + Online</text>
+
+  <!-- Azure OpenAI Service -->
+  <g transform="translate(590, 950)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <circle cx="12" cy="12" r="6" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <path d="M9,12 L15,12 M12,9 L12,15" stroke="#fff" stroke-width="1.2"/>
+  </g>
+  <text x="622" y="960" font-size="11" font-weight="500" fill="#1a1a1a">Azure OpenAI</text>
+  <text x="622" y="974" font-size="11" font-weight="500" fill="#1a1a1a">Service</text>
+  <text x="622" y="988" font-size="10" fill="#999">LLM / Gen AI</text>
+
+  <!-- Power BI -->
+  <g transform="translate(800, 950)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <rect x="7" y="8" width="4" height="10" rx="1" fill="#fff"/>
+    <rect x="13" y="11" width="4" height="7" rx="1" fill="#fff"/>
+    <rect x="10" y="14" width="4" height="4" rx="1" fill="#50E6FF"/>
+  </g>
+  <text x="832" y="960" font-size="11" font-weight="500" fill="#1a1a1a">Power BI</text>
+  <text x="832" y="974" font-size="11" font-weight="500" fill="#1a1a1a">&amp; Reporting</text>
+  <text x="832" y="988" font-size="10" fill="#999">Dashboards</text>
+
+  <!-- Azure AI Search (RAG) -->
+  <g transform="translate(1010, 950)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <circle cx="11" cy="11" r="4" fill="none" stroke="#fff" stroke-width="1.3"/>
+    <path d="M14,14 L18,18" stroke="#fff" stroke-width="1.5"/>
+    <circle cx="11" cy="11" r="1.5" fill="#50E6FF"/>
+  </g>
+  <text x="1042" y="960" font-size="11" font-weight="500" fill="#1a1a1a">Azure AI Search</text>
+  <text x="1042" y="974" font-size="11" font-weight="500" fill="#1a1a1a">(RAG)</text>
+  <text x="1042" y="988" font-size="10" fill="#999">Vector + Semantic</text>
+
+  <!-- Synapse Notebooks -->
+  <g transform="translate(1230, 950)">
+    <rect width="24" height="24" rx="4" fill="#0078D4"/>
+    <rect x="6" y="7" width="12" height="10" rx="1" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <path d="M9,10 L15,10 M9,13 L13,13" stroke="#fff" stroke-width="0.8"/>
+    <rect x="8" y="17" width="8" height="2" rx="0.5" fill="#fff"/>
+  </g>
+  <text x="1262" y="960" font-size="11" font-weight="500" fill="#1a1a1a">Synapse</text>
+  <text x="1262" y="974" font-size="11" font-weight="500" fill="#1a1a1a">Notebooks</text>
+  <text x="1262" y="988" font-size="10" fill="#999">Ad-hoc analytics</text>
+
+  <!-- ============ FEEDBACK LOOPS ============ -->
+  <!-- Dashed arrow: Feature Store serving back to ODS -->
+  <path d="M404,950 L404,720 L780,720" class="arrow-dashed"/>
+  <text x="418" y="840" font-size="10" fill="#999" transform="rotate(-90, 418, 840)">serving</text>
+
+  <!-- Dashed arrow: Feedback loop from consumption back to EDP -->
+  <path d="M1262,950 L1262,930 L1770,930 L1770,175 L1210,175" class="arrow-dashed"/>
+  <text x="1782" y="550" font-size="10" fill="#999" transform="rotate(-90, 1782, 550)">feedback loop</text>
+
+  <!-- ============ BOTTOM NOTE ============ -->
+  <text x="960" y="1090" text-anchor="middle" font-size="11" fill="#999">Azure services mapped to the seven-layer reference architecture</text>
+  <text x="960" y="1108" text-anchor="middle" font-size="11" fill="#999">Governance: Microsoft Purview + Unity Catalog | Security: Entra ID | Observability: Azure Monitor</text>
+
+  <!-- Azure brand line at bottom -->
+  <rect x="120" y="1130" width="1680" height="3" rx="1.5" fill="#0078D4" opacity="0.3"/>
+
+  <!-- Copyright / attribution -->
+  <text x="960" y="1158" text-anchor="middle" font-size="10" fill="#c0c0c0">enterprise-data-architecture -- target-state reference</text>
+
+</svg>

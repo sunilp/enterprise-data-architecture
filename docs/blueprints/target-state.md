@@ -86,7 +86,12 @@ Governance, lineage, security, and observability span all layers:
 
 ## Cloud-Specific Mappings
 
-### GCP
+### Google Cloud Platform
+
+<figure markdown="span">
+  ![GCP Target State Architecture](../images/hero-target-state-gcp.svg){ width="100%" }
+  <figcaption>Target-state architecture mapped to GCP services</figcaption>
+</figure>
 
 | Layer | GCP Services |
 |-------|-------------|
@@ -98,7 +103,12 @@ Governance, lineage, security, and observability span all layers:
 | AI / ML | Vertex AI, Feature Store, BigQuery ML |
 | Governance | Dataplex, Data Catalog, DLP API |
 
-### Azure
+### Microsoft Azure
+
+<figure markdown="span">
+  ![Azure Target State Architecture](../images/hero-target-state-azure.svg){ width="100%" }
+  <figcaption>Target-state architecture mapped to Azure services (Databricks + Unity Catalog)</figcaption>
+</figure>
 
 | Layer | Azure Services |
 |-------|---------------|

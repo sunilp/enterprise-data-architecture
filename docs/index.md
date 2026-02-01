@@ -20,10 +20,19 @@ You are designing a target-state architecture or evaluating how platforms coexis
 
 - [**Target-State Architecture**](blueprints/target-state.md) -- Seven-layer reference architecture with GCP and Azure service mappings
 - [**AI/ML Platform Relationship**](blueprints/ai-ml-platform.md) -- How the EDP feeds ML/AI, feature stores, and the feedback loop
+- [**Coexistence Patterns**](blueprints/coexistence-patterns.md) -- How EDP and operational platforms connect through five integration patterns
 
 ### I need to make an architecture decision
 
-Decision trees, capability maps, data mesh positioning, and vendor evaluation frameworks are coming in Phase 2.
+- [**Decision Tree**](decisions/decision-tree.md) -- "Where does this workload belong?" flowchart with quick reference table
+- [**Capability Map**](decisions/capability-map.md) -- 15 business capabilities mapped to platform owners
+- [**Data Mesh**](decisions/data-mesh.md) -- When data mesh works, when it doesn't, and the pragmatic middle ground
+- [**Maturity Model**](decisions/maturity-model.md) -- Five levels across six dimensions
+
+### I need integration patterns
+
+- [**Data Contracts**](patterns/data-contracts.md) -- Schema, SLAs, ownership, and evolution rules between producers and consumers
+- [**Cost Architecture**](patterns/cost-architecture.md) -- FinOps patterns for data platforms
 
 ## Terminology
 

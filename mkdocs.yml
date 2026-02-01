@@ -61,6 +61,15 @@ nav:
   - Blueprints:
     - Target State Architecture: blueprints/target-state.md
     - AI/ML Platform Relationship: blueprints/ai-ml-platform.md
+    - Coexistence Patterns: blueprints/coexistence-patterns.md
+  - Decisions:
+    - Decision Tree: decisions/decision-tree.md
+    - Capability Map: decisions/capability-map.md
+    - Data Mesh: decisions/data-mesh.md
+    - Maturity Model: decisions/maturity-model.md
+  - Patterns:
+    - Data Contracts: patterns/data-contracts.md
+    - Cost Architecture: patterns/cost-architecture.md
   - Glossary: glossary.md
   - What's New: changelog.md
 
