@@ -67,9 +67,17 @@ nav:
     - Capability Map: decisions/capability-map.md
     - Data Mesh: decisions/data-mesh.md
     - Maturity Model: decisions/maturity-model.md
+    - Vendor Evaluation: decisions/vendor-framework.md
   - Patterns:
     - Data Contracts: patterns/data-contracts.md
     - Cost Architecture: patterns/cost-architecture.md
+  - Compliance:
+    - Overview: compliance/overview.md
+    - Banking: compliance/banking.md
+    - Healthcare: compliance/healthcare.md
+    - Insurance: compliance/insurance.md
+  - Transformation:
+    - Roadmap: transformation/roadmap.md
   - Glossary: glossary.md
   - What's New: changelog.md
 

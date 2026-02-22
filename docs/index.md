@@ -28,11 +28,23 @@ You are designing a target-state architecture or evaluating how platforms coexis
 - [**Capability Map**](decisions/capability-map.md) -- 15 business capabilities mapped to platform owners
 - [**Data Mesh**](decisions/data-mesh.md) -- When data mesh works, when it doesn't, and the pragmatic middle ground
 - [**Maturity Model**](decisions/maturity-model.md) -- Five levels across six dimensions
+- [**Vendor Evaluation**](decisions/vendor-framework.md) -- 10-dimension evaluation framework with platform archetypes
 
 ### I need integration patterns
 
 - [**Data Contracts**](patterns/data-contracts.md) -- Schema, SLAs, ownership, and evolution rules between producers and consumers
 - [**Cost Architecture**](patterns/cost-architecture.md) -- FinOps patterns for data platforms
+
+### I need regulatory compliance guidance
+
+- [**Compliance Overview**](compliance/overview.md) -- Cross-industry regulatory matrix mapped to platform design
+- [**Banking**](compliance/banking.md) -- BCBS 239 and DORA mapped to architecture decisions
+- [**Healthcare**](compliance/healthcare.md) -- HIPAA mapped to data platform design
+- [**Insurance**](compliance/insurance.md) -- Solvency II and IFRS 17 data requirements
+
+### I need a transformation plan
+
+- [**Transformation Roadmap**](transformation/roadmap.md) -- Four stages from current-state confusion to governed coexistence
 
 ## Terminology
 

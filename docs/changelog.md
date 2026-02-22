@@ -1,5 +1,26 @@
 # What's New
 
+## Phase 3 -- Depth (2026-03-22)
+
+Compliance patterns, vendor evaluation, and transformation guidance.
+
+### Decisions
+
+- **Vendor Evaluation Framework** -- 10-dimension evaluation framework with platform archetypes (not a vendor comparison)
+
+### Compliance
+
+- **Overview** -- Cross-industry regulatory matrix mapping 10 themes to platform design decisions
+- **Banking** -- BCBS 239 (Principles 3-6) and DORA mapped to architecture with compliance checklist
+- **Healthcare** -- HIPAA Privacy/Security/Breach rules mapped to PHI handling patterns
+- **Insurance** -- Solvency II (3 pillars) and IFRS 17 data requirements mapped to EDP design
+
+### Transformation
+
+- **Roadmap** -- Four stages (NOW/GAP/NEXT/FUTURE) from current-state confusion to governed coexistence
+
+---
+
 ## Phase 2 -- Decision Tools (2026-03-22)
 
 Decision frameworks, integration patterns, and practical tools for architecture conversations.
@@ -45,4 +66,4 @@ The initial release of the Enterprise Data Architecture position pack.
 
 ---
 
-*Phase 3 (compliance patterns, transformation roadmap, vendor evaluation framework) is planned.*
+*All three phases are now live.*
