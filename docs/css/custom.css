@@ -316,6 +316,129 @@ a,
   transition: color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
 }
 
+/* ---- Diagram Viewer Modal ---- */
+.diagram-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.diagram-modal--open {
+  display: flex;
+  flex-direction: column;
+}
+
+.diagram-modal__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: #1a1a1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.diagram-modal__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--md-text-font);
+}
+
+.diagram-modal__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diagram-modal__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diagram-modal__btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.diagram-modal__close {
+  width: 40px;
+  height: 40px;
+  margin-left: 12px;
+}
+
+.diagram-modal__zoom-level {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 44px;
+  text-align: center;
+  font-family: var(--md-code-font);
+}
+
+.diagram-modal__viewer {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  position: relative;
+}
+
+.diagram-modal__img {
+  max-width: 95%;
+  max-height: 90%;
+  transform-origin: center center;
+  transition: transform 0.1s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+  background: #fff;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+/* Expand hint on figures */
+.diagram-expand-hint {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(26, 26, 26, 0.85);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  font-family: var(--md-text-font);
+}
+
+.md-typeset figure:hover .diagram-expand-hint {
+  opacity: 1;
+}
+
+.md-typeset figure:hover img[src$=".svg"] {
+  border-color: var(--md-default-fg-color--light);
+}
+
 /* ---- Print ---- */
 @media print {
   .md-typeset {

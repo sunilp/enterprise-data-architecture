@@ -91,6 +91,9 @@ extra:
 extra_css:
   - css/custom.css
 
+extra_javascript:
+  - js/diagram-viewer.js
+
 copyright: >
   Copyright &copy; 2026 Sunil Prakash --
   <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
