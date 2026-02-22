@@ -1,6 +1,6 @@
 # What's New
 
-## Phase 3 -- Depth (2026-03-22)
+## Phase 3 -- Depth (March 2026)
 
 Compliance patterns, vendor evaluation, and transformation guidance.
 
@@ -21,7 +21,7 @@ Compliance patterns, vendor evaluation, and transformation guidance.
 
 ---
 
-## Phase 2 -- Decision Tools (2026-03-22)
+## Phase 2 -- Decision Tools (March 2026)
 
 Decision frameworks, integration patterns, and practical tools for architecture conversations.
 
@@ -45,7 +45,7 @@ Decision frameworks, integration patterns, and practical tools for architecture 
 
 ---
 
-## Phase 1 -- Launch (2026-03-22)
+## Phase 1 -- Launch (March 2026)
 
 The initial release of the Enterprise Data Architecture position pack.
 
