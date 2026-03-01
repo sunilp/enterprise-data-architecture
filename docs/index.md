@@ -1,8 +1,18 @@
 # Enterprise Data Architecture
 
+**For CIOs, CDOs, enterprise architects, and platform leaders** designing the boundary between analytical and operational systems.
+
+Built to help organizations avoid the most expensive data architecture mistake: turning the enterprise data platform into a general-purpose runtime.
+
+---
+
+**22 pages** · **7-layer target architecture** · **3 regulated industry mappings** · **5 coexistence patterns** · **4-stage transformation roadmap** · **3 case studies**
+
+---
+
 Every enterprise builds a data platform. Most of them also accidentally try to make it run their business operations. This is the guide to not doing that.
 
-This is an architecture position pack -- not a tutorial, not a vendor comparison, not a certification study guide. It draws hard boundaries between enterprise data platforms and operational platforms, provides decision frameworks, and includes reference blueprints with real cloud provider mappings.
+This is an architecture position pack -- not a tutorial, not a vendor comparison, not a certification study guide. It draws hard boundaries between enterprise data platforms and operational platforms, provides decision frameworks backed by evidence, and includes reference blueprints with real cloud provider mappings.
 
 ## Start Here
 
@@ -45,6 +55,12 @@ You are designing a target-state architecture or evaluating how platforms coexis
 ### I need a transformation plan
 
 - [**Transformation Roadmap**](transformation/roadmap.md) -- Four stages from current-state confusion to governed coexistence
+
+### I need proof this works
+
+- [**Case Studies**](proof/case-studies.md) -- Three anonymized enterprise architecture transformations
+- [**Evidence Tables**](proof/evidence.md) -- Claims, counter-arguments, failure modes, and measurable outcomes
+- [**Decision Records**](proof/decision-records.md) -- Worked ADR examples applying these frameworks
 
 ## Terminology
 
