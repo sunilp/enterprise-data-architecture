@@ -56,6 +56,24 @@ When teams treat gold-layer tables as operational systems of record, they inheri
 
 The right framing: bronze/silver/gold prepares data for analytical consumption. It does not serve live business operations. If your workflow depends on the gold layer being "current," you have an architectural mismatch, not a data freshness problem.
 
+## The Three Systems
+
+Enterprise architecture has three distinct system types. Most failures happen when one platform is expected to serve all three:
+
+**Systems of Record** -- Source systems that own operational truth. ERP, core banking, CRM, claims management. They process transactions and manage current state.
+
+**Systems of Insight** -- The enterprise data platform. It integrates, historizes, and governs data from systems of record for analytics, AI, and regulatory reporting. It does not own operational state.
+
+**Systems of Action** -- Operational services, workflow engines, serving layers, and APIs that execute business processes and serve live users. They consume insights but operate under their own SLAs.
+
+The EDP is a system of insight. It is not a system of record and not a system of action. When organizations collapse all three into one platform, every system inherits the constraints of the other two. The result is a platform that is too slow for operations, too unstable for analytics, and too complex for anyone to own.
+
+| System Type | Owns | Optimized For | Examples |
+|---|---|---|---|
+| System of Record | Current operational truth | Transaction integrity, consistency | ERP, core banking, CRM |
+| System of Insight | Historical, integrated truth | Query throughput, governance, lineage | EDP, data warehouse, lakehouse |
+| System of Action | Business process execution | Latency, availability, user experience | APIs, workflow engines, serving stores |
+
 ## Different Design Goals
 
 | Design Goal | Analytical Platform (EDP) | Operational Platform |
@@ -77,3 +95,17 @@ The confusion between analytical and operational platforms is not a technology f
 Operational teams discover that the EDP has the best data -- integrated, governed, historized. They build against it because the data is there, not because the platform is designed for their access patterns. They inherit the wrong SLAs, the wrong latency, and the wrong mutation model. The platform degrades for everyone.
 
 The fix is positional, not technical. Define what the EDP is. Define what it is not. Enforce the boundary. Provide alternatives for operational needs. The rest of this guide shows how.
+
+## Platform Boundaries Are Funding Boundaries
+
+The confusion between analytical and operational platforms is not just an architecture problem. It is a funding problem.
+
+When the EDP is labeled the "strategic platform," it attracts every workload. It also attracts every cost. The result is a single budget line that covers analytics, operations, ML, compliance, and serving -- with no way to distinguish which workloads drive which costs.
+
+Separating platforms creates clarity:
+
+- **EDP** is funded for shared data integration, governance, and analytics reuse. Its value is measured in data product adoption, regulatory compliance, and time-to-insight.
+- **Operational platforms** are funded for customer journeys, transaction processing, and domain reliability. Their value is measured in uptime, latency, and transaction throughput.
+- **Serving layers** are funded by the consumers they serve. Their value is measured in consumer satisfaction and operational SLA compliance.
+
+When each platform has its own budget, its own success metrics, and its own team, ownership becomes clear. When everything runs on one platform with one budget, nobody owns anything.
