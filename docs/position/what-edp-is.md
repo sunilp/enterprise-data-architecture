@@ -28,13 +28,23 @@
 
 **Real-time transaction processing.** Payments, order management, trade execution -- these require sub-second latency, ACID transactions, and strong consistency. The EDP is optimized for throughput and historical depth, not for processing individual transactions in real time.
 
+*Example failure: Trade execution backed by warehouse serving layer. Stale state caused reconciliation breaks. Switching cost: 4 months.*
+
 **Workflow orchestration and case management.** Business processes with human tasks, approval chains, exception queues, and SLA tracking need a workflow engine. A dbt pipeline cannot send an email, assign a task, or wait for a human decision.
+
+*Example failure: Claims approval modeled as dbt status flags (submitted/reviewed/approved). No human task routing, no SLA tracking, no exception queue. Rework: full workflow engine introduction.*
 
 **Mutable operational state.** The current account balance, live inventory count, or in-flight application status must be updated in place with transactional guarantees. The EDP's append-mostly model tracks history -- it does not serve as the authoritative current-state record.
 
+*Example failure: Live account balance served from gold table with 15-minute refresh. Customer saw stale balance, initiated duplicate payment. Root cause: freshness mismatch, not data quality.*
+
 **Sub-second API serving for customer-facing applications.** Customer portals, mobile apps, and operational dashboards need millisecond response times and high concurrency. Analytical query engines are not designed for thousands of concurrent small lookups.
 
+*Example failure: Mobile app queried BigQuery for customer profile. p99 latency 2.1 seconds. Users abandoned before page loaded. Fix: serving store with <50ms reads.*
+
 **Event-driven command processing.** Reacting to business events in real time (fraud detection during a transaction, dynamic pricing updates, inventory reservation) requires a streaming or event-processing platform, not a batch-oriented analytical layer.
+
+*Example failure: Real-time fraud scoring via BigQuery ML query at transaction time. 3-second latency per score. Transactions queued, customer experience degraded. Fix: online feature store + model serving endpoint.*
 
 ## Why Bronze/Silver/Gold Is Not a Business Process Layer
 

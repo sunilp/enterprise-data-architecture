@@ -37,6 +37,12 @@ This is where most enterprises are. The platform exists, workloads are running, 
 
 **Map consumers.** For every workload, answer three questions: who queries it, for what purpose, and at what frequency? A gold-layer table queried once a day for a dashboard is healthy. The same table hit 10,000 times per second by a customer-facing API is a fire.
 
+### Stage 1 Deliverables
+
+- **Workload inventory spreadsheet** -- classify each workload as analytical, operational, hybrid, or misplaced
+- **Risk heat map** -- which misplaced workloads cause the most platform stress (compute contention, SLA breaches, incident frequency)
+- **Stakeholder expectation document** -- what leadership thinks the platform does vs what it actually does
+
 ### Deliverable
 
 A workload inventory with classification and risk assessment. One document. Every workload listed, classified, and scored by risk. This is the foundation for everything that follows.
@@ -93,6 +99,13 @@ This stage requires organizational change, not just technology.
 **Leadership must fund the operational platform separately.** If the operational platform is funded as a "data platform initiative," it will be deprioritized in favor of the existing EDP. It needs its own budget, its own team, and its own success criteria. Two platforms means two funding streams.
 
 **Stakeholders must accept that "strategic platform" does not mean "only platform."** The EDP is strategic. It is also scoped. These are not contradictions. A strategic platform with clear boundaries serves the enterprise better than a strategic platform that tries to be everything and delivers nothing well.
+
+### Owner Roles
+
+- **Platform team** -- defines boundaries, provides self-serve tooling, enforces contracts
+- **Domain teams** -- own data product schemas, quality, documentation
+- **Architecture review board** -- approves new workload placement using the [Decision Tree](../decisions/decision-tree.md)
+- **Leadership** -- funds operational platform separately, reframes "strategic platform" messaging
 
 ### Deliverable
 

@@ -76,99 +76,59 @@ A concrete contract for a customer analytics data product:
 ```yaml
 contract:
   name: customer_360
-  version: "2.1"
-  status: active
-  domain: customer
-
-schema:
-  format: delta
-  location: gold.customer.customer_360
-  columns:
-    - name: customer_id
-      type: string
-      nullable: false
-      description: "Global customer identifier, sourced from MDM"
-      primary_key: true
-    - name: full_name
-      type: string
-      nullable: false
-      description: "Customer legal name"
-    - name: email
-      type: string
-      nullable: true
-      description: "Primary email address"
-    - name: segment
-      type: string
-      nullable: false
-      description: "Customer segment classification"
-      allowed_values: [premium, standard, basic]
-    - name: lifetime_value
-      type: decimal(18,2)
-      nullable: true
-      description: "Calculated lifetime value in USD"
-    - name: first_transaction_date
-      type: date
-      nullable: true
-      description: "Date of earliest recorded transaction"
-    - name: last_activity_date
-      type: date
-      nullable: false
-      description: "Most recent interaction across all channels"
-    - name: is_active
-      type: boolean
-      nullable: false
-      description: "True if activity within last 90 days"
-    - name: updated_at
-      type: timestamp
-      nullable: false
-      description: "Row-level last modified timestamp"
-
-quality:
-  freshness:
-    max_staleness: 6h
-    check_column: updated_at
-  completeness:
-    email: 0.85
-    lifetime_value: 0.90
-    segment: 1.0
-  uniqueness:
-    - [customer_id]
-  volume:
-    min_rows: 500000
-    max_rows: 15000000
-
-ownership:
-  team: customer-data-engineering
-  contact: "#customer-data-eng"
-  escalation: "#data-platform-oncall"
-  org_unit: Customer Analytics
-
-sla:
-  refresh_frequency: every 4 hours
-  availability: 99.5%
-  max_query_latency: 30s
-
-evolution:
-  strategy: semantic_versioning
-  breaking_change_notice: 30 days
-  deprecation_window: 90 days
-  changelog_channel: "#data-contracts-changes"
-
-lineage:
-  sources:
-    - crm.salesforce.contacts
-    - payments.stripe.transactions
-    - web.analytics.sessions
-    - mdm.customer_master
-  transformation_summary: >
-    Joins customer master with transaction history,
-    web session activity, and CRM contact records.
-    Calculates lifetime value, determines activity status,
-    and applies segmentation rules.
-  classification: pii
-  refresh_dependencies:
-    - silver.customer.contacts_cleaned
-    - silver.payments.transactions_validated
+  version: 2.1.0
+  owner:
+    team: customer-domain
+    contact: customer-data@example.com
+    escalation: head-of-customer-data@example.com
+  description: Integrated customer view across all product lines
+  schema:
+    fields:
+      - name: customer_id
+        type: STRING
+        nullable: false
+        description: Global customer identifier (MDM-issued)
+      - name: full_name
+        type: STRING
+        nullable: false
+        pii: true
+      - name: lifetime_revenue
+        type: DECIMAL(18,2)
+        nullable: true
+        description: Total revenue across all products, lifetime
+      - name: risk_score
+        type: FLOAT
+        nullable: true
+        description: Composite risk score (0-1), updated daily
+      - name: segment
+        type: STRING
+        nullable: false
+        description: Customer segment (premium/standard/basic)
+      - name: last_activity_date
+        type: DATE
+        nullable: true
+      - name: active_products
+        type: INTEGER
+        nullable: false
+  quality:
+    freshness_sla: "daily by 06:00 UTC"
+    completeness: ">= 99.5%"
+    uniqueness: "customer_id is unique"
+    validity: "risk_score between 0 and 1"
+  sla:
+    availability: "99.9%"
+    refresh_frequency: "daily"
+    support_hours: "business hours (UTC+0)"
+  evolution:
+    policy: "additive-only for minor versions, breaking changes require major version bump"
+    deprecation_window: "90 days"
+    notification: "Slack #data-contracts, email to registered consumers"
+  lineage:
+    sources:
+      - "crm.customers (CDC via Debezium)"
+      - "core_banking.accounts (daily batch)"
+      - "payments.transactions (streaming via Kafka)"
+    transformations: "Deduplicated on MDM customer_id, revenue aggregated from transactions, risk score from ML model output"
 ```
 
 ## Who Owns What

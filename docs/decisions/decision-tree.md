@@ -67,6 +67,11 @@ For common workloads, the answer is already known. Use this table to skip the tr
 | API serving for mobile app | Serving layer (fed by EDP) | Sub-second reads, high concurrency -- EDP computes, serving layer delivers |
 | Real-time inventory | Operational | Current-state system with constant updates, not an analytical workload |
 | Historical trend analysis | EDP | Time-series queries over months or years of integrated data |
+| Customer profile for mobile app | Serving layer (fed by EDP) | Sub-second, high concurrency, always-on |
+| Claims status for case worker | Operational store | Current state, mutable, low latency |
+| IFRS 17 contract grouping | EDP | Historical, cross-domain, regulatory lineage |
+| Real-time inventory count | Operational store | Current state, high write throughput |
+| Customer churn prediction (batch) | EDP + ML platform | Historical patterns, scheduled retraining |
 
 ## Decision Principles
 
