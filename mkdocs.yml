@@ -78,6 +78,12 @@ nav:
     - Insurance: compliance/insurance.md
   - Transformation:
     - Roadmap: transformation/roadmap.md
+  - Proof:
+    - Case Studies: proof/case-studies.md
+    - Evidence Tables: proof/evidence.md
+    - Decision Records: proof/decision-records.md
+    - Metrics and Outcomes: proof/metrics.md
+    - Review Checklists: proof/checklists.md
   - Glossary: glossary.md
   - What's New: changelog.md
 

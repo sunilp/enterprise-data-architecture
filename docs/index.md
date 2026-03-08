@@ -6,7 +6,7 @@ Built to help organizations avoid the most expensive data architecture mistake: 
 
 ---
 
-**22 pages** · **7-layer target architecture** · **3 regulated industry mappings** · **5 coexistence patterns** · **4-stage transformation roadmap** · **3 case studies**
+**27 pages** · **7-layer target architecture** · **3 regulated industry mappings** · **5 coexistence patterns** · **4-stage transformation roadmap** · **3 case studies** · **5 review checklists**
 
 ---
 
@@ -61,6 +61,8 @@ You are designing a target-state architecture or evaluating how platforms coexis
 - [**Case Studies**](proof/case-studies.md) -- Three anonymized enterprise architecture transformations
 - [**Evidence Tables**](proof/evidence.md) -- Claims, counter-arguments, failure modes, and measurable outcomes
 - [**Decision Records**](proof/decision-records.md) -- Worked ADR examples applying these frameworks
+- [**Metrics and Outcomes**](proof/metrics.md) -- Before/after measurements across 13 dimensions
+- [**Review Checklists**](proof/checklists.md) -- Five operational checklists for architecture review boards
 
 ## Terminology
 

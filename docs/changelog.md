@@ -1,5 +1,27 @@
 # What's New
 
+## Proof Layer (March 2026)
+
+Evidence, case studies, and operational artifacts to move from "smart architecture opinion" to "decision system organizations can use."
+
+### Proof
+
+- **Case Studies** -- Three anonymized enterprise transformations (insurance, banking, healthcare)
+- **Evidence Tables** -- Six core claims with counter-arguments, failure modes, detection signals, and measurable outcomes
+- **Decision Records** -- Four worked ADR examples (serving store, reverse ETL, feature store, workflow engine)
+- **Metrics and Outcomes** -- Before/after measurements across 13 dimensions
+- **Review Checklists** -- Five operational checklists (workload classification, platform boundary, serving readiness, contract readiness, compliance readiness)
+
+### Content Enrichment
+
+- **What EDP Is** -- Added "Three Systems" doctrine (record/insight/action), funding boundaries section, concrete failure examples for each "must not solve" category
+- **Decision Tree** -- Added 5 more worked workload examples
+- **Data Contracts** -- Added complete YAML contract example with all fields
+- **Transformation Roadmap** -- Added stage deliverables and owner roles
+- **Homepage** -- Executive positioning, authority signal, proof strip with numbers
+
+---
+
 ## Phase 3 -- Depth (March 2026)
 
 Compliance patterns, vendor evaluation, and transformation guidance.
