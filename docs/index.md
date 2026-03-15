@@ -6,7 +6,7 @@ Built to help organizations avoid the most expensive data architecture mistake: 
 
 ---
 
-**27 pages** · **7-layer target architecture** · **3 regulated industry mappings** · **5 coexistence patterns** · **4-stage transformation roadmap** · **3 case studies** · **5 review checklists**
+**32 pages** · **7-layer target architecture** · **35+ platform capabilities** · **3 regulated industry mappings** · **5 coexistence patterns** · **4-stage transformation roadmap** · **3 case studies** · **5 review checklists**
 
 ---
 
@@ -29,6 +29,8 @@ Your stakeholders think the data platform should run everything. Start with the 
 You are designing a target-state architecture or evaluating how platforms coexist:
 
 - [**Target-State Architecture**](blueprints/target-state.md) -- Seven-layer reference architecture with GCP and Azure service mappings
+- [**Capability Architecture**](blueprints/capability-architecture.md) -- 35+ capabilities the EDP must provide, with components mapping
+- [**Control Plane**](blueprints/control-plane.md) -- Metadata, lineage, policy, contracts, audit, and observability infrastructure
 - [**AI/ML Platform Relationship**](blueprints/ai-ml-platform.md) -- How the EDP feeds ML/AI, feature stores, and the feedback loop
 - [**Coexistence Patterns**](blueprints/coexistence-patterns.md) -- How EDP and operational platforms connect through five integration patterns
 
@@ -39,6 +41,7 @@ You are designing a target-state architecture or evaluating how platforms coexis
 - [**Data Mesh**](decisions/data-mesh.md) -- When data mesh works, when it doesn't, and the pragmatic middle ground
 - [**Maturity Model**](decisions/maturity-model.md) -- Five levels across six dimensions
 - [**Vendor Evaluation**](decisions/vendor-framework.md) -- 10-dimension evaluation framework with platform archetypes
+- [**Capability Maturity**](decisions/capability-maturity.md) -- 15 capabilities x 4 maturity levels assessment
 
 ### I need integration patterns
 
@@ -51,6 +54,11 @@ You are designing a target-state architecture or evaluating how platforms coexis
 - [**Banking**](compliance/banking.md) -- BCBS 239 and DORA mapped to architecture decisions
 - [**Healthcare**](compliance/healthcare.md) -- HIPAA mapped to data platform design
 - [**Insurance**](compliance/insurance.md) -- Solvency II and IFRS 17 data requirements
+
+### I need an operating model
+
+- [**Operating Model**](operations/operating-model.md) -- Roles, processes, measures, and support tiers for running the EDP
+- [**Reliability Model**](operations/reliability.md) -- Platform SLOs, incident classification, recovery patterns
 
 ### I need a transformation plan
 

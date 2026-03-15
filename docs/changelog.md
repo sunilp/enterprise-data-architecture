@@ -1,5 +1,25 @@
 # What's New
 
+## Capability and Operations (March 2026)
+
+What a properly designed EDP actually looks like, how it is governed, and how it is run.
+
+### Blueprints
+
+- **Capability Architecture** -- 7 capability groups, 35+ sub-capabilities, capabilities vs components mapping
+- **Control Plane** -- Metadata, lineage, policy engine, contract registry, audit trail, observability layer
+
+### Decisions
+
+- **Capability Maturity** -- 15 capabilities x 4 maturity levels with assessment guidance
+
+### Operations
+
+- **Operating Model** -- 7 roles, 8 processes (onboarding to deprecation), 13 KPIs, 4-tier support model
+- **Reliability Model** -- Platform SLOs, P1-P4 incident classification, recovery patterns, dependency management
+
+---
+
 ## Proof Layer (March 2026)
 
 Evidence, case studies, and operational artifacts to move from "smart architecture opinion" to "decision system organizations can use."

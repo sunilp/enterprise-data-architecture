@@ -60,6 +60,8 @@ nav:
     - Anti-Patterns: position/anti-patterns.md
   - Blueprints:
     - Target State Architecture: blueprints/target-state.md
+    - Capability Architecture: blueprints/capability-architecture.md
+    - Control Plane: blueprints/control-plane.md
     - AI/ML Platform Relationship: blueprints/ai-ml-platform.md
     - Coexistence Patterns: blueprints/coexistence-patterns.md
   - Decisions:
@@ -68,6 +70,7 @@ nav:
     - Data Mesh: decisions/data-mesh.md
     - Maturity Model: decisions/maturity-model.md
     - Vendor Evaluation: decisions/vendor-framework.md
+    - Capability Maturity: decisions/capability-maturity.md
   - Patterns:
     - Data Contracts: patterns/data-contracts.md
     - Cost Architecture: patterns/cost-architecture.md
@@ -76,6 +79,9 @@ nav:
     - Banking: compliance/banking.md
     - Healthcare: compliance/healthcare.md
     - Insurance: compliance/insurance.md
+  - Operations:
+    - Operating Model: operations/operating-model.md
+    - Reliability Model: operations/reliability.md
   - Transformation:
     - Roadmap: transformation/roadmap.md
   - Proof:
