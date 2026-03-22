@@ -4,11 +4,9 @@
 
 Built to help organizations avoid the most expensive data architecture mistake: turning the enterprise data platform into a general-purpose runtime.
 
----
-
-**32 pages** · **7-layer target architecture** · **35+ platform capabilities** · **3 regulated industry mappings** · **5 coexistence patterns** · **4-stage transformation roadmap** · **3 case studies** · **5 review checklists**
-
----
+<div class="proof-strip" markdown>
+32 pages · 7-layer architecture · 35+ capabilities · 3 industry compliance · 5 coexistence patterns · 3 case studies · 5 review checklists
+</div>
 
 Every enterprise builds a data platform. Most of them also accidentally try to make it run their business operations. This is the guide to not doing that.
 
