@@ -73,7 +73,7 @@
   <!-- Layer 3: Operational Services -->
   <rect x="120" y="355" width="720" height="200" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
   <text x="140" y="385" class="layer-label" fill="#999">LAYER 3</text>
-  <text x="220" y="385" class="layer-title" fill="#1a1a1a">Operational Services & Workflows</text>
+  <text x="220" y="385" class="layer-title" fill="#1a1a1a">Operational Services and Workflows</text>
   <text x="140" y="405" class="layer-desc">Business process execution -- the systems that run the business</text>
 
   <!-- Operational service boxes -->
@@ -152,7 +152,7 @@
   <rect x="1220" y="425" width="260" height="110" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
   <rect x="1220" y="425" width="260" height="30" rx="3" fill="#78909c" stroke="none"/>
   <text x="1350" y="445" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">SILVER / CURATED</text>
-  <text x="1350" y="478" text-anchor="middle" font-size="11" fill="#6b6b6b">Cleansed & conformed</text>
+  <text x="1350" y="478" text-anchor="middle" font-size="11" fill="#6b6b6b">Cleansed and conformed</text>
   <text x="1350" y="494" text-anchor="middle" font-size="11" fill="#6b6b6b">Deduplicated</text>
   <text x="1350" y="510" text-anchor="middle" font-size="11" fill="#6b6b6b">Business keys applied</text>
   <text x="1350" y="526" text-anchor="middle" font-size="11" fill="#6b6b6b">Quality validated</text>
@@ -180,7 +180,7 @@
   <text x="1400" y="580" text-anchor="middle" font-size="11" font-weight="500" fill="#fafaf8">Orchestration</text>
 
   <rect x="1505" y="555" width="180" height="40" rx="3" fill="#1a1a1a"/>
-  <text x="1595" y="580" text-anchor="middle" font-size="11" font-weight="500" fill="#fafaf8">Lineage & Catalog</text>
+  <text x="1595" y="580" text-anchor="middle" font-size="11" font-weight="500" fill="#fafaf8">Lineage and Catalog</text>
 
   <!-- EDP SLA badges -->
   <rect x="920" y="610" width="120" height="24" rx="12" fill="none" stroke="#999"/>
@@ -224,7 +224,7 @@
   <text x="220" y="915" class="layer-title" fill="#1a1a1a">AI / ML / Analytics Consumption</text>
 
   <rect x="160" y="935" width="170" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
-  <text x="245" y="960" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">BI & Dashboards</text>
+  <text x="245" y="960" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">BI and Dashboards</text>
   <text x="245" y="978" text-anchor="middle" font-size="11" fill="#999">Power BI / Looker</text>
   <text x="245" y="993" text-anchor="middle" font-size="11" fill="#999">Tableau</text>
 
