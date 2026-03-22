@@ -17,7 +17,15 @@
          <lastmod>2026-03-22</lastmod>
     </url>
     <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/blueprints/capability-architecture/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
          <loc>https://sunilp.github.io/enterprise-data-architecture/blueprints/coexistence-patterns/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/blueprints/control-plane/</loc>
          <lastmod>2026-03-22</lastmod>
     </url>
     <url>
@@ -45,6 +53,10 @@
          <lastmod>2026-03-22</lastmod>
     </url>
     <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/decisions/capability-maturity/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
          <loc>https://sunilp.github.io/enterprise-data-architecture/decisions/data-mesh/</loc>
          <lastmod>2026-03-22</lastmod>
     </url>
@@ -58,6 +70,14 @@
     </url>
     <url>
          <loc>https://sunilp.github.io/enterprise-data-architecture/decisions/vendor-framework/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/operations/operating-model/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/operations/reliability/</loc>
          <lastmod>2026-03-22</lastmod>
     </url>
     <url>
