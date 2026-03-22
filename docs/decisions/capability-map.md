@@ -8,6 +8,38 @@
 - When a capability spans platforms, the map forces explicit ownership boundaries before anyone writes code
 - Print this. Reference it in steering committees. It saves months of architectural rework per misplaced workload.
 
+```mermaid
+graph LR
+    subgraph EDP["Enterprise Data Platform"]
+        direction TB
+        E1[Customer 360]
+        E2[Regulatory Reporting]
+        E3[Executive MI]
+        E4[ML Training Data]
+        E5[Self-Service Analytics]
+    end
+
+    subgraph OPS["Operational Platform"]
+        direction TB
+        O1[Payments]
+        O2[Case Management]
+        O3[Workflow State]
+        O4[Transaction Processing]
+    end
+
+    subgraph SRV["Serving Layer"]
+        direction TB
+        S1[Real-Time Decisioning]
+        S2[API Serving]
+        S3[Feature Serving]
+        S4[Embedded Analytics]
+    end
+
+    EDP -->|"data products"| SRV
+    OPS -->|"events"| EDP
+    SRV -->|"enrichment"| OPS
+```
+
 ## The Capability Matrix
 
 | Business Capability | Platform Owner | Why This Platform |

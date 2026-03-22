@@ -8,6 +8,20 @@
 - Each level has observable characteristics, not vague aspirations. If you cannot point to specific artifacts and behaviors, you are not at that level.
 - Jumping levels rarely works. The path through each level builds foundations for the next. Skipping Level 3 to reach Level 4 produces a fragile platform with governance theater instead of governance practice.
 
+```mermaid
+graph LR
+    L1[Level 1<br/>Ad Hoc] --> L2[Level 2<br/>Managed]
+    L2 --> L3[Level 3<br/>Standardized]
+    L3 --> L4[Level 4<br/>Governed]
+    L4 --> L5[Level 5<br/>Optimized]
+
+    style L1 fill:#f5f5f3,stroke:#e8e8e8,color:#999
+    style L2 fill:#f5f5f3,stroke:#999,color:#6b6b6b
+    style L3 fill:#f5f5f3,stroke:#1a1a1a,color:#1a1a1a
+    style L4 fill:#1a1a1a,stroke:#1a1a1a,color:#fafaf8
+    style L5 fill:#1a1a1a,stroke:#1a1a1a,color:#fafaf8
+```
+
 ## The Five Levels
 
 ### Level 1 -- Ad Hoc

@@ -8,6 +8,24 @@
 - Recovery is deterministic when source data is immutable. Bronze-layer preservation makes reprocessing a pattern, not a prayer.
 - Post-incident process is not optional. Every P1 and P2 incident gets a blameless post-mortem with root cause classification, action items, and runbook updates.
 
+```mermaid
+graph TD
+    DET[Detection<br/>Monitoring Alert / Consumer Report] --> CLS{Classify}
+    CLS --> |P1: Platform-wide| P1[Immediate Response<br/>15 min SLA]
+    CLS --> |P2: Critical product| P2[Urgent Response<br/>30 min SLA]
+    CLS --> |P3: Non-critical| P3[Standard Response<br/>2 hour SLA]
+    CLS --> |P4: Minor| P4[Planned Response<br/>Next sprint]
+
+    P1 --> RES[Resolve]
+    P2 --> RES
+    P3 --> RES
+    P4 --> RES
+
+    RES --> PM[Post-Mortem<br/>within 48 hours]
+    PM --> RB[Update Runbooks]
+    RB --> DET
+```
+
 ## Platform SLOs
 
 SLOs define what "reliable" means. Without them, reliability is a feeling, not a measurement.

@@ -10,6 +10,27 @@ A technically decent platform fails when there is no ownership, weak support mod
 - Fourteen KPIs across reliability, quality, cost, adoption, governance, and support prove whether the platform is well-operated or just well-built.
 - A tiered support model ensures consumers get help at the right level, with response and resolution SLAs that are measurable and enforceable.
 
+```mermaid
+graph LR
+    subgraph "Platform Lifecycle"
+        ONB[Onboarding] --> REL[Release]
+        REL --> OPS[Operations]
+        OPS --> DEP[Deprecation]
+    end
+
+    subgraph "Continuous Processes"
+        INC[Incident Mgmt] --> RCA[Post-Mortem]
+        QE[Quality Escalation] --> REM[Remediation]
+        AR[Access Review] --> AUD[Audit]
+        CR[Cost Review] --> OPT[Optimization]
+    end
+
+    OPS --> INC
+    OPS --> QE
+    OPS --> AR
+    OPS --> CR
+```
+
 ## Roles
 
 Ambiguous ownership is the root cause of most platform failures. These roles are non-negotiable. Each one has a defined scope. When two roles overlap, the accountable party is explicit.
