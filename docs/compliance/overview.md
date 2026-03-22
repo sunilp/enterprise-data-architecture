@@ -8,6 +8,43 @@
 - The EDP's append-only, historized, lineage-tracked design naturally satisfies many regulatory requirements that operational platforms struggle with
 - Compliance is an architecture feature, not a bolt-on audit exercise
 
+```mermaid
+graph TB
+    subgraph "Regulatory Requirements"
+        REG[Regulators<br/>BCBS 239 · DORA · HIPAA · Solvency II]
+    end
+
+    subgraph "Platform Design Decisions"
+        LIN[Lineage<br/>Source to report]
+        QUA[Quality Gates<br/>Per medallion layer]
+        ACC[Access Control<br/>Column / row level]
+        RET[Retention<br/>Policy-driven lifecycle]
+        AUD[Audit Trail<br/>Query + access + change]
+        RES[Data Residency<br/>Region-specific deployment]
+    end
+
+    subgraph "Evidence Artifacts"
+        E1[Lineage reports]
+        E2[Quality dashboards]
+        E3[Access reviews]
+        E4[Retention logs]
+        E5[Audit exports]
+    end
+
+    REG --> LIN
+    REG --> QUA
+    REG --> ACC
+    REG --> RET
+    REG --> AUD
+    REG --> RES
+
+    LIN --> E1
+    QUA --> E2
+    ACC --> E3
+    RET --> E4
+    AUD --> E5
+```
+
 ## Cross-Industry Compliance Matrix
 
 Regulators across industries ask surprisingly similar questions. The specifics differ (BCBS 239 cares about risk data aggregation, HIPAA cares about protected health information), but the underlying architectural demands converge. This matrix maps common regulatory themes to the platform design decisions that satisfy them.

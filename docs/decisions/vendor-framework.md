@@ -7,6 +7,31 @@
 - This framework provides the dimensions and questions that matter, not the answers. The answers change with every release cycle. The dimensions do not.
 - Use this to structure your own evaluation, not to skip it. Any framework that tells you which vendor to pick without knowing your organization is selling you something.
 
+```mermaid
+graph TB
+    subgraph "Archetype A: Unified Lakehouse"
+        A1[Compute + Storage + Governance<br/>Single platform]
+        A2[Strengths: simplicity, integrated governance]
+        A3[Risk: vendor lock-in, single point of failure]
+    end
+
+    subgraph "Archetype B: Cloud-Native Warehouse"
+        B1[Tight cloud integration<br/>Serverless, managed]
+        B2[Strengths: low ops overhead, elastic scaling]
+        B3[Risk: cloud lock-in, limited portability]
+    end
+
+    subgraph "Archetype C: Open Ecosystem"
+        C1[Best-of-breed components<br/>Open formats]
+        C2[Strengths: portability, flexibility, no lock-in]
+        C3[Risk: integration complexity, more ops]
+    end
+
+    style A1 fill:#f5f5f3,stroke:#1a1a1a
+    style B1 fill:#f5f5f3,stroke:#1a1a1a
+    style C1 fill:#f5f5f3,stroke:#1a1a1a
+```
+
 ## Evaluation Dimensions
 
 Ten dimensions. Each one describes what it means, what questions to ask, and what separates a strong position from a weak one.

@@ -8,6 +8,35 @@
 - Cost governance must be designed into the platform, not bolted on after the bill arrives. Retrofitting cost controls into a platform that was built without them is 10x harder than building them in from the start.
 - The most expensive platform is one that tries to do everything. A platform that runs both analytical and operational workloads poorly costs more than two platforms that each do their job well.
 
+```mermaid
+graph TB
+    subgraph "EDP Cost Drivers"
+        direction TB
+        ES[Storage<br/>Dominant cost] --> ET[Transformation<br/>Compute-on-demand]
+        ET --> EI[Ingestion<br/>CDC / streaming]
+        EI --> EG[Governance<br/>Catalog / lineage]
+    end
+
+    subgraph "Operational Cost Drivers"
+        direction TB
+        OC[Compute<br/>Always-on, dominant] --> OI[IOPS<br/>Transaction volume]
+        OI --> OH[High Availability<br/>Multi-region replicas]
+        OH --> OA[Concurrency<br/>Connection scaling]
+    end
+
+    subgraph "Cost Governance"
+        QC[Query Limits]
+        ST[Storage Tiering]
+        CB[Chargeback]
+        RV[Reserved vs On-Demand]
+    end
+
+    ES -.-> QC
+    ES -.-> ST
+    OC -.-> RV
+    ET -.-> CB
+```
+
 ## Cost Profile Comparison
 
 | Cost Driver | Enterprise Data Platform | Operational Platform |
