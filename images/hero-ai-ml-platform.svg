@@ -269,8 +269,8 @@
   <text x="865" y="758" text-anchor="middle" font-size="11" fill="#6b6b6b">Batch jobs, full dataset recomputation, scheduled runs</text>
 
   <rect x="1150" y="714" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
-  <rect x="1290" y="728" width="90" height="24" rx="12" fill="#1a1a1a"/>
-  <text x="1335" y="744" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">p99 &lt; ms</text>
+  <rect x="1290" y="728" width="90" height="24" rx="12" fill="#f5f5f3" stroke="#1a1a1a"/>
+  <text x="1335" y="744" text-anchor="middle" class="table-cell" font-weight="600">p99 &lt; ms</text>
   <text x="1435" y="758" text-anchor="middle" font-size="11" fill="#6b6b6b">Sub-millisecond lookups, pre-materialized, cached in memory</text>
 
   <!-- Row 2: Storage -->
@@ -284,8 +284,8 @@
   <text x="865" y="818" text-anchor="middle" font-size="11" fill="#6b6b6b">Parquet, Delta Lake, Iceberg -- optimized for scan throughput</text>
 
   <rect x="1150" y="774" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
-  <rect x="1290" y="788" width="120" height="24" rx="12" fill="#1a1a1a"/>
-  <text x="1350" y="804" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Key-Value</text>
+  <rect x="1290" y="788" width="120" height="24" rx="12" fill="#f5f5f3" stroke="#1a1a1a"/>
+  <text x="1350" y="804" text-anchor="middle" class="table-cell" font-weight="600">Key-Value</text>
   <text x="1435" y="818" text-anchor="middle" font-size="11" fill="#6b6b6b">Redis, DynamoDB, Bigtable -- optimized for point lookups</text>
 
   <!-- Row 3: Source -->
@@ -299,8 +299,8 @@
   <text x="865" y="878" text-anchor="middle" font-size="11" fill="#6b6b6b">Gold-layer tables, data products, full history available</text>
 
   <rect x="1150" y="834" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
-  <rect x="1272" y="848" width="126" height="24" rx="12" fill="#1a1a1a"/>
-  <text x="1335" y="864" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Precomputed</text>
+  <rect x="1272" y="848" width="126" height="24" rx="12" fill="#f5f5f3" stroke="#1a1a1a"/>
+  <text x="1335" y="864" text-anchor="middle" class="table-cell" font-weight="600">Precomputed</text>
   <text x="1435" y="878" text-anchor="middle" font-size="11" fill="#6b6b6b">Materialized from offline store, pushed to low-latency serving</text>
 
   <!-- Row 4: Scale -->
@@ -314,8 +314,8 @@
   <text x="865" y="938" text-anchor="middle" font-size="11" fill="#6b6b6b">Maximize data processed per unit time, bulk read patterns</text>
 
   <rect x="1150" y="894" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
-  <rect x="1278" y="908" width="114" height="24" rx="12" fill="#1a1a1a"/>
-  <text x="1335" y="924" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Concurrency</text>
+  <rect x="1278" y="908" width="114" height="24" rx="12" fill="#f5f5f3" stroke="#1a1a1a"/>
+  <text x="1335" y="924" text-anchor="middle" class="table-cell" font-weight="600">Concurrency</text>
   <text x="1435" y="938" text-anchor="middle" font-size="11" fill="#6b6b6b">Thousands of concurrent requests, horizontal auto-scaling</text>
 
   <!-- Row 5: Freshness -->
@@ -329,8 +329,8 @@
   <text x="865" y="998" text-anchor="middle" font-size="11" fill="#6b6b6b">Scheduled pipelines, daily or hourly refreshes from EDP</text>
 
   <rect x="1150" y="954" width="570" height="60" fill="#fff" stroke="#e8e8e8"/>
-  <rect x="1280" y="968" width="110" height="24" rx="12" fill="#1a1a1a"/>
-  <text x="1335" y="984" text-anchor="middle" class="table-cell" font-weight="600" fill="#fafaf8">Near real-time</text>
+  <rect x="1280" y="968" width="110" height="24" rx="12" fill="#f5f5f3" stroke="#1a1a1a"/>
+  <text x="1335" y="984" text-anchor="middle" class="table-cell" font-weight="600">Near real-time</text>
   <text x="1435" y="998" text-anchor="middle" font-size="11" fill="#6b6b6b">Streaming materialization, event-driven updates, seconds-fresh</text>
 
   <!-- Table bottom border -->
