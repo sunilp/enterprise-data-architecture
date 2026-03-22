@@ -125,12 +125,45 @@
 }
 
 .md-content {
-  max-width: 760px;
+  max-width: 900px;
 }
 
 .md-content__inner {
   padding-top: 2.5rem;
   padding-bottom: 4rem;
+}
+
+/* Hero diagrams break out of content column for full width */
+.md-typeset figure {
+  max-width: none;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  width: calc(100% + 4rem);
+}
+
+.md-typeset figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.md-typeset figcaption {
+  text-align: center;
+  font-size: 13px;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+@media (min-width: 1440px) {
+  .md-typeset figure {
+    margin-left: -4rem;
+    margin-right: -4rem;
+    width: calc(100% + 8rem);
+  }
 }
 
 /* ---- Sidebar Navigation ---- */
