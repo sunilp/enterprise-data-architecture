@@ -10,6 +10,38 @@ An enterprise data platform is not just a storage and transformation stack. It i
 - This model works as a gap assessment, vendor evaluation framework, team structure blueprint, and maturity scorecard.
 - If you cannot name the component that delivers a capability, you have a gap. If you have a component but no one owns it, you have a risk.
 
+```mermaid
+graph TB
+    subgraph "Data Acquisition"
+        A1[Batch] --- A2[CDC] --- A3[Events] --- A4[Files] --- A5[3rd Party]
+    end
+    subgraph "Data Management"
+        M1[Schema] --- M2[Metadata] --- M3[Lineage] --- M4[Quality] --- M5[Historization]
+    end
+    subgraph "Core Processing"
+        P1[Transform] --- P2[Orchestrate] --- P3[Execute] --- P4[Isolate] --- P5[Reprocess]
+    end
+    subgraph "Storage and Modeling"
+        S1[Raw Zone] --- S2[Curated Zone] --- S3[Semantic Layer] --- S4[History] --- S5[Serving]
+    end
+    subgraph "Access and Consumption"
+        C1[BI] --- C2[Self-Service] --- C3[APIs] --- C4[ML Features] --- C5[Export]
+    end
+    subgraph "Governance and Control"
+        G1[Access] --- G2[Masking] --- G3[Audit] --- G4[Contracts] --- G5[Policy]
+    end
+    subgraph "Observability"
+        O1[Freshness] --- O2[Pipelines] --- O3[Cost] --- O4[SLAs] --- O5[Incidents]
+    end
+
+    A1 -.-> M1
+    M1 -.-> P1
+    P1 -.-> S1
+    S1 -.-> C1
+    C1 -.-> G1
+    G1 -.-> O1
+```
+
 ## The Capability Model
 
 Seven capability groups. Each group contains sub-capabilities with a single responsibility. Every sub-capability must have an owner, an implementation, and a measurable outcome.

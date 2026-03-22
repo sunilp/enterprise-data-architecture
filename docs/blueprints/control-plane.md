@@ -8,6 +8,36 @@
 - Without a control plane, you have a data lake. With one, you have a governed platform.
 - Every regulatory conversation, cost allocation question, and incident investigation starts and ends in the control plane.
 
+```mermaid
+graph TB
+    subgraph "CONTROL PLANE"
+        direction TB
+        META[Metadata Services<br/>Technical · Operational · Business]
+        LIN[Lineage Engine<br/>Column-level · Impact Analysis · Regulatory]
+        POL[Policy Engine<br/>Access · Retention · Quality · Masking]
+        CON[Contract Registry<br/>Schemas · SLAs · Versions · Consumers]
+        AUD[Audit Trail<br/>Query · Access · Change · Evidence]
+        OBS[Observability<br/>Freshness · Quality · Cost · Health]
+    end
+
+    subgraph "DATA PLANE"
+        direction LR
+        SRC[Sources] --> ING[Ingestion]
+        ING --> RAW[Bronze / Raw]
+        RAW --> CUR[Silver / Curated]
+        CUR --> SEM[Gold / Semantic]
+        SEM --> PRD[Data Products]
+        PRD --> CON2[Consumers]
+    end
+
+    META -.-> |governs| ING
+    LIN -.-> |traces| RAW
+    POL -.-> |enforces| CUR
+    CON -.-> |contracts| PRD
+    AUD -.-> |audits| CON2
+    OBS -.-> |monitors| SEM
+```
+
 ## What the Control Plane Contains
 
 Six service groups. Each has a single responsibility, a distinct set of consumers, and a measurable outcome.
