@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/changelog/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/glossary/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/blueprints/ai-ml-platform/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/blueprints/target-state/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/position/anti-patterns/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/position/edp-vs-operational/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/position/what-edp-is/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+</urlset>
