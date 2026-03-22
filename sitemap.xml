@@ -25,6 +25,22 @@
          <lastmod>2026-03-22</lastmod>
     </url>
     <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/compliance/banking/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/compliance/healthcare/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/compliance/insurance/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/compliance/overview/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
          <loc>https://sunilp.github.io/enterprise-data-architecture/decisions/capability-map/</loc>
          <lastmod>2026-03-22</lastmod>
     </url>
@@ -38,6 +54,10 @@
     </url>
     <url>
          <loc>https://sunilp.github.io/enterprise-data-architecture/decisions/maturity-model/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/decisions/vendor-framework/</loc>
          <lastmod>2026-03-22</lastmod>
     </url>
     <url>
@@ -58,6 +78,10 @@
     </url>
     <url>
          <loc>https://sunilp.github.io/enterprise-data-architecture/position/what-edp-is/</loc>
+         <lastmod>2026-03-22</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilp.github.io/enterprise-data-architecture/transformation/roadmap/</loc>
          <lastmod>2026-03-22</lastmod>
     </url>
 </urlset>
