@@ -1,0 +1,684 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1200" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .layer-label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .layer-title { font-size: 18px; font-weight: 500; }
+      .layer-desc { font-size: 13px; fill: #6b6b6b; }
+      .service-box text { font-size: 12px; }
+      .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dashed { stroke: #999; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrowhead); }
+      .cross-cut-label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; fill: #6b6b6b; }
+      .gcp-label { font-size: 10.5px; fill: #4285F4; font-weight: 500; }
+      .gcp-label-sm { font-size: 10px; fill: #4285F4; font-weight: 400; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1"/>
+    </marker>
+    <marker id="arrowhead-accent" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </marker>
+
+    <!-- GCP hexagon icon template -->
+    <symbol id="gcp-hex" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4" stroke="none"/>
+    </symbol>
+    <!-- Pub/Sub icon (message/queue) -->
+    <symbol id="icon-pubsub" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <circle cx="12" cy="14" r="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <line x1="12" y1="8" x2="12" y2="11" stroke="#fff" stroke-width="1.2"/>
+      <line x1="12" y1="17" x2="12" y2="20" stroke="#fff" stroke-width="1.2"/>
+      <line x1="7" y1="11" x2="9.5" y2="12.5" stroke="#fff" stroke-width="1.2"/>
+      <line x1="14.5" y1="15.5" x2="17" y2="17" stroke="#fff" stroke-width="1.2"/>
+    </symbol>
+    <!-- Dataflow icon (stream arrows) -->
+    <symbol id="icon-dataflow" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <path d="M7,11 L17,11" stroke="#fff" stroke-width="1.3" fill="none"/>
+      <path d="M14,8.5 L17,11 L14,13.5" stroke="#fff" stroke-width="1.3" fill="none"/>
+      <path d="M17,17 L7,17" stroke="#fff" stroke-width="1.3" fill="none"/>
+      <path d="M10,14.5 L7,17 L10,19.5" stroke="#fff" stroke-width="1.3" fill="none"/>
+    </symbol>
+    <!-- Cloud Run icon (container/run) -->
+    <symbol id="icon-cloudrun" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <path d="M8,10 L12,10 L12,18 L8,18 Z" stroke="#fff" stroke-width="1.2" fill="none"/>
+      <path d="M12,10 L16,10 L16,18 L12,18" stroke="#fff" stroke-width="1.2" fill="none"/>
+      <line x1="10" y1="13" x2="14" y2="13" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10" y1="15.5" x2="14" y2="15.5" stroke="#fff" stroke-width="0.8"/>
+    </symbol>
+    <!-- GKE icon (kubernetes wheel) -->
+    <symbol id="icon-gke" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <circle cx="12" cy="14" r="5" fill="none" stroke="#fff" stroke-width="1.3"/>
+      <line x1="12" y1="9" x2="12" y2="11" stroke="#fff" stroke-width="1.2"/>
+      <line x1="12" y1="17" x2="12" y2="19" stroke="#fff" stroke-width="1.2"/>
+      <line x1="7.3" y1="11.3" x2="9" y2="12.3" stroke="#fff" stroke-width="1.2"/>
+      <line x1="15" y1="15.7" x2="16.7" y2="16.7" stroke="#fff" stroke-width="1.2"/>
+      <line x1="7.3" y1="16.7" x2="9" y2="15.7" stroke="#fff" stroke-width="1.2"/>
+      <line x1="15" y1="12.3" x2="16.7" y2="11.3" stroke="#fff" stroke-width="1.2"/>
+    </symbol>
+    <!-- Cloud Functions icon (lightning bolt) -->
+    <symbol id="icon-functions" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <path d="M13,9 L9,15 L13,15 L11,19 L15,13 L11,13 Z" fill="#fff"/>
+    </symbol>
+    <!-- Workflows icon (flow nodes) -->
+    <symbol id="icon-workflows" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <circle cx="9" cy="10" r="2" fill="#fff"/>
+      <circle cx="15" cy="14" r="2" fill="#fff"/>
+      <circle cx="9" cy="18" r="2" fill="#fff"/>
+      <line x1="11" y1="10" x2="13" y2="13" stroke="#fff" stroke-width="1.2"/>
+      <line x1="13" y1="15" x2="11" y2="17" stroke="#fff" stroke-width="1.2"/>
+    </symbol>
+    <!-- Cloud SQL icon (database cylinder) -->
+    <symbol id="icon-cloudsql" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <ellipse cx="12" cy="11" rx="5" ry="2" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <path d="M7,11 L7,17" stroke="#fff" stroke-width="1.2"/>
+      <path d="M17,11 L17,17" stroke="#fff" stroke-width="1.2"/>
+      <ellipse cx="12" cy="17" rx="5" ry="2" fill="none" stroke="#fff" stroke-width="1.2"/>
+    </symbol>
+    <!-- Firestore icon (document) -->
+    <symbol id="icon-firestore" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <path d="M8,9 L14,9 L16,11 L16,19 L8,19 Z" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <path d="M14,9 L14,11 L16,11" fill="none" stroke="#fff" stroke-width="1"/>
+      <line x1="10" y1="13" x2="14" y2="13" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10" y1="15.5" x2="14" y2="15.5" stroke="#fff" stroke-width="0.8"/>
+    </symbol>
+    <!-- Memorystore icon (cache/memory chip) -->
+    <symbol id="icon-memorystore" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <rect x="8" y="10" width="8" height="8" rx="1" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <line x1="6" y1="12" x2="8" y2="12" stroke="#fff" stroke-width="1.2"/>
+      <line x1="6" y1="16" x2="8" y2="16" stroke="#fff" stroke-width="1.2"/>
+      <line x1="16" y1="12" x2="18" y2="12" stroke="#fff" stroke-width="1.2"/>
+      <line x1="16" y1="16" x2="18" y2="16" stroke="#fff" stroke-width="1.2"/>
+      <line x1="10.5" y1="12" x2="13.5" y2="12" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10.5" y1="14" x2="13.5" y2="14" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10.5" y1="16" x2="13.5" y2="16" stroke="#fff" stroke-width="0.8"/>
+    </symbol>
+    <!-- Cloud Spanner icon (globe database) -->
+    <symbol id="icon-spanner" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <circle cx="12" cy="14" r="5" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <ellipse cx="12" cy="14" rx="2.5" ry="5" fill="none" stroke="#fff" stroke-width="0.8"/>
+      <line x1="7" y1="14" x2="17" y2="14" stroke="#fff" stroke-width="0.8"/>
+      <line x1="8" y1="11" x2="16" y2="11" stroke="#fff" stroke-width="0.6"/>
+      <line x1="8" y1="17" x2="16" y2="17" stroke="#fff" stroke-width="0.6"/>
+    </symbol>
+    <!-- Cloud Storage / GCS icon (bucket) -->
+    <symbol id="icon-gcs" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <path d="M7,11 L9,18 L15,18 L17,11 Z" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <line x1="7" y1="11" x2="17" y2="11" stroke="#fff" stroke-width="1.3"/>
+      <line x1="10" y1="14" x2="14" y2="14" stroke="#fff" stroke-width="0.8"/>
+    </symbol>
+    <!-- BigQuery icon (analytics chart) -->
+    <symbol id="icon-bigquery" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <rect x="8" y="15" width="2.5" height="4" fill="#fff" rx="0.5"/>
+      <rect x="11" y="12" width="2.5" height="7" fill="#fff" rx="0.5"/>
+      <rect x="14" y="9" width="2.5" height="10" fill="#fff" rx="0.5"/>
+    </symbol>
+    <!-- Cloud Composer icon (orchestration/DAG) -->
+    <symbol id="icon-composer" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <circle cx="8" cy="11" r="1.8" fill="#fff"/>
+      <circle cx="16" cy="11" r="1.8" fill="#fff"/>
+      <circle cx="12" cy="17" r="1.8" fill="#fff"/>
+      <line x1="9.5" y1="12" x2="11" y2="15.5" stroke="#fff" stroke-width="1.2"/>
+      <line x1="14.5" y1="12" x2="13" y2="15.5" stroke="#fff" stroke-width="1.2"/>
+    </symbol>
+    <!-- Dataform / dbt icon (transform) -->
+    <symbol id="icon-dataform" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <path d="M8,14 L11,10 L14,14 L11,18 Z" fill="#fff"/>
+      <path d="M13,12 L16,9" stroke="#fff" stroke-width="1.3"/>
+      <path d="M13,16 L16,19" stroke="#fff" stroke-width="1.3"/>
+    </symbol>
+    <!-- Dataplex icon (governance shield) -->
+    <symbol id="icon-dataplex" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#34A853"/>
+      <path d="M12,9 L7,12 L7,16 C7,18.5 9,20 12,21 C15,20 17,18.5 17,16 L17,12 Z" fill="none" stroke="#fff" stroke-width="1.3"/>
+      <path d="M10,15 L11.5,16.5 L14.5,12.5" fill="none" stroke="#fff" stroke-width="1.3"/>
+    </symbol>
+    <!-- Data Catalog icon (catalog/book) -->
+    <symbol id="icon-catalog" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#34A853"/>
+      <rect x="8" y="9" width="9" height="10" rx="1" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <line x1="8" y1="9" x2="8" y2="19" stroke="#fff" stroke-width="2"/>
+      <line x1="10.5" y1="12" x2="15" y2="12" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10.5" y1="14.5" x2="14" y2="14.5" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10.5" y1="17" x2="13" y2="17" stroke="#fff" stroke-width="0.8"/>
+    </symbol>
+    <!-- Analytics Hub icon (sharing/hub) -->
+    <symbol id="icon-analyticshub" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <circle cx="12" cy="14" r="2.5" fill="#fff"/>
+      <circle cx="7" cy="10" r="1.5" fill="#fff"/>
+      <circle cx="17" cy="10" r="1.5" fill="#fff"/>
+      <circle cx="7" cy="18" r="1.5" fill="#fff"/>
+      <circle cx="17" cy="18" r="1.5" fill="#fff"/>
+      <line x1="10" y1="12.5" x2="8" y2="11" stroke="#fff" stroke-width="1"/>
+      <line x1="14" y1="12.5" x2="16" y2="11" stroke="#fff" stroke-width="1"/>
+      <line x1="10" y1="15.5" x2="8" y2="17" stroke="#fff" stroke-width="1"/>
+      <line x1="14" y1="15.5" x2="16" y2="17" stroke="#fff" stroke-width="1"/>
+    </symbol>
+    <!-- Vertex AI icon (brain/neural) -->
+    <symbol id="icon-vertexai" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#EA4335"/>
+      <circle cx="12" cy="10" r="1.5" fill="#fff"/>
+      <circle cx="8" cy="15" r="1.5" fill="#fff"/>
+      <circle cx="16" cy="15" r="1.5" fill="#fff"/>
+      <circle cx="10" cy="19" r="1.5" fill="#fff"/>
+      <circle cx="14" cy="19" r="1.5" fill="#fff"/>
+      <line x1="12" y1="11.5" x2="8.5" y2="13.8" stroke="#fff" stroke-width="1"/>
+      <line x1="12" y1="11.5" x2="15.5" y2="13.8" stroke="#fff" stroke-width="1"/>
+      <line x1="8.5" y1="16.2" x2="10" y2="17.8" stroke="#fff" stroke-width="1"/>
+      <line x1="15.5" y1="16.2" x2="14" y2="17.8" stroke="#fff" stroke-width="1"/>
+    </symbol>
+    <!-- Looker icon (BI eye) -->
+    <symbol id="icon-looker" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <ellipse cx="12" cy="14" rx="6" ry="3.5" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <circle cx="12" cy="14" r="2" fill="#fff"/>
+    </symbol>
+    <!-- Notebooks icon (notebook/code) -->
+    <symbol id="icon-notebooks" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#FBBC04"/>
+      <rect x="8" y="9" width="8" height="10" rx="1" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <line x1="10" y1="12" x2="14" y2="12" stroke="#fff" stroke-width="0.8"/>
+      <line x1="10" y1="14.5" x2="13" y2="14.5" stroke="#fff" stroke-width="0.8"/>
+      <path d="M10,17 L11.5,16 L13,17" stroke="#fff" stroke-width="0.8" fill="none"/>
+    </symbol>
+    <!-- Vector Search icon (search magnifier) -->
+    <symbol id="icon-vectorsearch" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#EA4335"/>
+      <circle cx="11" cy="13" r="3.5" fill="none" stroke="#fff" stroke-width="1.3"/>
+      <line x1="13.5" y1="15.5" x2="17" y2="19" stroke="#fff" stroke-width="1.5"/>
+    </symbol>
+    <!-- Cloud IAM icon (key/lock) -->
+    <symbol id="icon-iam" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#EA4335"/>
+      <circle cx="12" cy="12" r="3" fill="none" stroke="#fff" stroke-width="1.3"/>
+      <rect x="10.5" y="15" width="3" height="4" rx="0.5" fill="#fff"/>
+    </symbol>
+    <!-- Cloud Monitoring icon (chart pulse) -->
+    <symbol id="icon-monitoring" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#FBBC04"/>
+      <path d="M7,16 L10,13 L12,15 L15,10 L17,12" fill="none" stroke="#fff" stroke-width="1.5"/>
+    </symbol>
+    <!-- Feature Store icon (grid/store) -->
+    <symbol id="icon-featurestore" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#EA4335"/>
+      <rect x="7" y="9" width="4" height="4" rx="0.5" fill="#fff"/>
+      <rect x="13" y="9" width="4" height="4" rx="0.5" fill="#fff"/>
+      <rect x="7" y="15" width="4" height="4" rx="0.5" fill="#fff"/>
+      <rect x="13" y="15" width="4" height="4" rx="0.5" fill="#fff"/>
+    </symbol>
+    <!-- BigQuery ML icon (BQ + gear) -->
+    <symbol id="icon-bqml" viewBox="0 0 24 28">
+      <polygon points="12,0 24,7 24,21 12,28 0,21 0,7" fill="#4285F4"/>
+      <rect x="7" y="14" width="2.5" height="5" fill="#fff" rx="0.5"/>
+      <rect x="10.5" y="11" width="2.5" height="8" fill="#fff" rx="0.5"/>
+      <circle cx="16" cy="11" r="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <circle cx="16" cy="11" r="1" fill="#fff"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1200" fill="#fafaf8"/>
+
+  <!-- ============ TITLE BAR ============ -->
+  <text x="960" y="42" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#1a1a1a">Target-State Architecture -- Google Cloud Platform</text>
+  <!-- Google Cloud badge -->
+  <rect x="1560" y="22" width="120" height="28" rx="14" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="1620" y="41" text-anchor="middle" font-size="11" font-weight="600" fill="#4285F4">Google Cloud</text>
+
+  <!-- ============ CROSS-CUTTING: LEFT VERTICAL BAR ============ -->
+  <rect x="40" y="80" width="50" height="1080" rx="4" fill="#1a1a1a"/>
+  <!-- Dataplex -->
+  <text x="52" y="280" text-anchor="middle" transform="rotate(-90, 52, 280)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#34A853">DATAPLEX</text>
+  <!-- Data Catalog -->
+  <text x="68" y="280" text-anchor="middle" transform="rotate(-90, 68, 280)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#34A853">DATA CATALOG</text>
+  <!-- Cloud IAM + VPC-SC -->
+  <text x="52" y="680" text-anchor="middle" transform="rotate(-90, 52, 680)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#EA4335">CLOUD IAM + VPC-SC</text>
+  <!-- Cloud Monitoring -->
+  <text x="68" y="680" text-anchor="middle" transform="rotate(-90, 68, 680)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#FBBC04">CLOUD MONITORING</text>
+
+  <!-- ============ CROSS-CUTTING: RIGHT VERTICAL BAR ============ -->
+  <rect x="1830" y="80" width="50" height="1080" rx="4" fill="#1a1a1a"/>
+  <text x="1842" y="280" text-anchor="middle" transform="rotate(90, 1842, 280)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#34A853">DATAPLEX</text>
+  <text x="1858" y="280" text-anchor="middle" transform="rotate(90, 1858, 280)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#34A853">DATA CATALOG</text>
+  <text x="1842" y="680" text-anchor="middle" transform="rotate(90, 1842, 680)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#EA4335">CLOUD IAM + VPC-SC</text>
+  <text x="1858" y="680" text-anchor="middle" transform="rotate(90, 1858, 680)" font-size="10" font-weight="500" letter-spacing="0.06em" fill="#FBBC04">CLOUD MONITORING</text>
+
+  <!-- ============ LAYER 1: SOURCE SYSTEMS ============ -->
+  <rect x="120" y="80" width="1680" height="100" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="110" class="layer-label" fill="#999">LAYER 1</text>
+  <text x="220" y="110" class="layer-title" fill="#1a1a1a">Source Systems</text>
+
+  <!-- Source system boxes -->
+  <rect x="160" y="125" width="120" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="220" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">ERP</text>
+
+  <rect x="300" y="125" width="120" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="360" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">CRM</text>
+
+  <rect x="440" y="125" width="150" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="515" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">Core Banking</text>
+
+  <rect x="610" y="125" width="130" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="675" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">Payments</text>
+
+  <rect x="760" y="125" width="150" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="835" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">Custom Apps</text>
+
+  <rect x="930" y="125" width="130" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="995" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">Third Party</text>
+
+  <rect x="1080" y="125" width="130" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1145" y="150" text-anchor="middle" font-size="12" fill="#1a1a1a">IoT / Events</text>
+
+  <!-- Arrows from Layer 1 to Layer 2 -->
+  <path d="M660,180 L660,200" class="arrow"/>
+  <path d="M960,180 L960,200" class="arrow"/>
+
+  <!-- ============ LAYER 2: EVENT / MESSAGE BACKBONE ============ -->
+  <rect x="120" y="205" width="1680" height="80" rx="4" fill="#1a1a1a"/>
+  <text x="140" y="235" class="layer-label" fill="#666">LAYER 2</text>
+  <text x="220" y="235" font-size="18" font-weight="500" fill="#fafaf8">Event / Message Backbone</text>
+
+  <!-- GCP services in backbone -->
+  <g transform="translate(540, 228)">
+    <use href="#icon-pubsub" width="20" height="24"/>
+    <text x="24" y="16" font-size="11" font-weight="500" fill="#8ab4f8">Cloud Pub/Sub</text>
+  </g>
+  <g transform="translate(710, 228)">
+    <use href="#icon-dataflow" width="20" height="24"/>
+    <text x="24" y="16" font-size="11" font-weight="500" fill="#8ab4f8">Cloud Dataflow</text>
+  </g>
+
+  <text x="960" y="270" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.45)">CDC  ·  Streaming Events  ·  Batch Extracts  ·  Change Notifications</text>
+
+  <!-- Split arrows from backbone -->
+  <path d="M400,285 L400,320" class="arrow"/>
+  <path d="M1200,285 L1200,320" class="arrow"/>
+
+  <!-- Boundary labels -->
+  <text x="400" y="312" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">OPERATIONAL PLATFORM</text>
+  <text x="1200" y="312" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">ANALYTICAL PLATFORM (EDP)</text>
+
+  <!-- ============ LEFT BRANCH: OPERATIONAL ============ -->
+
+  <!-- Layer 3: Operational Services -->
+  <rect x="120" y="325" width="680" height="195" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="355" class="layer-label" fill="#999">LAYER 3</text>
+  <text x="220" y="355" class="layer-title" fill="#1a1a1a">Operational Services</text>
+  <text x="140" y="375" class="layer-desc">Business process execution -- systems that run the business</text>
+
+  <!-- Cloud Run -->
+  <g transform="translate(160, 392)">
+    <use href="#icon-cloudrun" width="24" height="28"/>
+    <text x="28" y="18" class="gcp-label">Cloud Run</text>
+  </g>
+  <!-- GKE -->
+  <g transform="translate(310, 392)">
+    <use href="#icon-gke" width="24" height="28"/>
+    <text x="28" y="18" class="gcp-label">GKE</text>
+  </g>
+  <!-- Cloud Functions -->
+  <g transform="translate(440, 392)">
+    <use href="#icon-functions" width="24" height="28"/>
+    <text x="28" y="18" class="gcp-label">Cloud Functions</text>
+  </g>
+  <!-- Workflows -->
+  <g transform="translate(610, 392)">
+    <use href="#icon-workflows" width="24" height="28"/>
+    <text x="28" y="18" class="gcp-label">Workflows</text>
+  </g>
+
+  <!-- Service description boxes -->
+  <rect x="160" y="432" width="140" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="230" y="448" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Microservices</text>
+  <text x="230" y="463" text-anchor="middle" font-size="10" fill="#999">APIs / Business Logic</text>
+
+  <rect x="315" y="432" width="140" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="385" y="448" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Case Mgmt</text>
+  <text x="385" y="463" text-anchor="middle" font-size="10" fill="#999">Claims / Disputes</text>
+
+  <rect x="470" y="432" width="140" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="540" y="448" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Payments</text>
+  <text x="540" y="463" text-anchor="middle" font-size="10" fill="#999">Settlement / Clearing</text>
+
+  <rect x="625" y="432" width="140" height="40" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="695" y="448" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Workflow Engine</text>
+  <text x="695" y="463" text-anchor="middle" font-size="10" fill="#999">Orchestration</text>
+
+  <!-- SLA badges -->
+  <rect x="160" y="486" width="100" height="24" rx="12" fill="#1a1a1a"/>
+  <text x="210" y="502" text-anchor="middle" font-size="10" font-weight="500" fill="#fafaf8">SLA: 99.9%+</text>
+
+  <rect x="275" y="486" width="100" height="24" rx="12" fill="none" stroke="#1a1a1a"/>
+  <text x="325" y="502" text-anchor="middle" font-size="10" font-weight="500" fill="#1a1a1a">Latency: ms</text>
+
+  <!-- Arrow from Layer 3 to Layer 3a -->
+  <path d="M460,520 L460,545" class="arrow"/>
+
+  <!-- Layer 3a: Operational Data Store -->
+  <rect x="120" y="550" width="680" height="150" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="580" class="layer-label" fill="#999">LAYER 3A</text>
+  <text x="240" y="580" class="layer-title" fill="#1a1a1a">Operational Data Store</text>
+  <text x="140" y="600" class="layer-desc">Current-state, low-latency, transactionally consistent</text>
+
+  <!-- Cloud SQL -->
+  <g transform="translate(160, 615)">
+    <use href="#icon-cloudsql" width="24" height="28"/>
+  </g>
+  <rect x="155" y="648" width="100" height="36" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="205" y="663" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Cloud SQL</text>
+  <text x="205" y="677" text-anchor="middle" font-size="10" fill="#999">PostgreSQL</text>
+
+  <!-- Firestore -->
+  <g transform="translate(290, 615)">
+    <use href="#icon-firestore" width="24" height="28"/>
+  </g>
+  <rect x="280" y="648" width="100" height="36" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="330" y="663" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Firestore</text>
+  <text x="330" y="677" text-anchor="middle" font-size="10" fill="#999">Document Store</text>
+
+  <!-- Memorystore -->
+  <g transform="translate(420, 615)">
+    <use href="#icon-memorystore" width="24" height="28"/>
+  </g>
+  <rect x="405" y="648" width="110" height="36" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="460" y="663" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Memorystore</text>
+  <text x="460" y="677" text-anchor="middle" font-size="10" fill="#999">Redis Cache</text>
+
+  <!-- Cloud Spanner -->
+  <g transform="translate(555, 615)">
+    <use href="#icon-spanner" width="24" height="28"/>
+  </g>
+  <rect x="540" y="648" width="115" height="36" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="598" y="663" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Cloud Spanner</text>
+  <text x="598" y="677" text-anchor="middle" font-size="10" fill="#999">Global RDBMS</text>
+
+  <!-- ============ RIGHT BRANCH: EDP ============ -->
+
+  <!-- Layer 4: Enterprise Data Platform -->
+  <rect x="840" y="325" width="960" height="375" rx="4" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="860" y="355" class="layer-label" fill="#999">LAYER 4</text>
+  <text x="940" y="355" class="layer-title" fill="#1a1a1a">Enterprise Data Platform</text>
+  <text x="860" y="375" class="layer-desc">Analytical heart -- historical, governed, integrated</text>
+
+  <!-- Medallion Architecture Sub-sections -->
+
+  <!-- Bronze / Raw -->
+  <rect x="880" y="395" width="260" height="120" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="880" y="395" width="260" height="30" rx="3" fill="#8d6e63" stroke="none"/>
+  <rect x="880" y="422" width="260" height="0" rx="0" fill="#f5f5f3"/>
+  <text x="1010" y="415" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">BRONZE / RAW</text>
+  <!-- GCS icon -->
+  <g transform="translate(940, 435)">
+    <use href="#icon-gcs" width="22" height="26"/>
+    <text x="26" y="17" class="gcp-label">Cloud Storage</text>
+  </g>
+  <text x="1010" y="478" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Raw ingestion, source-aligned</text>
+  <text x="1010" y="493" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Append-only, immutable</text>
+  <text x="1010" y="508" text-anchor="middle" font-size="10.5" fill="#6b6b6b">GCS buckets (Parquet/Avro)</text>
+
+  <!-- Arrow bronze to silver -->
+  <path d="M1140,455 L1170,455" class="arrow" stroke="#1a1a1a" marker-end="url(#arrowhead-accent)"/>
+
+  <!-- Silver / Curated -->
+  <rect x="1180" y="395" width="260" height="120" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="1180" y="395" width="260" height="30" rx="3" fill="#78909c" stroke="none"/>
+  <text x="1310" y="415" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">SILVER / CURATED</text>
+  <!-- BigQuery icon -->
+  <g transform="translate(1240, 435)">
+    <use href="#icon-bigquery" width="22" height="26"/>
+    <text x="26" y="17" class="gcp-label">BigQuery</text>
+  </g>
+  <text x="1310" y="478" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Cleansed and conformed</text>
+  <text x="1310" y="493" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Deduplicated, quality validated</text>
+  <text x="1310" y="508" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Staging datasets</text>
+
+  <!-- Arrow silver to gold -->
+  <path d="M1440,455 L1470,455" class="arrow" stroke="#1a1a1a" marker-end="url(#arrowhead-accent)"/>
+
+  <!-- Gold / Consumption -->
+  <rect x="1480" y="395" width="280" height="120" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <rect x="1480" y="395" width="280" height="30" rx="3" fill="#c9a84c" stroke="none"/>
+  <text x="1620" y="415" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">GOLD / CONSUMPTION</text>
+  <!-- BigQuery icon -->
+  <g transform="translate(1540, 435)">
+    <use href="#icon-bigquery" width="22" height="26"/>
+    <text x="26" y="17" class="gcp-label">BigQuery</text>
+  </g>
+  <text x="1620" y="478" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Business-ready datasets</text>
+  <text x="1620" y="493" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Aggregated metrics</text>
+  <text x="1620" y="508" text-anchor="middle" font-size="10.5" fill="#6b6b6b">Consumption datasets</text>
+
+  <!-- Supporting services below medallion -->
+  <line x1="880" y1="530" x2="1760" y2="530" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="880" y="555" font-size="11" font-weight="600" letter-spacing="0.06em" fill="#999">PLATFORM SERVICES</text>
+
+  <!-- Cloud Composer -->
+  <g transform="translate(880, 568)">
+    <use href="#icon-composer" width="22" height="26"/>
+  </g>
+  <rect x="875" y="598" width="130" height="38" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="940" y="614" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Cloud Composer</text>
+  <text x="940" y="629" text-anchor="middle" font-size="10" fill="#999">Orchestration</text>
+
+  <!-- Dataform / dbt -->
+  <g transform="translate(1090, 568)">
+    <use href="#icon-dataform" width="22" height="26"/>
+  </g>
+  <rect x="1080" y="598" width="130" height="38" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1145" y="614" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Dataform / dbt</text>
+  <text x="1145" y="629" text-anchor="middle" font-size="10" fill="#999">Transformation</text>
+
+  <!-- Dataplex -->
+  <g transform="translate(1300, 568)">
+    <use href="#icon-dataplex" width="22" height="26"/>
+  </g>
+  <rect x="1290" y="598" width="120" height="38" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1350" y="614" text-anchor="middle" font-size="11" font-weight="500" fill="#34A853">Dataplex</text>
+  <text x="1350" y="629" text-anchor="middle" font-size="10" fill="#999">Governance</text>
+
+  <!-- Data Catalog -->
+  <g transform="translate(1500, 568)">
+    <use href="#icon-catalog" width="22" height="26"/>
+  </g>
+  <rect x="1490" y="598" width="130" height="38" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1555" y="614" text-anchor="middle" font-size="11" font-weight="500" fill="#34A853">Data Catalog</text>
+  <text x="1555" y="629" text-anchor="middle" font-size="10" fill="#999">Discovery</text>
+
+  <!-- EDP SLA badges -->
+  <rect x="1660" y="562" width="100" height="24" rx="12" fill="none" stroke="#999"/>
+  <text x="1710" y="578" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">SLA: 99.5%</text>
+
+  <rect x="1660" y="594" width="120" height="24" rx="12" fill="none" stroke="#999"/>
+  <text x="1720" y="610" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">Latency: min-hrs</text>
+
+  <rect x="1660" y="626" width="110" height="24" rx="12" fill="none" stroke="#999"/>
+  <text x="1715" y="642" text-anchor="middle" font-size="10" font-weight="500" fill="#6b6b6b">Append-only</text>
+
+  <!-- Arrow from EDP to Layer 5 -->
+  <path d="M1300,700 L1300,730" class="arrow"/>
+
+  <!-- ============ LAYER 5: DATA PRODUCTS ============ -->
+  <rect x="840" y="735" width="960" height="120" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="860" y="765" class="layer-label" fill="#999">LAYER 5</text>
+  <text x="940" y="765" class="layer-title" fill="#1a1a1a">Data Products</text>
+
+  <!-- Analytics Hub icon + label -->
+  <g transform="translate(1100, 748)">
+    <use href="#icon-analyticshub" width="20" height="24"/>
+    <text x="24" y="16" class="gcp-label">Analytics Hub (data sharing)</text>
+  </g>
+
+  <!-- Data product boxes -->
+  <rect x="880" y="785" width="160" height="50" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <g transform="translate(888, 794)">
+    <use href="#icon-bigquery" width="16" height="20"/>
+  </g>
+  <text x="960" y="808" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Customer 360</text>
+  <text x="960" y="824" text-anchor="middle" font-size="10" fill="#999">BigQuery dataset</text>
+
+  <rect x="1060" y="785" width="160" height="50" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <g transform="translate(1068, 794)">
+    <use href="#icon-bigquery" width="16" height="20"/>
+  </g>
+  <text x="1140" y="808" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Risk Analytics</text>
+  <text x="1140" y="824" text-anchor="middle" font-size="10" fill="#999">BigQuery dataset</text>
+
+  <rect x="1240" y="785" width="160" height="50" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <g transform="translate(1248, 794)">
+    <use href="#icon-bigquery" width="16" height="20"/>
+  </g>
+  <text x="1320" y="808" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Regulatory</text>
+  <text x="1320" y="824" text-anchor="middle" font-size="10" fill="#999">BigQuery dataset</text>
+
+  <rect x="1420" y="785" width="160" height="50" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
+  <g transform="translate(1428, 794)">
+    <use href="#icon-bigquery" width="16" height="20"/>
+  </g>
+  <text x="1500" y="808" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">ML Features</text>
+  <text x="1500" y="824" text-anchor="middle" font-size="10" fill="#999">BigQuery dataset</text>
+
+  <!-- Arrow from Layer 5 to Layer 6 -->
+  <path d="M960,855 L960,885" class="arrow"/>
+  <path d="M1300,855 L1300,885" class="arrow"/>
+
+  <!-- ============ LAYER 6: AI/ML CONSUMPTION ============ -->
+  <rect x="120" y="890" width="1680" height="145" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="920" class="layer-label" fill="#999">LAYER 6</text>
+  <text x="220" y="920" class="layer-title" fill="#1a1a1a">AI / ML / Analytics Consumption</text>
+
+  <!-- Vertex AI (Training) -->
+  <g transform="translate(160, 942)">
+    <use href="#icon-vertexai" width="24" height="28"/>
+  </g>
+  <rect x="155" y="975" width="140" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="225" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#EA4335">Vertex AI</text>
+  <text x="225" y="1007" text-anchor="middle" font-size="10" fill="#999">Training / Serving</text>
+
+  <!-- Vertex AI Feature Store -->
+  <g transform="translate(345, 942)">
+    <use href="#icon-featurestore" width="24" height="28"/>
+  </g>
+  <rect x="330" y="975" width="160" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="410" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#EA4335">Vertex AI</text>
+  <text x="410" y="1007" text-anchor="middle" font-size="10" fill="#999">Feature Store</text>
+
+  <!-- BigQuery ML -->
+  <g transform="translate(545, 942)">
+    <use href="#icon-bqml" width="24" height="28"/>
+  </g>
+  <rect x="530" y="975" width="140" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="600" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">BigQuery ML</text>
+  <text x="600" y="1007" text-anchor="middle" font-size="10" fill="#999">In-warehouse ML</text>
+
+  <!-- Looker (BI) -->
+  <g transform="translate(725, 942)">
+    <use href="#icon-looker" width="24" height="28"/>
+  </g>
+  <rect x="710" y="975" width="140" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="780" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#4285F4">Looker</text>
+  <text x="780" y="1007" text-anchor="middle" font-size="10" fill="#999">BI / Dashboards</text>
+
+  <!-- Vertex AI Vector Search -->
+  <g transform="translate(905, 942)">
+    <use href="#icon-vectorsearch" width="24" height="28"/>
+  </g>
+  <rect x="890" y="975" width="165" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="972" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#EA4335">Vector Search</text>
+  <text x="972" y="1007" text-anchor="middle" font-size="10" fill="#999">Gen AI / RAG</text>
+
+  <!-- Notebooks (Colab Enterprise) -->
+  <g transform="translate(1110, 942)">
+    <use href="#icon-notebooks" width="24" height="28"/>
+  </g>
+  <rect x="1095" y="975" width="165" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1177" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#FBBC04">Colab Enterprise</text>
+  <text x="1177" y="1007" text-anchor="middle" font-size="10" fill="#999">Notebooks</text>
+
+  <!-- Regulatory / Self-Service -->
+  <rect x="1300" y="940" width="160" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1380" y="966" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Regulatory</text>
+  <text x="1380" y="983" text-anchor="middle" font-size="10" fill="#999">BCBS 239 / DORA</text>
+  <text x="1380" y="998" text-anchor="middle" font-size="10" fill="#999">Solvency II</text>
+
+  <!-- Data Apps / Reverse ETL -->
+  <rect x="1480" y="940" width="160" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1560" y="966" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Reverse ETL</text>
+  <text x="1560" y="983" text-anchor="middle" font-size="10" fill="#999">Operational Sync</text>
+  <text x="1560" y="998" text-anchor="middle" font-size="10" fill="#999">CRM Enrichment</text>
+
+  <!-- Self-Service -->
+  <rect x="1660" y="940" width="120" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
+  <text x="1720" y="966" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Self-Service</text>
+  <text x="1720" y="983" text-anchor="middle" font-size="10" fill="#999">SQL Analytics</text>
+  <text x="1720" y="998" text-anchor="middle" font-size="10" fill="#999">Ad-hoc Queries</text>
+
+  <!-- ============ FEEDBACK LOOPS ============ -->
+  <!-- Dashed arrow: Feature Store back to ODS (serving) -->
+  <path d="M410,940 L410,720 L780,720" class="arrow-dashed"/>
+  <text x="425" y="840" font-size="10" fill="#999" transform="rotate(-90, 425, 840)">serving</text>
+
+  <!-- Dashed arrow: Reverse ETL back to Source Systems -->
+  <path d="M1560,940 L1560,920 L1810,920 L1810,145 L1230,145" class="arrow-dashed"/>
+  <text x="1820" y="550" font-size="10" fill="#999" transform="rotate(-90, 1820, 550)">feedback loop</text>
+
+  <!-- ============ BOTTOM: ARCHITECTURE LEGEND ============ -->
+  <rect x="120" y="1055" width="1680" height="100" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
+  <text x="140" y="1080" font-size="12" font-weight="600" letter-spacing="0.06em" fill="#999">LEGEND</text>
+
+  <!-- Service color legend -->
+  <use href="#gcp-hex" x="240" y="1068" width="18" height="22"/>
+  <text x="264" y="1084" font-size="11" fill="#1a1a1a">Compute / Analytics / Storage</text>
+
+  <g transform="translate(455, 1068)">
+    <polygon points="9,0 18,5.25 18,15.75 9,21 0,15.75 0,5.25" fill="#34A853"/>
+  </g>
+  <text x="479" y="1084" font-size="11" fill="#1a1a1a">Governance / Catalog</text>
+
+  <g transform="translate(635, 1068)">
+    <polygon points="9,0 18,5.25 18,15.75 9,21 0,15.75 0,5.25" fill="#EA4335"/>
+  </g>
+  <text x="659" y="1084" font-size="11" fill="#1a1a1a">AI / ML / Security</text>
+
+  <g transform="translate(810, 1068)">
+    <polygon points="9,0 18,5.25 18,15.75 9,21 0,15.75 0,5.25" fill="#FBBC04"/>
+  </g>
+  <text x="834" y="1084" font-size="11" fill="#1a1a1a">Observability / Notebooks</text>
+
+  <!-- Arrow legend -->
+  <line x1="1020" y1="1079" x2="1070" y2="1079" stroke="#999" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="1080" y="1084" font-size="11" fill="#1a1a1a">Data flow</text>
+
+  <line x1="1170" y1="1079" x2="1220" y2="1079" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrowhead)"/>
+  <text x="1230" y="1084" font-size="11" fill="#1a1a1a">Feedback loop</text>
+
+  <!-- Medallion legend -->
+  <rect x="240" y="1100" width="40" height="14" rx="2" fill="#8d6e63"/>
+  <text x="288" y="1112" font-size="10" fill="#6b6b6b">Bronze (raw ingestion)</text>
+
+  <rect x="460" y="1100" width="40" height="14" rx="2" fill="#78909c"/>
+  <text x="508" y="1112" font-size="10" fill="#6b6b6b">Silver (curated)</text>
+
+  <rect x="640" y="1100" width="40" height="14" rx="2" fill="#c9a84c"/>
+  <text x="688" y="1112" font-size="10" fill="#6b6b6b">Gold (consumption)</text>
+
+  <!-- Operational vs Analytical note -->
+  <text x="900" y="1112" font-size="10" fill="#6b6b6b">Left branch: Operational (ms latency, ACID) | Right branch: Analytical (min-hrs, append-only, historical)</text>
+
+  <!-- Architecture attribution -->
+  <text x="1800" y="1140" text-anchor="end" font-size="9" fill="#ccc">enterprise-data-architecture</text>
+
+</svg>
