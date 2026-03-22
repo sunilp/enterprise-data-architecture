@@ -1,3 +1,7 @@
+---
+description: "Vendor evaluation framework for data platforms. 10 dimensions, evaluation template, three platform archetypes. Not a comparison -- a durable decision framework."
+---
+
 # Vendor Evaluation Framework
 
 ## Executive Summary

@@ -1,3 +1,7 @@
+---
+description: "Regulatory compliance patterns for data platforms. Cross-industry matrix mapping BCBS 239, DORA, HIPAA, and Solvency II to platform design decisions."
+---
+
 # Regulatory Compliance Patterns for Data Platforms
 
 ## Executive Summary

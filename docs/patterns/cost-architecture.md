@@ -1,3 +1,7 @@
+---
+description: "Cost architecture and FinOps for enterprise data platforms. EDP vs operational cost drivers, governance patterns, chargeback models, and anti-patterns."
+---
+
 # Cost Architecture for Data Platforms
 
 ## Executive Summary

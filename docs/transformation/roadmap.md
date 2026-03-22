@@ -1,3 +1,7 @@
+---
+description: "Data platform transformation roadmap. Four stages from current-state confusion to governed coexistence. Deliverables, owner roles, and common failures."
+---
+
 # Transformation Roadmap: From Confusion to Coexistence
 
 ## Executive Summary

@@ -1,3 +1,7 @@
+---
+description: "Insurance Solvency II compliance for data platforms. Three pillars and IFRS 17 data requirements mapped to EDP architecture with compliance checklist."
+---
+
 # Insurance: Solvency II
 
 ## Executive Summary

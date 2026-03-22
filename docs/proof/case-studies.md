@@ -1,3 +1,7 @@
+---
+description: "Three anonymized enterprise data architecture case studies. Insurance, banking, and healthcare transformations with failure modes and measurable outcomes."
+---
+
 # Case Studies
 
 The following case studies are anonymized composites drawn from real enterprise architecture patterns observed across financial services, healthcare, and insurance. Details have been altered to protect confidentiality, but the architectural failures, decision frameworks, and outcomes reflect actual engagements. If any of these sound familiar, that is the point -- these mistakes repeat across industries because the underlying anti-patterns are structural, not situational.

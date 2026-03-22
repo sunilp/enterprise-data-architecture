@@ -1,3 +1,7 @@
+---
+description: "Healthcare HIPAA compliance for data platforms. Privacy, security, and breach notification rules mapped to EDP design. PHI handling and de-identification."
+---
+
 # Healthcare: HIPAA
 
 ## Executive Summary

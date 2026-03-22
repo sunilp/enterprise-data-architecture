@@ -1,3 +1,7 @@
+---
+description: "Architecture decision record examples. Four worked ADRs: serving store, reverse ETL, online feature store, and workflow engine decisions."
+---
+
 # Architecture Decision Record Examples
 
 These worked examples show how the frameworks in this guide apply to real architecture decisions. Each follows the ADR format: context, decision drivers, options, decision, consequences.

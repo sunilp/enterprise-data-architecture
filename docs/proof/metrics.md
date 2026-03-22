@@ -1,3 +1,7 @@
+---
+description: "Before and after metrics for enterprise data architecture transformations. 13 dimensions covering latency, cost, compliance, ownership, and adoption."
+---
+
 # Metrics and Outcomes
 
 Before/after measurements from applying the frameworks in this guide. These represent patterns observed across enterprise architecture transformations in financial services, healthcare, and insurance.

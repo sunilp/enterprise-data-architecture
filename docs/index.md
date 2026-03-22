@@ -1,3 +1,7 @@
+---
+description: Enterprise data architecture guide with decision frameworks, reference blueprints, anti-patterns, compliance patterns, and operating models. For CIOs, CDOs, and enterprise architects separating data platforms from operational systems.
+---
+
 # Enterprise Data Architecture
 
 **For CIOs, CDOs, enterprise architects, and platform leaders** designing the boundary between analytical and operational systems.

@@ -1,3 +1,7 @@
+---
+description: "Capability maturity assessment for enterprise data platforms. 15 capabilities scored across 4 levels. Identify specific gaps and prioritize investment."
+---
+
 # Capability Maturity Assessment
 
 ## Executive Summary

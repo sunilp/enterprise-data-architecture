@@ -1,3 +1,7 @@
+---
+description: "Data mesh: when it works, when it fails, and the pragmatic middle ground. Decision framework for federated ownership on centralized infrastructure."
+---
+
 # Data Mesh: When It Works, When It Doesn't
 
 ## Executive Summary

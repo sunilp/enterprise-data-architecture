@@ -1,3 +1,7 @@
+---
+description: "Five integration patterns for EDP and operational platform coexistence. Event-driven ingestion, reverse ETL, feature serving, API access, and shared reference data."
+---
+
 # How EDP and Operational Platforms Coexist
 
 ## Executive Summary

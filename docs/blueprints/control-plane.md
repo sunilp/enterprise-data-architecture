@@ -1,3 +1,7 @@
+---
+description: "EDP control plane architecture. Metadata services, lineage engine, policy engine, contract registry, audit trail, and observability layer."
+---
+
 # EDP Control Plane
 
 ## Executive Summary

@@ -1,3 +1,7 @@
+---
+description: "Business capability map for enterprise data platforms. 15 capabilities mapped to platform owners -- EDP, operational, serving layer, or shared."
+---
+
 # Business Capability Map
 
 ## Executive Summary

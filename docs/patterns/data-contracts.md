@@ -1,3 +1,7 @@
+---
+description: "Data contracts for enterprise data platforms. Schema, SLAs, ownership, evolution rules, YAML example, enforcement patterns, and anti-patterns."
+---
+
 # Data Contracts
 
 ## Executive Summary

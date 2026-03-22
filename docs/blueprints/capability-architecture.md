@@ -1,3 +1,7 @@
+---
+description: "EDP capability architecture: 35+ capabilities across 7 groups. Data acquisition, management, processing, storage, access, governance, and observability."
+---
+
 # EDP Capability Architecture
 
 An enterprise data platform is not just a storage and transformation stack. It is a governed capability system with explicit operational, control, and service responsibilities.

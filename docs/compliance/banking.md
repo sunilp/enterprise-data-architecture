@@ -1,3 +1,7 @@
+---
+description: "Banking compliance for data platforms. BCBS 239 principles 3-6 and DORA articles mapped to EDP architecture decisions with compliance checklist."
+---
+
 # Banking: BCBS 239 and DORA
 
 ## Executive Summary

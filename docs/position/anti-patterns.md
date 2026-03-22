@@ -1,3 +1,7 @@
+---
+description: "Six enterprise data platform anti-patterns. What breaks when EDP becomes everything -- lakehouse as system of record, analytical SLAs for operations, and more."
+---
+
 # What Breaks When EDP Becomes Everything
 
 ## Executive Summary

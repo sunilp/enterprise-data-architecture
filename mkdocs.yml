@@ -1,6 +1,6 @@
 site_name: Enterprise Data Architecture
-site_url: https://sunilp.github.io/enterprise-data-architecture/
-site_description: Architecture position pack for enterprise data platforms -- strategy, blueprints, and decision frameworks
+site_url: https://sunilprakash.com/enterprise-data-architecture/
+site_description: Enterprise data architecture guide for CIOs, CDOs, and platform leaders. Decision frameworks, reference blueprints, anti-patterns, compliance patterns, and operating models for separating enterprise data platforms from operational systems.
 site_author: Sunil Prakash
 repo_url: https://github.com/sunilp/enterprise-data-architecture
 repo_name: sunilp/enterprise-data-architecture
@@ -35,6 +35,7 @@ plugins:
       minify_html: true
   - git-revision-date-localized:
       enable_creation_date: true
+  - social
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -51,6 +52,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+  - meta
 
 nav:
   - Home: index.md
@@ -98,6 +100,9 @@ extra:
       link: https://github.com/sunilp
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/sunilp
+  analytics:
+    provider: google
+    property: G-W485XRL1BS
 
 extra_css:
   - css/custom.css

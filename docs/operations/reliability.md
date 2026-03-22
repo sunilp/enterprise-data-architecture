@@ -1,3 +1,7 @@
+---
+description: "Platform reliability model for enterprise data platforms. SLOs, P1-P4 incident classification, recovery patterns, dependency management, post-mortems."
+---
+
 # Platform Reliability Model
 
 ## Executive Summary

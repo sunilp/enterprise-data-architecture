@@ -1,3 +1,7 @@
+---
+description: "What an enterprise data platform is and is not. Problems EDP solves, why bronze/silver/gold is not a business process layer, and the three systems doctrine."
+---
+
 # What an Enterprise Data Platform Is -- and What It Is Not
 
 ## Executive Summary

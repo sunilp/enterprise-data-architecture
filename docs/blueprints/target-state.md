@@ -1,3 +1,7 @@
+---
+description: "Seven-layer enterprise data architecture blueprint with GCP and Azure service mappings. Source systems through AI/ML consumption with cross-cutting governance."
+---
+
 # Target-State Enterprise Architecture
 
 ## Executive Summary

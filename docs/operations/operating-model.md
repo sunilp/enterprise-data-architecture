@@ -1,3 +1,7 @@
+---
+description: "EDP operating model. 7 roles, 8 processes (onboarding to deprecation), 13 KPIs, 4-tier support model. How to run the data platform as a product."
+---
+
 # Operating the Enterprise Data Platform
 
 A technically decent platform fails when there is no ownership, weak support model, no platform SLOs, unclear incident handling, poor cost governance, no release process, and unclear stewardship escalation. This page defines how the EDP is run.

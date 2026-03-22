@@ -1,3 +1,7 @@
+---
+description: "Side-by-side comparison of enterprise data platforms vs operational platforms across 12 dimensions. Latency, SLAs, storage, governance, cost, and workload examples."
+---
+
 # EDP vs Operational Platform
 
 ## Executive Summary

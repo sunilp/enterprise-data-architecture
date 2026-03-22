@@ -1,0 +1,74 @@
+# Enterprise Data Architecture
+
+> Enterprise data architecture guide for separating enterprise data platforms from operational systems. Decision frameworks, reference blueprints, anti-patterns, compliance patterns, and operating models.
+
+## Author
+
+Sunil Prakash - https://sunilprakash.com
+
+## Core Thesis
+
+Enterprise data platforms (EDP) exist to integrate, historize, and govern data for analytics, AI, and regulatory reporting. They are not operational platforms, transaction processing systems, or workflow engines. Most enterprise architecture failures happen when one platform is expected to serve all three system types: systems of record, systems of insight, and systems of action.
+
+## Sections
+
+### Position
+- [What EDP Is](https://sunilprakash.com/enterprise-data-architecture/position/what-edp-is/): Problems EDP solves and must not solve. Three Systems doctrine (record/insight/action). Bronze/silver/gold is data refinement, not business process.
+- [EDP vs Operational](https://sunilprakash.com/enterprise-data-architecture/position/edp-vs-operational/): Side-by-side comparison across 12 dimensions (purpose, latency, workload type, SLA, storage, governance, cost, scaling).
+- [Anti-Patterns](https://sunilprakash.com/enterprise-data-architecture/position/anti-patterns/): Six patterns that break when EDP becomes everything. Root cause is positioning, not technology.
+
+### Blueprints
+- [Target State Architecture](https://sunilprakash.com/enterprise-data-architecture/blueprints/target-state/): Seven-layer reference architecture with GCP and Azure service mappings.
+- [Capability Architecture](https://sunilprakash.com/enterprise-data-architecture/blueprints/capability-architecture/): 35+ capabilities across 7 groups that an EDP must provide.
+- [Control Plane](https://sunilprakash.com/enterprise-data-architecture/blueprints/control-plane/): Metadata, lineage, policy, contracts, audit trail, observability.
+- [AI/ML Platform](https://sunilprakash.com/enterprise-data-architecture/blueprints/ai-ml-platform/): How EDP feeds ML (feature stores, vector stores, feedback loops).
+- [Coexistence Patterns](https://sunilprakash.com/enterprise-data-architecture/blueprints/coexistence-patterns/): Five integration patterns for EDP and operational platform coexistence.
+
+### Decisions
+- [Decision Tree](https://sunilprakash.com/enterprise-data-architecture/decisions/decision-tree/): Flowchart for routing workloads to the right platform.
+- [Capability Map](https://sunilprakash.com/enterprise-data-architecture/decisions/capability-map/): 15 business capabilities mapped to platform owners.
+- [Data Mesh](https://sunilprakash.com/enterprise-data-architecture/decisions/data-mesh/): When data mesh works, when it fails, pragmatic middle ground.
+- [Maturity Model](https://sunilprakash.com/enterprise-data-architecture/decisions/maturity-model/): Five levels across six dimensions.
+- [Vendor Evaluation](https://sunilprakash.com/enterprise-data-architecture/decisions/vendor-framework/): 10-dimension evaluation framework with three platform archetypes.
+- [Capability Maturity](https://sunilprakash.com/enterprise-data-architecture/decisions/capability-maturity/): 15 capabilities x 4 maturity levels assessment.
+
+### Patterns
+- [Data Contracts](https://sunilprakash.com/enterprise-data-architecture/patterns/data-contracts/): Schema, SLAs, ownership, evolution rules between producers and consumers.
+- [Cost Architecture](https://sunilprakash.com/enterprise-data-architecture/patterns/cost-architecture/): FinOps patterns for data platforms.
+
+### Compliance
+- [Overview](https://sunilprakash.com/enterprise-data-architecture/compliance/overview/): Cross-industry regulatory matrix mapped to platform design decisions.
+- [Banking](https://sunilprakash.com/enterprise-data-architecture/compliance/banking/): BCBS 239 and DORA mapped to architecture.
+- [Healthcare](https://sunilprakash.com/enterprise-data-architecture/compliance/healthcare/): HIPAA mapped to data platform design.
+- [Insurance](https://sunilprakash.com/enterprise-data-architecture/compliance/insurance/): Solvency II and IFRS 17 requirements.
+
+### Operations
+- [Operating Model](https://sunilprakash.com/enterprise-data-architecture/operations/operating-model/): 7 roles, 8 processes, 13 KPIs, 4-tier support model.
+- [Reliability Model](https://sunilprakash.com/enterprise-data-architecture/operations/reliability/): Platform SLOs, incident classification, recovery patterns.
+
+### Transformation
+- [Roadmap](https://sunilprakash.com/enterprise-data-architecture/transformation/roadmap/): Four stages (NOW/GAP/NEXT/FUTURE) from confusion to governed coexistence.
+
+### Proof
+- [Case Studies](https://sunilprakash.com/enterprise-data-architecture/proof/case-studies/): Three anonymized enterprise transformations (insurance, banking, healthcare).
+- [Evidence Tables](https://sunilprakash.com/enterprise-data-architecture/proof/evidence/): Six core claims with counter-arguments, failure modes, measurable outcomes.
+- [Decision Records](https://sunilprakash.com/enterprise-data-architecture/proof/decision-records/): Four worked ADR examples.
+- [Metrics](https://sunilprakash.com/enterprise-data-architecture/proof/metrics/): Before/after measurements across 13 dimensions.
+- [Checklists](https://sunilprakash.com/enterprise-data-architecture/proof/checklists/): Five operational checklists for architecture review boards.
+
+### Reference
+- [Glossary](https://sunilprakash.com/enterprise-data-architecture/glossary/): 14 terms with definitions and architecture layer mapping.
+
+## Key Concepts
+
+- Enterprise Data Platform (EDP): Integrated analytical platform for historized, governed data across business domains
+- Operational Platform: Systems that run live business operations (transactions, workflows, APIs)
+- Serving Layer: Low-latency infrastructure between EDP data products and operational consumers
+- Data Products: Governed datasets with defined schema, SLA, quality contract, and ownership
+- Bronze/Silver/Gold: Data refinement stages (raw/curated/consumption), not business process stages
+- Control Plane: Metadata, lineage, policy, contracts, audit -- governs the data plane
+- Governed Coexistence: Target state where analytical and operational platforms connect through well-defined integration patterns
+
+## License
+
+CC BY 4.0

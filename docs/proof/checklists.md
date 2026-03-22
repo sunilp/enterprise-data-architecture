@@ -1,3 +1,7 @@
+---
+description: "Architecture review checklists. Workload classification, platform boundary review, serving readiness, contract readiness, and compliance readiness."
+---
+
 # Architecture Review Checklists
 
 Operational checklists for architecture review boards, platform teams, and transformation offices. Print them. Use them in review meetings. They are designed to surface misplaced workloads and unclear boundaries before they become expensive.

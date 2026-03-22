@@ -1,3 +1,7 @@
+---
+description: "Evidence tables for enterprise data architecture claims. Six core theses with counter-arguments, failure signals, recommended patterns, and outcomes."
+---
+
 # Evidence Tables
 
 For each major thesis in this guide, these tables show the claim, why teams believe the opposite, what breaks, how to detect the problem, the recommended pattern, and measurable outcomes.

@@ -1,3 +1,7 @@
+---
+description: "Enterprise data architecture glossary. 14 terms defined with disambiguation and target-state architecture layer mapping. EDP, data products, ODS, and more."
+---
+
 # Glossary
 
 Precise definitions for terms that are commonly confused, conflated, or misused in enterprise data architecture. Each term includes what it is, what it is not, and where it fits in the [target-state architecture](blueprints/target-state.md).

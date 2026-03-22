@@ -1,3 +1,7 @@
+---
+description: "Data platform maturity model. Five levels (ad hoc to optimized) across six dimensions. Assessment table for leadership to identify current state and target."
+---
+
 # Data Platform Maturity Model
 
 ## Executive Summary

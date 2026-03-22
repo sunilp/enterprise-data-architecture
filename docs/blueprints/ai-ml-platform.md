@@ -1,3 +1,7 @@
+---
+description: "How enterprise data platforms feed AI and ML. Feature stores, vector stores, model training vs serving, feedback loops, and why querying the lakehouse breaks."
+---
+
 # How the Enterprise Data Platform Feeds AI and ML
 
 ## Executive Summary

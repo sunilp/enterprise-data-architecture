@@ -1,3 +1,7 @@
+---
+description: "Where does this workload belong? Decision tree flowchart for routing workloads to EDP, operational platform, or serving layer. 15 worked examples."
+---
+
 # Where Does This Workload Belong?
 
 ## Executive Summary
