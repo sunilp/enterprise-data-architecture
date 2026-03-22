@@ -309,6 +309,19 @@
   font-family: var(--md-text-font);
 }
 
+/* ---- Proof Strip ---- */
+.proof-strip {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding: 10px 0;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
 /* ---- Smooth Transitions ---- */
 a,
 .md-nav__link,
