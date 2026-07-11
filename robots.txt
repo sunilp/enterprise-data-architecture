@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sunilprakash.com/enterprise-data-architecture/sitemap.xml
+Sitemap: https://sunilprakash.com/enterprise-data-architecture/sitemap-index.xml
