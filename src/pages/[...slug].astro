@@ -8,9 +8,14 @@ export async function getStaticPaths() {
 }
 
 const { doc } = Astro.props;
-const { Content, headings } = await render(doc);
+const { Content, headings, remarkPluginFrontmatter } = await render(doc);
 ---
 
-<DocLayout slug={doc.id} description={doc.data.description} headings={headings}>
+<DocLayout
+  slug={doc.id}
+  description={doc.data.description}
+  headings={headings}
+  pageTitle={remarkPluginFrontmatter?.pageTitle}
+>
   <Content />
 </DocLayout>

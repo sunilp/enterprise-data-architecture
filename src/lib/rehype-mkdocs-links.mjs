@@ -10,6 +10,12 @@ import path from 'node:path';
 
 const BASE = '/enterprise-data-architecture';
 
+function collectText(node) {
+  if (node.type === 'text') return node.value;
+  if (Array.isArray(node.children)) return node.children.map(collectText).join('');
+  return '';
+}
+
 export function rehypeMkdocsLinks() {
   return (tree, file) => {
     const src = file.history?.[0] ?? file.path ?? '';
@@ -21,6 +27,20 @@ export function rehypeMkdocsLinks() {
     // stage; rewrite their relative image paths textually.
     visit(tree, 'raw', (node) => {
       node.value = node.value.replaceAll('src="../images/', `src="${BASE}/images/`);
+    });
+
+    // The layout renders the page title itself, so lift the markdown's own
+    // h1 out of the body (stashing its text for the layout to display).
+    let removed = false;
+    visit(tree, 'element', (node, index, parent) => {
+      if (!removed && node.tagName === 'h1' && parent && typeof index === 'number') {
+        const text = collectText(node);
+        file.data.astro ??= {};
+        file.data.astro.frontmatter ??= {};
+        file.data.astro.frontmatter.pageTitle = text;
+        parent.children.splice(index, 1);
+        removed = true;
+      }
     });
 
     visit(tree, 'element', (node) => {

@@ -10,22 +10,24 @@ interface Props {
   slug: string;
   description?: string;
   headings: MarkdownHeading[];
+  pageTitle?: string;
 }
 
-const { slug, description, headings } = Astro.props;
+const { slug, description, headings, pageTitle } = Astro.props;
 const page = findPage(slug);
 const section = sectionFor(slug);
-const title = page?.title ?? slug;
+const navTitle = page?.title ?? slug;
+const title = pageTitle ?? navTitle;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={navTitle} description={description}>
   <div class="doc container">
     <aside class="doc__sidenav">
       <SectionNav currentSlug={slug} />
     </aside>
     <main class="doc__main">
       <p class="doc__breadcrumb rubric">
-        {section && section.label !== title ? `${section.label} / ${title}` : title}
+        {section && section.label !== navTitle ? `${section.label} / ${navTitle}` : navTitle}
       </p>
       <h1 class="doc__title">{title}</h1>
       {description && <p class="dek doc__dek">{description}</p>}

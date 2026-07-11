@@ -2,7 +2,7 @@
 
 > Architecture position pack for enterprise data platforms -- strategy, blueprints, and decision frameworks for data architects and technology leaders.
 
-<!-- Hero image placeholder: ![Target State Architecture](docs/images/hero-target-state.svg) -->
+Live at [sunilprakash.com/enterprise-data-architecture](https://sunilprakash.com/enterprise-data-architecture/). Built with Astro; content lives in `docs/` as plain markdown.
 
 ## Who This Is For
 
@@ -18,7 +18,7 @@
 | [Anti-Patterns](https://sunilp.github.io/enterprise-data-architecture/position/anti-patterns/) | What breaks when EDP becomes everything |
 | [Target State Blueprint](https://sunilp.github.io/enterprise-data-architecture/blueprints/target-state/) | Layered enterprise architecture with cloud-specific variants |
 | [AI/ML Platform](https://sunilp.github.io/enterprise-data-architecture/blueprints/ai-ml-platform/) | How EDP feeds the ML/AI world |
-| [Glossary](https://sunilp.github.io/enterprise-data-architecture/glossary/) | Precise definitions for 14 commonly confused terms |
+| [Glossary](https://sunilp.github.io/enterprise-data-architecture/glossary/) | Precise definitions for 20 commonly confused terms |
 
 ## Related Repositories
 
@@ -32,9 +32,9 @@ This repo is the **strategy layer**. The repos above are the **implementation la
 ## Local Development
 
 ```bash
-pip install -r requirements.txt
-mkdocs serve
-# Open http://localhost:8000
+npm install
+npm run dev
+# Open http://localhost:4321/enterprise-data-architecture/
 ```
 
 ## License
