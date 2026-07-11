@@ -54,11 +54,11 @@ Enterprise data platforms (EDP) exist to integrate, historize, and govern data f
 ### Transformation
 - [Roadmap](https://sunilprakash.com/enterprise-data-architecture/transformation/roadmap/): Four stages (NOW/GAP/NEXT/FUTURE) from confusion to governed coexistence.
 
-### Proof
+### Evidence
 - [Case Studies](https://sunilprakash.com/enterprise-data-architecture/proof/case-studies/): Three illustrative composite transformations (insurance, banking, healthcare).
 - [Evidence Tables](https://sunilprakash.com/enterprise-data-architecture/proof/evidence/): Six core claims with counter-arguments, failure modes, measurable outcomes.
 - [Decision Records](https://sunilprakash.com/enterprise-data-architecture/proof/decision-records/): Four worked ADR examples.
-- [Metrics](https://sunilprakash.com/enterprise-data-architecture/proof/metrics/): Target ranges across 13 dimensions with guidance on what to measure.
+- [Metrics](https://sunilprakash.com/enterprise-data-architecture/proof/metrics/): Target ranges across 13 dimensions with what to measure and the preconditions each target depends on.
 - [Checklists](https://sunilprakash.com/enterprise-data-architecture/proof/checklists/): Five operational checklists for architecture review boards.
 
 ### Reference

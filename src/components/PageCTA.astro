@@ -1,0 +1,33 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<p class="page-cta">
+  Using this framework for an architecture review or a target-state design? Start with the
+  <a href={`${base}/proof/checklists/`}>review checklists</a>, open an
+  <a href="https://github.com/sunilp/enterprise-data-architecture/issues">issue on GitHub</a>, or
+  reach the author at <a href="mailto:sunil@sunilprakash.com">sunil@sunilprakash.com</a>.
+</p>
+
+<style>
+  .page-cta {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--body-2);
+    color: var(--fg-light);
+    background: var(--navy-wash);
+    border-left: 3px solid var(--navy);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+    margin-top: var(--space-7);
+  }
+
+  .page-cta a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-color: var(--navy);
+    text-underline-offset: 3px;
+  }
+
+  .page-cta a:hover { color: var(--navy); }
+</style>

@@ -82,8 +82,8 @@ export const SECTIONS: NavSection[] = [
     pages: [{ title: 'Roadmap', slug: 'transformation/roadmap' }],
   },
   {
-    label: 'Proof',
-    description: 'Illustrative case studies, evidence tables, worked ADRs, target metrics, and review checklists.',
+    label: 'Evidence',
+    description: 'Worked examples, evidence tables, target metrics, and review checklists, each labeled by provenance.',
     pages: [
       { title: 'Case Studies', slug: 'proof/case-studies' },
       { title: 'Evidence Tables', slug: 'proof/evidence' },

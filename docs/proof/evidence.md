@@ -4,7 +4,9 @@ description: "Evidence tables for enterprise data architecture claims. Six core 
 
 # Evidence Tables
 
-For each major thesis in this guide, these tables show the claim, why teams believe the opposite, what breaks, how to detect the problem, the recommended pattern, and what good looks like. The last row of each table is a target to hold your platform to, not a reported result.
+This section of the guide deals in three kinds of evidence, and every page says which it is using. **Published sources**: regulatory text, cloud architecture guidance, and specifications, cited where used. **Practitioner observation**: recurring failure patterns and review findings from inside large regulated enterprises, stated as experience rather than measurement. **Illustrative application**: composite cases, worked ADRs, and target ranges that show the frameworks in use. None of it is presented as audited outcomes, and the distinction is the point: a guide that blurs these categories cannot be trusted on any of them.
+
+For each major thesis in this guide, the tables below show the claim, why teams believe the opposite, what breaks, how to detect the problem, the recommended pattern, and what good looks like. The last row of each table is a target to hold your platform to, not a reported result. Provenance: author position, informed by practitioner observation.
 
 ---
 

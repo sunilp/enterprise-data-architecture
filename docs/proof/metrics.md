@@ -4,23 +4,23 @@ description: "Target ranges for enterprise data architecture transformations. 13
 
 # Metrics and Outcomes
 
-Target ranges an architecture review should expect when the boundaries in this guide are enforced. These are directional planning numbers, not measured results. Use them to set expectations and to decide what to baseline before a transformation starts, not to report outcomes you have not measured.
+Target ranges an architecture review should expect when the boundaries in this guide are enforced. These are directional planning numbers, not measured results. Use them to set expectations and to decide what to baseline before a transformation starts, not to report outcomes you have not measured. The preconditions column is the honest part: none of these targets arrive without the intervention that produces them.
 
-| Metric | Typical before (EDP as everything) | Target after (governed coexistence) | What to measure |
-|---|---|---|---|
-| Customer-facing API p99 latency | Seconds (warehouse query) | Tens of milliseconds (serving store) | p99 per endpoint, daily |
-| Platform team time on unplanned work | More than half | Under a quarter | Planned vs unplanned time split, monthly |
-| Analytical query performance during business hours | Degraded by operational load | Stable, predictable | Query runtimes during and outside operational peaks |
-| Monthly platform cost growth | Uncontrolled, compounding | Governed, tracking data growth | Cost growth vs data volume growth |
-| Regulatory audit preparation | Weeks | Days | Time from regulator request to evidence package |
-| End-to-end data lineage coverage | Partial, manually documented | Near-complete, automated | Share of data products with automated lineage |
-| Mean time to identify data owner | Days (ask around) | Minutes (catalog lookup) | Time from question to named owner |
-| Cross-domain analytics delivery | Months | Weeks | Request-to-delivery lead time |
-| Unplanned downstream breakages from schema changes | Several per quarter | Near zero (with contracts) | Breakages traced to upstream changes, quarterly |
-| Data product discoverability | Tribal knowledge | Searchable catalog | Share of products findable via catalog search |
-| ML feature reuse across models | None (every model recomputes) | Majority served from a shared feature store | Share of production features served from the store |
-| Incident priority conflicts (analytics vs operations) | Weekly | Rare (separate SLAs) | Conflicts logged per month |
-| Platform SLA for operational consumers | Analytical grade (99.5%) | Operational grade (99.9%+) | SLA attainment per consumer class |
+| Metric | Typical before (EDP as everything) | Target after (governed coexistence) | What to measure | Preconditions |
+|---|---|---|---|---|
+| Customer-facing API p99 latency | Seconds (warehouse query) | Tens of milliseconds (serving store) | p99 per endpoint, daily | Indexed serving store in place; no synchronous warehouse dependency in the request path |
+| Platform team time on unplanned work | More than half | Under a quarter | Planned vs unplanned time split, monthly | Boundary published and enforced; misplaced workloads migrated or scheduled |
+| Analytical query performance during business hours | Degraded by operational load | Stable, predictable | Query runtimes during and outside operational peaks | Operational reads moved to serving layer; workload isolation configured |
+| Monthly platform cost growth | Uncontrolled, compounding | Governed, tracking data growth | Cost growth vs data volume growth | Query limits, storage tiering, and chargeback in place |
+| Regulatory audit preparation | Weeks | Days | Time from regulator request to evidence package | Automated lineage, retained quality history, named data owners |
+| End-to-end data lineage coverage | Partial, manually documented | Near-complete, automated | Share of data products with automated lineage | Lineage captured from pipeline metadata, not documented by hand |
+| Mean time to identify data owner | Days (ask around) | Minutes (catalog lookup) | Time from question to named owner | Ownership registry maintained; every product has a named owner |
+| Cross-domain analytics delivery | Months | Weeks | Request-to-delivery lead time | Shared platform with governed, documented data products per domain |
+| Unplanned downstream breakages from schema changes | Several per quarter | Near zero (with contracts) | Breakages traced to upstream changes, quarterly | Contracts enforced in CI/CD; consumer registration and impact analysis |
+| Data product discoverability | Tribal knowledge | Searchable catalog | Share of products findable via catalog search | Catalog populated automatically; stewards assigned per domain |
+| ML feature reuse across models | None (every model recomputes) | Majority served from a shared feature store | Share of production features served from the store | Feature store operational; feature definitions versioned and governed |
+| Incident priority conflicts (analytics vs operations) | Weekly | Rare (separate SLAs) | Conflicts logged per month | Separate failure domains and on-call; SLAs per consumer class |
+| Platform SLA for operational consumers | Analytical grade (99.5%) | Operational grade (99.9%+) | SLA attainment per consumer class | Operational consumers served from operational-grade infrastructure |
 
 ## How to Measure Your Own Baseline
 
