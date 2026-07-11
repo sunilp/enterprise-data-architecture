@@ -18,6 +18,7 @@ Enterprise data platforms (EDP) exist to integrate, historize, and govern data f
 - [Anti-Patterns](https://sunilprakash.com/enterprise-data-architecture/position/anti-patterns/): Six patterns that break when EDP becomes everything. Root cause is positioning, not technology.
 - [EDP Is Not an ODS](https://sunilprakash.com/enterprise-data-architecture/position/edp-is-not-an-ods/): Why the EDP gets mistaken for an operational data store, five differences that bite (freshness, mutation, latency, failure domain, consistency), and the fix.
 - [The New Data Architecture](https://sunilprakash.com/enterprise-data-architecture/position/new-data-architecture/): The four 2026 shifts (open formats and catalogs, operational-analytical convergence, agents as consumers, AI data as regulated evidence) and what did not change.
+- [Convergence and Exceptions](https://sunilprakash.com/enterprise-data-architecture/position/convergence-and-exceptions/): Capability convergence vs contract convergence; the decision matrix for when direct analytical-platform access is legitimate; what must not blur on converged platforms.
 
 ### Blueprints
 - [Target State Architecture](https://sunilprakash.com/enterprise-data-architecture/blueprints/target-state/): Seven-layer reference architecture with GCP, Azure, and AWS service mappings.
@@ -26,6 +27,7 @@ Enterprise data platforms (EDP) exist to integrate, historize, and govern data f
 - [AI/ML Platform](https://sunilprakash.com/enterprise-data-architecture/blueprints/ai-ml-platform/): How EDP feeds AI, from feature stores to the LLM data supply chain (RAG corpora, embedding pipelines, fine-tuning datasets).
 - [Agents as Consumers](https://sunilprakash.com/enterprise-data-architecture/blueprints/agent-access/): AI agents as a consumer class. MCP, semantic layer as agent interface, governed text-to-SQL, agent identity and audit.
 - [Coexistence Patterns](https://sunilprakash.com/enterprise-data-architecture/blueprints/coexistence-patterns/): Five integration patterns for EDP and operational platform coexistence.
+- [The Serving Layer](https://sunilprakash.com/enterprise-data-architecture/blueprints/serving-layer/): Four serving shapes (API facade, read model, online feature store, search/vector index), feeding patterns, SLO regime, and the operational destination taxonomy.
 
 ### Decisions
 - [Decision Tree](https://sunilprakash.com/enterprise-data-architecture/decisions/decision-tree/): Flowchart for routing workloads to the right platform.
@@ -54,11 +56,11 @@ Enterprise data platforms (EDP) exist to integrate, historize, and govern data f
 ### Transformation
 - [Roadmap](https://sunilprakash.com/enterprise-data-architecture/transformation/roadmap/): Four stages (NOW/GAP/NEXT/FUTURE) from confusion to governed coexistence.
 
-### Proof
+### Evidence
 - [Case Studies](https://sunilprakash.com/enterprise-data-architecture/proof/case-studies/): Three illustrative composite transformations (insurance, banking, healthcare).
 - [Evidence Tables](https://sunilprakash.com/enterprise-data-architecture/proof/evidence/): Six core claims with counter-arguments, failure modes, measurable outcomes.
 - [Decision Records](https://sunilprakash.com/enterprise-data-architecture/proof/decision-records/): Four worked ADR examples.
-- [Metrics](https://sunilprakash.com/enterprise-data-architecture/proof/metrics/): Target ranges across 13 dimensions with guidance on what to measure.
+- [Metrics](https://sunilprakash.com/enterprise-data-architecture/proof/metrics/): Target ranges across 13 dimensions with what to measure and the preconditions each target depends on.
 - [Checklists](https://sunilprakash.com/enterprise-data-architecture/proof/checklists/): Five operational checklists for architecture review boards.
 
 ### Reference
