@@ -4,13 +4,7 @@ description: "Platform reliability model for enterprise data platforms. SLOs, P1
 
 # Platform Reliability Model
 
-## Executive Summary
-
-- Reliability for a data platform is not uptime. It is data freshness, pipeline success, query availability, and recovery speed -- measured against explicit SLOs.
-- Every data product must have a defined SLA. The platform must have SLOs that ensure those SLAs are achievable.
-- Incident classification must distinguish between platform-wide failures, critical data product issues, and non-critical operational noise.
-- Recovery is deterministic when source data is immutable. Bronze-layer preservation makes reprocessing a pattern, not a prayer.
-- Post-incident process is not optional. Every P1 and P2 incident gets a blameless post-mortem with root cause classification, action items, and runbook updates.
+Reliability for a data platform is not uptime. It is data freshness, pipeline success, query availability, and recovery speed, measured against explicit SLOs. Every data product carries a defined SLA, the platform carries SLOs that make those SLAs achievable, and every P1 and P2 incident ends in a blameless post-mortem with root cause classification and runbook updates.
 
 ```mermaid
 graph TD
@@ -42,11 +36,11 @@ SLOs define what "reliable" means. Without them, reliability is a feeling, not a
 | Recovery time (P1) | < 2 hours | Time from detection to resolution for platform-wide incidents |
 | Recovery time (P2) | < 4 hours | Time from detection to resolution for critical product incidents |
 
-**Key principle:** SLOs are not aspirations. They are commitments with error budgets. When the error budget is consumed, the team stops feature work and focuses on reliability. If leadership does not enforce this, SLOs are decorative.
+SLOs are commitments with error budgets, not aspirations. When the error budget is consumed, the team stops feature work and focuses on reliability; if leadership does not enforce this, SLOs are decorative.
 
 ### SLO Measurement Rules
 
-- Pipeline success rate excludes intentionally disabled pipelines. It includes retries -- a pipeline that fails twice and succeeds on the third attempt counts as one failure and one success.
+- Pipeline success rate excludes intentionally disabled pipelines. It includes retries: a pipeline that fails twice and succeeds on the third attempt counts as one failure and one success.
 - Data freshness is measured continuously, not at a point in time. A product that is within SLA for 23 hours and stale for 1 hour has a freshness breach.
 - Query availability counts only platform-caused failures. A malformed user query that returns an error is not an availability failure.
 
@@ -72,7 +66,7 @@ Recovery is not improvised. Each failure mode maps to a known recovery pattern.
 
 ### Reprocessing
 
-Replay from bronze. Source data in the landing zone is immutable, so recovery is deterministic -- the same input produces the same output. This is why bronze-layer immutability is a non-negotiable architectural principle.
+Replay from bronze. Source data in the landing zone is immutable, so recovery is deterministic: the same input produces the same output. This is why bronze-layer immutability is a non-negotiable architectural principle.
 
 | Consideration | Detail |
 |---|---|
@@ -94,7 +88,7 @@ Re-ingest from source for a specific time window. Used when bronze data itself i
 
 ### Rollback
 
-Revert to a previous version of a data product -- both schema and data. This is table-level time travel, not pipeline rollback.
+Revert to a previous version of a data product, both schema and data. This is table-level time travel, not pipeline rollback.
 
 | Consideration | Detail |
 |---|---|
@@ -143,7 +137,7 @@ Stop processing when upstream quality drops below an acceptable threshold. This 
 - **Trigger:** Upstream data fails quality checks (null rate spike, volume anomaly, schema drift) beyond a configured threshold.
 - **Action:** Halt downstream processing for that source, serve last-known-good data, alert data steward and source team.
 - **Reset:** Manual or automatic after upstream quality is restored and validated. Never auto-reset without quality validation.
-- **Key principle:** It is better to serve stale data with a freshness warning than to serve wrong data silently. The circuit breaker enforces this.
+- **Why:** it is better to serve stale data with a freshness warning than to serve wrong data silently. The circuit breaker enforces this.
 
 ## Post-Incident Process
 
@@ -177,7 +171,7 @@ Every post-mortem produces action items. Every action item has an owner, a deadl
 
 - **Runbook update:** If this failure mode was not in the runbook, add it. If the runbook was wrong, fix it.
 - **Monitoring gap:** If detection was slow, add the missing alert or dashboard.
-- **Architectural fix:** If the failure was structural, schedule the fix with a deadline -- do not leave it as tech debt without a timeline.
+- **Architectural fix:** If the failure was structural, schedule the fix with a deadline; do not leave it as tech debt without a timeline.
 - **Process change:** If the failure was procedural, update the process and communicate the change.
 
-**Key principle:** A post-mortem without action items is a storytelling session. Action items without deadlines are wishes. Deadlines without owners are fiction.
+A post-mortem without action items is a storytelling session. Assign every item an owner and a deadline before the meeting ends.

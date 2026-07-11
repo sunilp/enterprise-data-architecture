@@ -14,7 +14,7 @@ Data refinement stages within the EDP: raw ingestion (bronze), cleansed and conf
 
 ### Data Fabric
 
-A vendor-marketed architectural approach emphasizing metadata-driven data integration across distributed systems. **Not:** a single product or platform. Not the same as data mesh. Included here for disambiguation -- this guide does not prescribe data fabric as a pattern.
+A vendor-marketed architectural approach emphasizing metadata-driven data integration across distributed systems. **Not:** a single product or platform. Not the same as data mesh. Included here for disambiguation; this guide does not prescribe data fabric as a pattern.
 
 ### Data Lake
 
@@ -22,7 +22,7 @@ A storage system for raw, unprocessed data in native formats (Parquet, JSON, CSV
 
 ### Data Mesh
 
-An organizational model for decentralized data ownership where domain teams own and publish data products. **Not:** a technology platform. Not a replacement for centralized infrastructure. See [Data Mesh positioning](decisions/data-mesh.md) for detailed treatment. **Architecture layer:** organizational overlay across Layers 4--5.
+An organizational model for decentralized data ownership where domain teams own and publish data products. **Not:** a technology platform. Not a replacement for centralized infrastructure. See [Data Mesh positioning](decisions/data-mesh.md) for detailed treatment. **Architecture layer:** organizational overlay across Layers 4-5.
 
 ### Data Products
 

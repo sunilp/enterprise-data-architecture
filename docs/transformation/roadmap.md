@@ -6,13 +6,11 @@ description: "Data platform transformation roadmap. Four stages from current-sta
 
 ## Executive Summary
 
-- Most enterprises are not starting from zero. They have an existing data platform with misaligned expectations, overloaded scope, and stakeholders who believe the platform should do everything.
-- The roadmap is four stages: understand the current state, identify the gaps, introduce boundaries, mature the architecture.
-- This is not a technology migration plan. It is a positioning and architecture evolution plan. No vendor will solve this for you.
-- The hardest part is not building new platforms. It is convincing stakeholders that the existing platform's scope needs to change.
-- Each stage is independently valuable. You do not need to complete all four to see improvement.
+- Four stages: understand the current state, quantify the gaps, introduce boundaries, mature into governed coexistence.
+- This is a positioning and architecture evolution plan, not a technology migration. The hardest part is convincing stakeholders that the existing platform's scope needs to change.
+- Each stage is independently valuable; you do not need to complete all four to see improvement.
 
-## Stage 1: NOW -- Understand Current State
+## Stage 1 (NOW): Understand Current State
 
 This is where most enterprises are. The platform exists, workloads are running, and nobody has a clear inventory of what is actually happening on it.
 
@@ -35,17 +33,17 @@ This is where most enterprises are. The platform exists, workloads are running, 
 
 ### Practical Steps
 
-**Interview the platform team.** Ask one question: "What keeps you up at night?" The answer will point directly to the misplaced workloads. Platform engineers know which workloads do not belong -- they just have not been given permission to say no.
+**Interview the platform team.** Ask one question: "What keeps you up at night?" The answer will point directly to the misplaced workloads. Platform engineers know which workloads do not belong; they just have not been given permission to say no.
 
-**Review incident history.** Pull the last 12 months of platform incidents. Categorize each one: was the root cause a genuinely analytical workload failing, or was it a misplaced workload consuming resources it was never designed to consume? In most enterprises, 60-80% of platform incidents trace back to workloads that do not belong there.
+**Review incident history.** Pull the last 12 months of platform incidents. Categorize each one: was the root cause a genuinely analytical workload failing, or was it a misplaced workload consuming resources it was never designed to consume? In most enterprises, a large share of platform incidents traces back to workloads that do not belong there.
 
 **Map consumers.** For every workload, answer three questions: who queries it, for what purpose, and at what frequency? A gold-layer table queried once a day for a dashboard is healthy. The same table hit 10,000 times per second by a customer-facing API is a fire.
 
 ### Stage 1 Deliverables
 
-- **Workload inventory spreadsheet** -- classify each workload as analytical, operational, hybrid, or misplaced
-- **Risk heat map** -- which misplaced workloads cause the most platform stress (compute contention, SLA breaches, incident frequency)
-- **Stakeholder expectation document** -- what leadership thinks the platform does vs what it actually does
+- **Workload inventory spreadsheet:** classify each workload as analytical, operational, hybrid, or misplaced
+- **Risk heat map:** which misplaced workloads cause the most platform stress (compute contention, SLA breaches, incident frequency)
+- **Stakeholder expectation document:** what leadership thinks the platform does vs what it actually does
 
 ### Deliverable
 
@@ -53,7 +51,7 @@ A workload inventory with classification and risk assessment. One document. Ever
 
 ---
 
-## Stage 2: GAP -- Identify Misalignments
+## Stage 2 (GAP): Identify Misalignments
 
 You now know what is running and where. This stage quantifies the cost of misalignment and prioritizes what to fix first.
 
@@ -65,7 +63,7 @@ You now know what is running and where. This stage quantifies the cost of misali
 
 **Quantify the cost of misalignment.** Put numbers on it:
 
-- **SLA breaches.** How many times did the platform miss its SLA because a misplaced workload consumed resources? Track the downstream impact -- delayed reports, failed regulatory submissions, missed business decisions.
+- **SLA breaches.** How many times did the platform miss its SLA because a misplaced workload consumed resources? Track the downstream impact: delayed reports, failed regulatory submissions, missed business decisions.
 - **Performance degradation.** What is the query performance delta when misplaced workloads are active vs inactive? If your BI queries run 3x slower during API-serving peak hours, that is a quantifiable cost.
 - **Support burden.** How much platform team time goes to supporting workloads that do not fit? Every hour spent tuning the EDP for operational workloads is an hour not spent improving analytical capabilities.
 - **Infrastructure cost.** What does it cost to overprovision the EDP to handle workloads it was not designed for? Over-sizing compute clusters to absorb operational load is a direct, measurable expense.
@@ -78,7 +76,7 @@ A gap analysis with a prioritized remediation list. Each misplaced workload gets
 
 ---
 
-## Stage 3: NEXT -- Introduce Boundaries
+## Stage 3 (NEXT): Introduce Boundaries
 
 This is the hard stage. Stages 1 and 2 are analysis. Stage 3 is organizational change.
 
@@ -88,7 +86,7 @@ This is the hard stage. Stages 1 and 2 are analysis. Stage 3 is organizational c
 
 **Publish the boundary.** Create an explicit list: these workloads belong on the EDP, these do not. Reference the [EDP vs Operational](../position/edp-vs-operational.md) comparison so stakeholders understand the reasoning, not just the ruling.
 
-**Introduce the operational platform or serving layer.** Misplaced workloads need somewhere to go. Standing up the operational platform before migrating workloads is not premature -- it is a prerequisite. You cannot tell teams to move their workloads if there is nowhere to move them.
+**Introduce the operational platform or serving layer.** Misplaced workloads need somewhere to go. Standing up the operational platform before migrating workloads is not premature; it is a prerequisite. You cannot tell teams to move their workloads if there is nowhere to move them.
 
 **Migrate the highest-risk misplaced workloads first.** Start with the workload that caused the most incidents in Stage 1. It has the clearest justification and the most visible impact. Early wins build credibility for subsequent migrations.
 
@@ -98,7 +96,7 @@ This is the hard stage. Stages 1 and 2 are analysis. Stage 3 is organizational c
 
 This stage requires organizational change, not just technology.
 
-**The platform team must say "no."** This is the single most difficult cultural shift. Platform teams have been rewarded for adoption -- more workloads means more value, more funding, more headcount. Saying "this workload does not belong here" feels like rejecting work. It is not. It is protecting the platform's ability to serve its actual purpose. The platform team needs explicit leadership backing to enforce boundaries.
+**The platform team must say "no."** This is the single most difficult cultural shift. Platform teams have been rewarded for adoption: more workloads meant more value, more funding, more headcount. Saying "this workload does not belong here" feels like rejecting work. It is not. It is protecting the platform's ability to serve its actual purpose. The platform team needs explicit leadership backing to enforce boundaries.
 
 **Leadership must fund the operational platform separately.** If the operational platform is funded as a "data platform initiative," it will be deprioritized in favor of the existing EDP. It needs its own budget, its own team, and its own success criteria. Two platforms means two funding streams.
 
@@ -106,10 +104,10 @@ This stage requires organizational change, not just technology.
 
 ### Owner Roles
 
-- **Platform team** -- defines boundaries, provides self-serve tooling, enforces contracts
-- **Domain teams** -- own data product schemas, quality, documentation
-- **Architecture review board** -- approves new workload placement using the [Decision Tree](../decisions/decision-tree.md)
-- **Leadership** -- funds operational platform separately, reframes "strategic platform" messaging
+- **Platform team:** defines boundaries, provides self-serve tooling, enforces contracts
+- **Domain teams:** own data product schemas, quality, documentation
+- **Architecture review board:** approves new workload placement using the [Decision Tree](../decisions/decision-tree.md)
+- **Leadership:** funds operational platform separately, reframes "strategic platform" messaging
 
 ### Deliverable
 
@@ -117,9 +115,9 @@ Published platform boundaries and first migrations completed. The organization n
 
 ---
 
-## Stage 4: FUTURE -- Governed Coexistence
+## Stage 4 (FUTURE): Governed Coexistence
 
-Both platforms are live. The question is no longer "should we have two platforms?" -- it is "how do we run them well together?"
+Both platforms are live. The question is no longer whether to have two platforms. It is how to run them well together.
 
 ### What You Do
 
@@ -135,7 +133,7 @@ Both platforms are live. The question is no longer "should we have two platforms
 | Feature serving | EDP to serving layer | Serve ML features at inference time |
 | API layer | Serving layer to consumers | Deliver EDP outputs at operational latency |
 
-**Govern all cross-platform data flows with contracts.** Every integration pattern in the table above has a [data contract](../patterns/data-contracts.md) specifying schema, quality, freshness, and ownership. The contract is enforceable -- violations trigger alerts, not emails.
+**Govern all cross-platform data flows with contracts.** Every integration pattern in the table above has a [data contract](../patterns/data-contracts.md) specifying schema, quality, freshness, and ownership. The contract is enforceable: violations trigger alerts, not emails.
 
 **Implement cost governance with chargeback models.** Each consuming team sees its cost. The EDP charges for compute and storage consumed. The operational platform charges for transactions and uptime. When teams see the bill, they make better decisions about where to place workloads. See [Cost Architecture](../patterns/cost-architecture.md) for implementation details.
 
@@ -143,7 +141,7 @@ Both platforms are live. The question is no longer "should we have two platforms
 
 ### Deliverable
 
-An operating model for the dual-platform architecture. This is not a document that sits in Confluence -- it is the working model that governs day-to-day platform operations, intake decisions, integration patterns, and cost allocation.
+An operating model for the dual-platform architecture. This is not a document that sits in Confluence; it is the working model that governs day-to-day platform operations, intake decisions, integration patterns, and cost allocation.
 
 ---
 
@@ -151,7 +149,7 @@ An operating model for the dual-platform architecture. This is not a document th
 
 ```mermaid
 gantt
-    title Transformation Roadmap -- Confusion to Coexistence
+    title Transformation Roadmap: Confusion to Coexistence
     dateFormat  YYYY-MM
     axisFormat  %b %Y
 
@@ -194,11 +192,11 @@ Migrate incrementally. Start with the workload that causes the most pain. Prove 
 
 You cannot SLA your way out of an architectural mismatch. Promising 99.99% uptime and sub-second latency on a platform designed for throughput and historical depth does not change the platform's design. It creates SLAs that the platform cannot meet, which erodes trust in SLAs generally.
 
-The EDP's SLAs should reflect what the EDP actually does: data freshness within defined windows, query performance for analytical workloads, completeness and quality guarantees. Operational SLAs -- transaction latency, uptime, throughput -- belong on a platform built for those requirements.
+The EDP's SLAs should reflect what the EDP actually does: data freshness within defined windows, query performance for analytical workloads, completeness and quality guarantees. Operational SLAs (transaction latency, uptime, throughput) belong on a platform built for those requirements.
 
 ### "Let us fix governance first"
 
-Governance without boundaries is policy without enforcement. You can write all the data governance policies you want. If the platform boundary is undefined -- if operational workloads and analytical workloads are cohabiting on the same platform with the same SLAs -- governance policies have no mechanism of enforcement.
+Governance without boundaries is policy without enforcement. You can write all the data governance policies you want. If the platform boundary is undefined, with operational and analytical workloads cohabiting the same platform under the same SLAs, governance policies have no mechanism of enforcement.
 
 Boundaries first. Then governance. Governance is how you maintain boundaries over time. It is not a substitute for establishing them.
 

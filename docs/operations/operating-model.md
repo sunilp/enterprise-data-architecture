@@ -4,15 +4,7 @@ description: "EDP operating model. 7 roles, 8 processes (onboarding to deprecati
 
 # Operating the Enterprise Data Platform
 
-A technically decent platform fails when there is no ownership, weak support model, no platform SLOs, unclear incident handling, poor cost governance, no release process, and unclear stewardship escalation. This page defines how the EDP is run.
-
-## Executive Summary
-
-- The EDP is a product, not a project. It has owners, consumers, SLAs, a release process, and a cost model. If any of these are missing, the platform is a liability.
-- Seven defined roles cover the full scope: strategy, engineering, data products, stewardship, governance, security, and support. Gaps in any role surface as unresolved incidents, ungoverned data, or uncontrolled costs.
-- Eight operational processes -- from onboarding to deprecation -- define how work flows through the platform. Each process has a trigger, an owner, and a documented output.
-- Thirteen KPIs across reliability, quality, cost, adoption, governance, and support prove whether the platform is well-operated or just well-built.
-- A tiered support model ensures consumers get help at the right level, with response and resolution SLAs that are measurable and enforceable.
+A technically decent platform fails when there is no ownership, weak support model, no platform SLOs, unclear incident handling, poor cost governance, no release process, and unclear stewardship escalation. This page defines how the EDP is run: seven roles, eight operational processes from onboarding to deprecation, thirteen KPIs, and a four-tier support model. The premise throughout is that the EDP is a product, not a project. It has owners, consumers, SLAs, a release process, and a cost model, and if any of these are missing the platform is a liability.
 
 ```mermaid
 graph LR
@@ -51,7 +43,7 @@ Ambiguous ownership is the root cause of most platform failures. These roles are
 
 **Platform Owner** sets direction. This person is accountable for the platform's existence and funding. They negotiate with stakeholders, prioritize the roadmap, and make trade-offs when competing demands hit. Without this role, the platform drifts toward whatever the loudest team needs.
 
-**Data Platform Engineering Lead** builds and runs the platform. Infrastructure, pipelines, tooling, CI/CD, monitoring -- all of it. They own reliability and performance. When the platform is slow, broken, or expensive, this is the first call.
+**Data Platform Engineering Lead** builds and runs the platform. Infrastructure, pipelines, tooling, CI/CD, monitoring: all of it. They own reliability and performance. When the platform is slow, broken, or expensive, this is the first call.
 
 **Data Product Owner** owns a specific data product end-to-end. Schema design, quality thresholds, SLA definitions, and consumer communication. They are the single point of contact for anyone consuming their data product. A platform without data product owners has data but no products.
 
@@ -59,7 +51,7 @@ Ambiguous ownership is the root cause of most platform failures. These roles are
 
 **Governance Lead** owns the policy framework. They map regulatory requirements to platform controls, maintain compliance evidence, and run audit preparation. In regulated industries, this role is the difference between a clean audit and a finding.
 
-**Security/Control Lead** manages access control, data masking, encryption at rest and in transit, and audit logging. They validate that the right people have the right access and that the evidence trail is intact. This role does not just set policy -- they verify enforcement.
+**Security/Control Lead** manages access control, data masking, encryption at rest and in transit, and audit logging. They validate that the right people have the right access and that the evidence trail is intact. This role does not just set policy; they verify enforcement.
 
 **Support/Operations Lead** runs consumer support and incident management. They triage issues, track SLAs, coordinate resolution across teams, and run post-mortems. Without this role, every incident is ad hoc and every consumer is on their own.
 
@@ -77,7 +69,7 @@ Each process has a trigger, an owner, and a defined output. Processes without th
 
 **Output:** Documented source with ingestion pipeline running, data contract registered, consumer access provisioned.
 
-A source without a contract is not onboarded. It is dumped.
+A source without a contract is not onboarded; it is dumped.
 
 ### Release and Change Management
 
@@ -97,10 +89,10 @@ No change reaches production without review. No exceptions. "It's just a config 
 
 **Process:** Detect and classify by severity:
 
-- **P1** -- Platform-wide outage, data loss, security breach. All hands.
-- **P2** -- Multiple data products affected, SLA breach imminent. Immediate response.
-- **P3** -- Single data product degraded, workaround available. Scheduled fix.
-- **P4** -- Minor issue, cosmetic, no consumer impact. Backlog.
+- **P1:** Platform-wide outage, data loss, security breach. All hands.
+- **P2:** Multiple data products affected, SLA breach imminent. Immediate response.
+- **P3:** Single data product degraded, workaround available. Scheduled fix.
+- **P4:** Minor issue, cosmetic, no consumer impact. Backlog.
 
 Route to the appropriate owner. Resolve. Run post-mortem for P1 and P2. Document root cause and preventive actions.
 
@@ -112,7 +104,7 @@ Route to the appropriate owner. Resolve. Run post-mortem for P1 and P2. Document
 
 **Trigger:** Data product owner requests a schema change (additive or breaking).
 
-**Process:** Impact analysis -- which consumers depend on the affected fields? Consumer notification with change window. Contract validation to confirm backward compatibility or document breaking change. Approval from governance lead for breaking changes.
+**Process:** Impact analysis: which consumers depend on the affected fields? Consumer notification with change window. Contract validation to confirm backward compatibility or document breaking change. Approval from governance lead for breaking changes.
 
 **Owner:** Data product owner + governance lead.
 
@@ -126,9 +118,9 @@ Additive changes (new columns, new optional fields) follow a lighter path. Break
 
 **Process:** Alert fires. Investigate root cause. Classify the source of the issue:
 
-- **Source issue** -- upstream system sent bad data. Escalate to source owner.
-- **Platform issue** -- ingestion or infrastructure failure. Platform engineering fixes.
-- **Transformation issue** -- logic error in pipeline. Data product owner fixes.
+- **Source issue:** upstream system sent bad data. Escalate to source owner.
+- **Platform issue:** ingestion or infrastructure failure. Platform engineering fixes.
+- **Transformation issue:** logic error in pipeline. Data product owner fixes.
 
 Remediate. Document root cause and update monitoring if the threshold needs adjustment.
 
@@ -140,7 +132,7 @@ Remediate. Document root cause and update monitoring if the threshold needs adju
 
 **Trigger:** New access request from a user or service account.
 
-**Process:** Validate the requester's role and business justification. Apply minimum-necessary principle -- grant only what is needed. Route through approval workflow (manager + data owner). Provision access. Log the grant with timestamp, approver, and justification.
+**Process:** Validate the requester's role and business justification. Apply the minimum-necessary principle: grant only what is needed. Route through approval workflow (manager + data owner). Provision access. Log the grant with timestamp, approver, and justification.
 
 **Owner:** Security/control lead.
 
@@ -156,7 +148,7 @@ Remediate. Document root cause and update monitoring if the threshold needs adju
 
 **Output:** Monthly cost report, optimization actions with owners, chargeback updates distributed to domain leads.
 
-Cost visibility without accountability changes nothing. Chargeback creates accountability.
+Cost visibility without accountability changes nothing; chargeback is what creates it.
 
 ### Deprecation
 
@@ -168,11 +160,11 @@ Cost visibility without accountability changes nothing. Chargeback creates accou
 
 **Output:** Deprecated asset removed from production, all consumers migrated, metadata archived.
 
-Deprecation without a migration path is abandonment. Every deprecation notice must include the alternative.
+A deprecation without a migration path is abandonment, so every deprecation notice must include the alternative.
 
 ## Measures
 
-KPIs that are not tracked are aspirations. KPIs that are tracked but not acted on are theater. These are the metrics that prove the platform is well-operated.
+KPIs that are not tracked are aspirations. These are the metrics that prove the platform is well-operated.
 
 | Category | Metric | Target |
 |---|---|---|
@@ -217,12 +209,12 @@ In regulated environments, operational discipline is not optional. Regulators do
 
 **Reproducibility.** Every pipeline run must be reproducible. Given the same inputs and the same code version, the output must be identical. This requires versioned code, versioned configurations, immutable infrastructure, and deterministic transformations. If you cannot reproduce a pipeline run from six months ago, you cannot defend the numbers it produced.
 
-**Controlled change.** No unreviewed changes reach production. Every change has a pull request, a reviewer, a CI/CD check, and a deployment record. This is not bureaucracy -- it is the evidence trail that regulators expect. "Who approved this change?" must have a clear, auditable answer.
+**Controlled change.** No unreviewed changes reach production. Every change has a pull request, a reviewer, a CI/CD check, and a deployment record. This is not bureaucracy; it is the evidence trail that regulators expect. "Who approved this change?" must have a clear, auditable answer.
 
-**Traceable lineage.** Lineage must be automated, not manually maintained. Manual lineage documentation drifts from reality within weeks. Automated lineage -- extracted from pipeline definitions, query logs, and transformation metadata -- stays current because it is derived from the system itself.
+**Traceable lineage.** Lineage must be automated, not manually maintained. Manual lineage documentation drifts from reality within weeks. Automated lineage, extracted from pipeline definitions, query logs, and transformation metadata, stays current because it is derived from the system itself.
 
 **Recoverability.** Disaster recovery must be tested, not just documented. RTO (recovery time objective) and RPO (recovery point objective) must be defined for every data product, documented, and validated through regular DR drills. "We have backups" is not a DR plan.
 
-**Access evidence.** Who accessed what data, when, and why -- exportable for audit on demand. Access logs must be immutable, centralized, and queryable. When a regulator asks "who accessed PII in the last 90 days," the answer must be available within hours, not weeks.
+**Access evidence.** Who accessed what data, when, and why, exportable for audit on demand. Access logs must be immutable, centralized, and queryable. When a regulator asks "who accessed PII in the last 90 days," the answer must be available within hours, not weeks.
 
 **Environment separation.** Development, staging, and production environments must be distinct, with promotion gates between them. No direct writes to production. No shared credentials across environments. No "just testing something in prod." Promotion gates enforce the change management process and create the audit trail regulators require.

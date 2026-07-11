@@ -4,13 +4,7 @@ description: "Cost architecture and FinOps for enterprise data platforms. EDP vs
 
 # Cost Architecture for Data Platforms
 
-## Executive Summary
-
-- Enterprise data platforms and operational platforms have fundamentally different cost profiles. Managing them with a single cost model guarantees you will overspend on one, underfund the other, or both.
-- Understanding cost drivers prevents the "we can't afford our own platform" conversation. The real question is whether you can afford the alternative.
-- FinOps for data is not the same as FinOps for compute -- storage dominates EDP costs, compute dominates operational costs. Applying compute-centric optimization to an EDP misses the point.
-- Cost governance must be designed into the platform, not bolted on after the bill arrives. Retrofitting cost controls into a platform that was built without them is 10x harder than building them in from the start.
-- The most expensive platform is one that tries to do everything. A platform that runs both analytical and operational workloads poorly costs more than two platforms that each do their job well.
+Enterprise data platforms and operational platforms have different cost profiles, and managing them with a single cost model guarantees you will overspend on one, underfund the other, or both. FinOps for data is not the same as FinOps for compute: storage usually dominates EDP costs while compute dominates operational costs, so compute-centric optimization applied to an EDP misses the point. Cost governance has to be designed into the platform rather than bolted on after the bill arrives. The most expensive platform is one that tries to do everything.
 
 ```mermaid
 graph TB
@@ -45,13 +39,13 @@ graph TB
 
 | Cost Driver | Enterprise Data Platform | Operational Platform |
 |-------------|--------------------------|---------------------|
-| **Dominant cost** | Storage (60-80% of spend) | Compute (60-80% of spend) |
+| **Dominant cost** | Storage | Compute |
 | **Scaling model** | Storage scales linearly with data volume; compute scales with query demand | Compute scales with concurrent users and transaction volume |
 | **Billing model** | Query-based (bytes scanned, slot-hours, DBUs) | Connection-based (instance hours, vCPUs, IOPS) |
-| **Idle cost** | Low -- storage is cheap, compute shuts down | High -- instances must stay warm for SLA compliance |
-| **Burst cost** | Significant -- ad-hoc queries and backfills can spike compute | Moderate -- auto-scaling handles peaks, but provisioned capacity sets a floor |
+| **Idle cost** | Low: storage is cheap, compute shuts down | High: instances must stay warm for SLA compliance |
+| **Burst cost** | Significant: ad-hoc queries and backfills can spike compute | Moderate: auto-scaling handles peaks, but provisioned capacity sets a floor |
 | **Data transfer** | High on multi-cloud or cross-region analytics | Lower per-transaction, but adds up at high transaction volume |
-| **Cost predictability** | Variable -- depends on query patterns and data growth | More predictable -- driven by provisioned capacity |
+| **Cost predictability** | Variable: depends on query patterns and data growth | More predictable: driven by provisioned capacity |
 | **Primary optimization lever** | Storage tiering + query efficiency | Right-sizing instances + reserved capacity |
 | **Cost per unit of work** | Cost per query or cost per TB scanned | Cost per transaction or cost per API call |
 | **Waste pattern** | Unused datasets retained indefinitely | Over-provisioned instances running at 15% utilization |
@@ -60,7 +54,7 @@ graph TB
 
 ### Storage
 
-Storage is the baseline cost that grows with data volume and retention policy. In most EDPs, storage accounts for the majority of the bill -- not because storage is expensive per unit, but because data accumulates.
+Storage is the baseline cost that grows with data volume and retention policy. In most EDPs, storage accounts for the majority of the bill, not because storage is expensive per unit but because data accumulates.
 
 The primary lever is tiering. Hot storage (frequently queried, SSD-backed) costs 5-10x more than cold storage (rarely accessed, archival). A platform without tiering policies pays hot-storage prices for data that nobody has queried in six months.
 
@@ -68,7 +62,7 @@ Practical controls:
 
 - Implement lifecycle policies that auto-move data from hot to warm after 90 days, warm to cold after 12 months
 - Partition data by date so cold partitions can be tiered without moving entire tables
-- Track storage growth per dataset and per domain -- not just total platform storage
+- Track storage growth per dataset and per domain, not just total platform storage
 - Delete or archive data that has no regulatory retention requirement and no active consumers
 
 ### Compute
@@ -80,7 +74,7 @@ The trap is ad-hoc queries. A single analyst running `SELECT *` across an unpart
 Practical controls:
 
 - Enforce query cost limits (BigQuery custom cost controls, Databricks SQL warehouse auto-stop)
-- Require partition filters on large tables -- reject queries that scan entire datasets without filters
+- Require partition filters on large tables; reject queries that scan entire datasets without filters
 - Separate scheduled workloads from ad-hoc workloads with different compute pools
 - Monitor cost per query and surface the top-10 most expensive queries weekly
 
@@ -92,14 +86,14 @@ Ingestion cost scales with change volume, not total data volume. A table with 10
 
 Practical controls:
 
-- Right-size CDC capture frequency -- not everything needs minute-level freshness
+- Right-size CDC capture frequency; not everything needs minute-level freshness
 - Use batch extraction for slowly changing sources instead of paying for CDC infrastructure
 - Monitor throughput unit utilization and scale down during off-peak hours
 - Negotiate connector pricing based on actual row volumes, not provisioned capacity
 
 ### Transformation
 
-dbt models, Spark jobs, and data quality checks consume compute during processing. Batch transformations are predictable -- they run on a schedule with known data volumes. Ad-hoc and development workloads are not.
+dbt models, Spark jobs, and data quality checks consume compute during processing. Batch transformations are predictable: they run on a schedule with known data volumes. Ad-hoc and development workloads are not.
 
 The hidden cost is re-processing. A transformation that fails and must be re-run from scratch doubles the compute bill. Incremental models that process only new data cost a fraction of full-refresh models.
 
@@ -108,7 +102,7 @@ Practical controls:
 - Default to incremental processing for all models where source data supports it
 - Use smaller compute clusters for development and testing workloads
 - Schedule heavy transformations during off-peak hours when on-demand pricing is lower
-- Track compute cost per dbt model or Spark job -- identify which transformations dominate spend
+- Track compute cost per dbt model or Spark job; identify which transformations dominate spend
 
 ### Governance Overhead
 
@@ -119,8 +113,8 @@ This cost is justified when it prevents downstream failures, regulatory fines, o
 Practical controls:
 
 - Run data quality checks only on datasets that have active consumers
-- Tier lineage tracking depth by data product criticality -- not everything needs column-level lineage
-- Avoid cataloging every intermediate table -- catalog data products, not implementation details
+- Tier lineage tracking depth by data product criticality; not everything needs column-level lineage
+- Avoid cataloging every intermediate table; catalog data products, not implementation details
 
 ## Operational Platform Cost Drivers
 
@@ -133,8 +127,8 @@ The waste pattern is over-provisioning. Teams size instances for peak load and l
 Practical controls:
 
 - Right-size instances quarterly based on actual utilization metrics, not projected peak
-- Use auto-scaling where the workload allows it -- not all databases support horizontal auto-scaling, but many compute layers do
-- Separate production from non-production -- dev and staging do not need the same instance sizes
+- Use auto-scaling where the workload allows it; not all databases support horizontal auto-scaling, but many compute layers do
+- Separate production from non-production; dev and staging do not need the same instance sizes
 - Shut down non-production environments outside business hours
 
 ### IOPS
@@ -160,7 +154,7 @@ Practical controls:
 
 - Classify operational systems by criticality tier and apply HA only where business impact justifies the cost
 - Use active-passive failover instead of active-active multi-region where recovery time objectives allow it
-- Test failover regularly -- paying for DR infrastructure you have never tested is paying for a false sense of security
+- Test failover regularly; paying for DR infrastructure you have never tested is paying for a false sense of security
 
 ### Concurrency
 
@@ -171,7 +165,7 @@ The cost trap is provisioning for peak concurrency at all times. If peak load oc
 Practical controls:
 
 - Implement connection pooling (PgBouncer, ProxySQL) to reduce per-connection resource consumption
-- Use auto-scaling with appropriate cool-down periods -- scaling up fast, scaling down gradually
+- Use auto-scaling with appropriate cool-down periods: scale up fast, scale down gradually
 - Queue non-urgent requests during peak periods instead of scaling to meet every concurrent demand
 - Monitor connection counts and identify connection-leaking applications
 
@@ -179,7 +173,7 @@ Practical controls:
 
 ### Query Cost Limits
 
-Uncapped query access is the fastest way to blow a monthly budget. A single `SELECT *` across a 50 TB unpartitioned table in BigQuery scans 50 TB and costs roughly $250 at on-demand pricing. Multiply by a team of analysts exploring data, and the bill becomes material.
+Uncapped query access is the fastest way to blow a monthly budget. A single `SELECT *` across a 50 TB unpartitioned table in BigQuery scans 50 TB and costs roughly $250 at the current $5-per-TB on-demand list price. Multiply by a team of analysts exploring data, and the bill becomes material.
 
 Implementation options:
 
@@ -196,7 +190,7 @@ Implementation:
 
 - Tag datasets with last-access timestamps
 - Apply lifecycle rules at the storage layer (GCS lifecycle policies, S3 Intelligent-Tiering, ADLS access tier management)
-- Review tiering effectiveness monthly -- if most data is in hot tier, the policies are not working
+- Review tiering effectiveness monthly; if most data is in hot tier, the policies are not working
 
 ### Chargeback Models
 
@@ -216,7 +210,7 @@ A data product that costs $50,000/month to maintain but is consumed by one team 
 
 ### Reserved Capacity vs On-Demand
 
-Reserved capacity (1-year or 3-year commitments) offers 30-60% discounts over on-demand pricing. The tradeoff is flexibility -- you pay whether you use it or not.
+Reserved capacity (1-year or 3-year commitments) offers 30-60% discounts over on-demand pricing. The tradeoff is flexibility: you pay whether you use it or not.
 
 The rule of thumb: reserve baseline capacity, use on-demand for burst. If your minimum daily compute consumption is predictable, reserve that floor. If your peak is 3x the baseline for 2 hours per day, use on-demand for the burst.
 
@@ -236,7 +230,7 @@ Query cost limits are not about restricting access. They are about making cost v
 
 ### "We'll optimize later"
 
-Cost patterns are architectural decisions. The storage layout, partitioning strategy, compute model, and data retention policy are set during platform design. Retrofitting cost optimization into a platform that stores everything in hot tier, uses full-refresh transformations, and has no partition strategy requires re-engineering the platform -- not tuning a configuration.
+Cost patterns are architectural decisions. The storage layout, partitioning strategy, compute model, and data retention policy are set during platform design. Retrofitting cost optimization into a platform that stores everything in hot tier, uses full-refresh transformations, and has no partition strategy requires re-engineering the platform, not tuning a configuration.
 
 Build cost awareness into the architecture from day one. It is not an optimization. It is a design constraint.
 
@@ -244,7 +238,7 @@ Build cost awareness into the architecture from day one. It is not an optimizati
 
 Development workloads running on production-grade infrastructure waste money. Dev does not need multi-region HA, production-tier IOPS, or enterprise-grade SLAs. A dev environment should be as small as possible while still being representative of production behavior.
 
-Practical impact: a production Databricks cluster with 8 nodes running 24/7 costs roughly $15,000/month. A dev cluster with 2 nodes that auto-terminates after 30 minutes of inactivity costs under $500/month. Running dev on the production cluster because "it's easier" burns $14,500/month for convenience.
+The gap is not subtle. At list prices, an 8-node production cluster running 24/7 lands in the five figures per month, while a 2-node dev cluster that auto-terminates after 30 minutes of inactivity costs a small fraction of that. Running dev on the production cluster because "it's easier" pays production rates for convenience.
 
 ## Cost Decision Framework
 
@@ -255,7 +249,7 @@ Practical impact: a production Databricks cluster with 8 nodes running 24/7 cost
 | Workload is new and usage patterns are unknown | Yes | No |
 | Baseline consumption is stable and predictable | No | Yes |
 | Peak-to-baseline ratio exceeds 3x | Peak portion | Baseline portion |
-| Commitment period aligns with platform roadmap | N/A | Yes -- only commit if the platform will exist for the commitment term |
+| Commitment period aligns with platform roadmap | N/A | Yes; only commit if the platform will exist for the commitment term |
 | Cloud provider offers flexible reservations (convertible RIs, savings plans) | Less critical | Preferred over rigid reservations |
 
 Start on-demand. Measure for 3 months. Reserve the stable baseline. Keep burst capacity on-demand.
@@ -266,12 +260,12 @@ The serving layer question is really a cost question disguised as an architectur
 
 Invest in a serving layer when:
 
-- **Query frequency is high.** More than 1,000 queries per day against the same dataset -- the cumulative EDP query cost exceeds the fixed cost of a serving layer (Redis, PostgreSQL, API cache).
-- **Query pattern is predictable.** Point lookups, filtered results, paginated lists -- these patterns are 10-100x cheaper on a purpose-built serving layer than on an analytical query engine.
+- **Query frequency is high.** Past roughly a thousand queries per day against the same dataset, the cumulative EDP query cost exceeds the fixed cost of a serving layer (Redis, PostgreSQL, API cache).
+- **Query pattern is predictable.** Point lookups, filtered results, and paginated lists are far cheaper on a purpose-built serving layer than on an analytical query engine.
 - **Latency requirements are strict.** Sub-second response times on an EDP require over-provisioned compute. A serving layer delivers sub-second responses at a fraction of the cost.
 - **Consumer count is growing.** Each new consumer of EDP data adds query cost. A serving layer absorbs new consumers with minimal marginal cost.
 
-The serving layer often pays for itself within 2-3 months by replacing expensive EDP queries with cheap lookups against materialized data.
+A serving layer that replaces expensive EDP queries with cheap lookups against materialized data typically pays for itself quickly. Run the arithmetic for your own query volumes.
 
 ### When Multi-Cloud Is Cost-Justified
 

@@ -6,11 +6,9 @@ description: "Regulatory compliance patterns for data platforms. Cross-industry 
 
 ## Executive Summary
 
-- Data platform architecture decisions directly determine compliance outcomes -- choose the wrong storage model and no amount of policy documentation will satisfy regulators
-- This section maps regulatory requirements to platform design choices, not to specific cloud controls
-- Three industries covered: banking (BCBS 239, DORA), healthcare (HIPAA), insurance (Solvency II)
-- The EDP's append-only, historized, lineage-tracked design naturally satisfies many regulatory requirements that operational platforms struggle with
-- Compliance is an architecture feature, not a bolt-on audit exercise
+- Maps regulatory requirements to platform design choices, not to specific cloud controls.
+- Industries covered: banking (BCBS 239, DORA), healthcare (HIPAA), insurance (Solvency II, IFRS 17).
+- The EDP's append-only, historized, lineage-tracked design satisfies many requirements that operational platforms struggle with. Compliance here is an architecture feature, not a bolt-on audit exercise.
 
 ```mermaid
 graph TB
@@ -80,19 +78,19 @@ The EDP is not compliant by accident. Its core design properties align with what
 
 **Governed access model.** Column-level security, row-level filtering, and role-based access are built into the platform layer, not bolted on per report. When an auditor asks who can see customer social security numbers, the answer is a policy query, not a spreadsheet maintained by hand.
 
-**Quality gates at layer boundaries.** Data quality checks at bronze-to-silver and silver-to-gold transitions catch issues before they propagate to regulatory reports. A failed quality gate stops bad data from reaching consumption -- which is infinitely better than discovering the problem during a regulatory examination.
+**Quality gates at layer boundaries.** Data quality checks at bronze-to-silver and silver-to-gold transitions catch issues before they propagate to regulatory reports. A failed quality gate stops bad data from reaching consumption, which is far better than discovering the problem during a regulatory examination.
 
 ## Industry-Specific Guides
 
 Each industry has unique regulatory requirements that go beyond the common themes above. These guides map specific regulations to platform design decisions:
 
-- [Banking: BCBS 239 and DORA](banking.md) -- risk data aggregation, reporting accuracy, digital operational resilience
-- [Healthcare: HIPAA](healthcare.md) -- protected health information, minimum necessary standard, breach notification
-- [Insurance: Solvency II](insurance.md) -- risk capital reporting, data quality for actuarial models, regulatory submissions
+- [Banking: BCBS 239 and DORA](banking.md): risk data aggregation, reporting accuracy, digital operational resilience
+- [Healthcare: HIPAA](healthcare.md): protected health information, minimum necessary standard, breach notification
+- [Insurance: Solvency II](insurance.md): risk capital reporting, data quality for actuarial models, regulatory submissions
 
 ## Compliance vs Implementation
 
-This guide covers design decisions -- the architectural choices that determine whether a platform can satisfy regulatory requirements regardless of which cloud or technology stack you deploy on.
+This guide covers design decisions: the architectural choices that determine whether a platform can satisfy regulatory requirements regardless of which cloud or technology stack you deploy on.
 
 For implementation-specific patterns (GCP controls, CMEK encryption, VPC Service Controls, audit logging configuration), see [reference-data-platform-gcp](https://github.com/sunilp/reference-data-platform-gcp). That repo translates the design decisions documented here into concrete infrastructure-as-code and cloud-native controls.
 

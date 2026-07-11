@@ -4,13 +4,7 @@ description: "Data contracts for enterprise data platforms. Schema, SLAs, owners
 
 # Data Contracts
 
-## Executive Summary
-
-- Data contracts are the interface layer between data producers and consumers. They define what a data product delivers, how it behaves, and what guarantees it makes.
-- A contract specifies schema, quality expectations, SLAs, ownership, and evolution rules -- everything a consumer needs to build against a data product without knowing the producer's internals.
-- Without contracts, every downstream consumer is coupled to the producer's internal implementation. One column rename, one type change, one shifted schedule -- and things break silently.
-- Contracts are the mechanism that makes EDP and operational platform coexistence work. They formalize the handoff points described in [EDP vs Operational](../position/edp-vs-operational.md).
-- They are not optional. They are the difference between "we have data products" and "we have shared tables that break."
+Data contracts are the interface layer between data producers and consumers. A contract specifies schema, quality expectations, SLAs, ownership, and evolution rules: everything a consumer needs to build against a data product without knowing the producer's internals. Without one, every downstream consumer is coupled to the producer's internal implementation, and a single column rename or shifted schedule breaks things silently. Contracts are also what makes EDP and operational platform coexistence work, formalizing the handoff points described in [EDP vs Operational](../position/edp-vs-operational.md).
 
 ## What a Data Contract Contains
 
@@ -30,11 +24,11 @@ The exact shape of the data being delivered:
 
 What "good data" means for this product:
 
-- **Freshness SLA** -- maximum acceptable age of the most recent record
-- **Completeness** -- minimum percentage of non-null values for critical columns
-- **Uniqueness** -- columns or column combinations that must be unique
-- **Value constraints** -- valid ranges, allowed enum values, referential integrity checks
-- **Volume expectations** -- expected row count ranges per refresh (catches silent upstream failures)
+- **Freshness SLA:** maximum acceptable age of the most recent record
+- **Completeness:** minimum percentage of non-null values for critical columns
+- **Uniqueness:** columns or column combinations that must be unique
+- **Value constraints:** valid ranges, allowed enum values, referential integrity checks
+- **Volume expectations:** expected row count ranges per refresh (catches silent upstream failures)
 
 ### Ownership
 
@@ -69,7 +63,7 @@ How the contract changes over time:
 Where the data comes from:
 
 - Source systems feeding this data product
-- Transformation logic summary (not the full DAG -- a human-readable description)
+- Transformation logic summary (not the full DAG, a human-readable description)
 - Refresh dependency chain (what must complete before this product refreshes)
 - Data classification and sensitivity labels
 
@@ -182,7 +176,7 @@ graph TB
 
 **Producer team** writes the contract and is accountable for meeting it. They define the schema, set quality thresholds, commit to refresh schedules, and document lineage.
 
-**Platform team** builds the infrastructure that enforces contracts. They run the contract registry, wire up CI/CD validation, and operate the monitoring that detects breaches. They do not write the contracts -- they make contracts enforceable.
+**Platform team** builds the infrastructure that enforces contracts. They run the contract registry, wire up CI/CD validation, and operate the monitoring that detects breaches. They do not write the contracts; they make contracts enforceable.
 
 **Consumer team** declares their requirements and consumes against the contract, not against the underlying implementation. They raise issues when the contract does not meet their needs. They do not reach past the contract to query raw tables.
 
@@ -192,7 +186,7 @@ A contract that exists only in a YAML file is a suggestion. Enforcement is what 
 
 ### Schema Validation on Write
 
-Validate incoming data against the contract schema before it lands in the consumption layer. If the data does not conform -- wrong types, unexpected nulls, missing required columns -- reject it. The producer's pipeline fails, not the consumer's dashboard.
+Validate incoming data against the contract schema before it lands in the consumption layer. If the data does not conform (wrong types, unexpected nulls, missing required columns), reject it. The producer's pipeline fails, not the consumer's dashboard.
 
 ### Quality Gates in Pipeline
 
@@ -200,11 +194,11 @@ Quality checks run as pipeline steps after data lands but before consumers can a
 
 ### Contract CI/CD
 
-Schema changes are validated before they merge. The CI pipeline diffs the proposed contract against the current version, flags breaking changes, and blocks the merge if breaking changes lack a deprecation plan. This is the same principle as API versioning -- you do not ship a breaking API change without a migration path.
+Schema changes are validated before they merge. The CI pipeline diffs the proposed contract against the current version, flags breaking changes, and blocks the merge if breaking changes lack a deprecation plan. This is the same principle as API versioning: you do not ship a breaking API change without a migration path.
 
 ### Consumer Notification
 
-When a contract changes -- even non-breaking changes -- consumers get notified automatically. New columns, updated descriptions, adjusted quality thresholds. This is not a courtesy. It is how consumers stay aware of what they are building against.
+When a contract changes, even in non-breaking ways, consumers get notified automatically. New columns, updated descriptions, adjusted quality thresholds. This is not a courtesy; it is how consumers stay aware of what they are building against.
 
 ## Evolution and Breaking Changes
 
@@ -212,18 +206,18 @@ Data contracts must evolve. The question is not whether they change, but how the
 
 ### Safe Changes (Non-Breaking)
 
-- **Adding columns** -- existing consumers ignore columns they do not use
-- **Relaxing nullability** -- a column that was required becoming optional does not break consumers
-- **Widening types** -- int32 to int64, for example (consumer code handles the wider type)
-- **Adding new allowed values** -- expanding an enum set
+- **Adding columns:** existing consumers ignore columns they do not use
+- **Relaxing nullability:** a column that was required becoming optional does not break consumers
+- **Widening types:** int32 to int64, for example (consumer code handles the wider type)
+- **Adding new allowed values:** expanding an enum set
 
 ### Breaking Changes
 
-- **Removing columns** -- consumers referencing deleted columns break immediately
-- **Changing types** -- string to integer, decimal precision changes, timestamp format changes
-- **Tightening nullability** -- a previously optional column becoming required can break producers
-- **Renaming columns** -- semantically identical, technically a drop-and-add
-- **Changing semantic meaning** -- same column name, different business definition (the worst kind)
+- **Removing columns:** consumers referencing deleted columns break immediately
+- **Changing types:** string to integer, decimal precision changes, timestamp format changes
+- **Tightening nullability:** a previously optional column becoming required can break producers
+- **Renaming columns:** semantically identical, technically a drop-and-add
+- **Changing semantic meaning:** same column name, different business definition (the worst kind)
 
 ### Versioning Strategy
 
@@ -231,7 +225,7 @@ Use semantic versioning for data products:
 
 - **v1** and **v2** coexist during migration. Consumers are given a deprecation window (minimum 30 days, typically 90) to migrate.
 - The producer maintains both versions until the deprecation window closes.
-- After the window, the old version is removed. Any consumer who did not migrate breaks -- and that is on them. The deprecation window is the contract.
+- After the window, the old version is removed. Any consumer who did not migrate breaks, and that is on them. The deprecation window is the contract.
 
 ## Anti-Patterns
 
@@ -245,7 +239,7 @@ Use semantic versioning for data products:
 
 ### The Contract That Blocks Everything
 
-**What it looks like:** Contracts are so strict that any change -- adding a column, adjusting a threshold, updating a description -- requires a formal review process with multiple approvals. Teams stop evolving their data products because the overhead is not worth it.
+**What it looks like:** Contracts are so strict that any change (adding a column, adjusting a threshold, updating a description) requires a formal review process with multiple approvals. Teams stop evolving their data products because the overhead is not worth it.
 
 **Why it fails:** Overly rigid governance creates shadow systems. Producers route around the contract by publishing "unofficial" datasets that are not governed at all. You end up with less governance, not more.
 
