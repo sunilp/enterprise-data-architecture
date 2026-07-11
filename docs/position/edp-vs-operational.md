@@ -89,6 +89,8 @@ No, because the boundary was never about boxes. Read the table above again: late
 
 The practical test survives convergence intact. For any workload, ask which failure domain it lives in and which SLO regime it answers to. If the answer is "operational," it needs operational discipline, and running it adjacent to your analytics on a converged platform is a deployment choice, not an exemption. Buying convergence is a procurement decision; operating convergence is an organizational one, and the second does not follow from the first.
 
+The full treatment of this argument, including the honest exceptions (the cases where direct analytical-platform access is legitimate, and the test that decides), is in [Convergence Does Not Eliminate Responsibility Boundaries](convergence-and-exceptions.md).
+
 ## Common Mistakes
 
 These are explored in depth in [What Breaks When EDP Becomes Everything](anti-patterns.md):

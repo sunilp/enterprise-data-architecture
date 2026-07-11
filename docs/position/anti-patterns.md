@@ -25,7 +25,7 @@ Six anti-patterns show up, over and over, when enterprises overload the data pla
 - No rollback mechanism for operational mistakes
 - SLA mismatch: analytical platform uptime is not operational platform uptime
 
-**What to do instead:** The lakehouse is the historical, integrated truth. Operational current-state belongs in a purpose-built operational data store or serving layer with transactional guarantees, point-in-time consistency, and operational SLAs.
+**What to do instead:** The lakehouse is the historical, integrated truth. Operational current-state belongs in a purpose-built operational data store or [serving layer](../blueprints/serving-layer.md) with transactional guarantees, point-in-time consistency, and operational SLAs.
 
 ---
 
@@ -113,7 +113,7 @@ Six anti-patterns show up, over and over, when enterprises overload the data pla
 - Data product refresh cadence (hourly, daily) does not match operational freshness requirements
 - API consumers cannot query Spark SQL or Trino directly
 
-**What to do instead:** Data products are the source of truth for governed datasets. A serving layer (APIs, caches, materialized views, feature stores) sits between data products and operational consumers. The serving layer is optimized for the access patterns operations need.
+**What to do instead:** Data products are the source of truth for governed datasets. A [serving layer](../blueprints/serving-layer.md) (APIs, caches, materialized views, feature stores) sits between data products and operational consumers, optimized for the access patterns operations need.
 
 ---
 

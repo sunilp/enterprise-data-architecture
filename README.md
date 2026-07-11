@@ -1,6 +1,6 @@
 # Enterprise Data Architecture
 
-> Architecture position pack for enterprise data platforms -- strategy, blueprints, and decision frameworks for data architects and technology leaders.
+> Architecture position pack for enterprise data platforms: strategy, blueprints, and decision frameworks for data architects and technology leaders. 37 pages arguing one position, governed coexistence: explicit contracts between systems of record, insight, and action.
 
 Live at [sunilprakash.com/enterprise-data-architecture](https://sunilprakash.com/enterprise-data-architecture/). Built with Astro; content lives in `docs/` as plain markdown.
 
@@ -13,12 +13,18 @@ Live at [sunilprakash.com/enterprise-data-architecture](https://sunilprakash.com
 
 | Section | What It Covers |
 |---------|---------------|
-| [What EDP Is](https://sunilp.github.io/enterprise-data-architecture/position/what-edp-is/) | The problems an enterprise data platform solves and the problems it must not solve |
-| [EDP vs Operational](https://sunilp.github.io/enterprise-data-architecture/position/edp-vs-operational/) | Side-by-side comparison across 12 dimensions |
-| [Anti-Patterns](https://sunilp.github.io/enterprise-data-architecture/position/anti-patterns/) | What breaks when EDP becomes everything |
-| [Target State Blueprint](https://sunilp.github.io/enterprise-data-architecture/blueprints/target-state/) | Layered enterprise architecture with cloud-specific variants |
-| [AI/ML Platform](https://sunilp.github.io/enterprise-data-architecture/blueprints/ai-ml-platform/) | How EDP feeds the ML/AI world |
-| [Glossary](https://sunilp.github.io/enterprise-data-architecture/glossary/) | Precise definitions for 20 commonly confused terms |
+| [Position](https://sunilprakash.com/enterprise-data-architecture/position/what-edp-is/) | What the EDP is and is not, anti-patterns, the ODS confusion, the 2026 landscape, convergence and its exceptions |
+| [Blueprints](https://sunilprakash.com/enterprise-data-architecture/blueprints/target-state/) | Seven-layer target state (GCP/Azure/AWS), capabilities, control plane, AI/LLM supply chains, agent access, serving layer |
+| [Decisions](https://sunilprakash.com/enterprise-data-architecture/decisions/decision-tree/) | Workload routing, capability maps, data mesh, maturity, vendor evaluation |
+| [Patterns](https://sunilprakash.com/enterprise-data-architecture/patterns/data-contracts/) | Data contracts (ODCS), cost architecture, open table formats and catalogs |
+| [Compliance](https://sunilprakash.com/enterprise-data-architecture/compliance/overview/) | BCBS 239, DORA, HIPAA, Solvency II, IFRS 17, EU AI Act |
+| [Operations](https://sunilprakash.com/enterprise-data-architecture/operations/operating-model/) | Operating model, reliability, SLOs, incident discipline |
+| [Evidence](https://sunilprakash.com/enterprise-data-architecture/proof/case-studies/) | Composite case studies, evidence tables, worked ADRs, target metrics, review checklists |
+| [Glossary](https://sunilprakash.com/enterprise-data-architecture/glossary/) | Precise definitions for 20 commonly confused terms |
+
+Live at **[sunilprakash.com/enterprise-data-architecture](https://sunilprakash.com/enterprise-data-architecture/)**.
+
+Cite as: Prakash, Sunil. *Enterprise Data Architecture: A Position Pack for Governed Coexistence.* 2026.
 
 ## Related Repositories
 

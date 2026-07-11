@@ -22,6 +22,7 @@ export const SECTIONS: NavSection[] = [
       { title: 'Anti-Patterns', slug: 'position/anti-patterns' },
       { title: 'EDP Is Not an ODS', slug: 'position/edp-is-not-an-ods' },
       { title: 'The New Data Architecture', slug: 'position/new-data-architecture' },
+      { title: 'Convergence and Exceptions', slug: 'position/convergence-and-exceptions' },
     ],
   },
   {
@@ -34,6 +35,7 @@ export const SECTIONS: NavSection[] = [
       { title: 'AI/ML Platform Relationship', slug: 'blueprints/ai-ml-platform' },
       { title: 'Agents as Consumers', slug: 'blueprints/agent-access' },
       { title: 'Coexistence Patterns', slug: 'blueprints/coexistence-patterns' },
+      { title: 'The Serving Layer', slug: 'blueprints/serving-layer' },
     ],
   },
   {
