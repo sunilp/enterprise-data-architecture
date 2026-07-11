@@ -4,13 +4,7 @@ description: "Five integration patterns for EDP and operational platform coexist
 
 # How EDP and Operational Platforms Coexist
 
-## Executive Summary
-
-- The value is not "EDP good, operational bad" or vice versa. Both platforms exist because they solve fundamentally different problems with fundamentally different architectures.
-- Both platforms serve distinct purposes and connect through well-defined integration patterns. Trying to collapse them into one system creates a platform that is mediocre at everything and excellent at nothing.
-- The closed loop -- source systems generate events, the operational platform handles live process, the EDP ingests for history and analytics, curated data products feed back to operations through serving layers -- is the core of enterprise data architecture.
-- Getting this integration right is what separates enterprises that have data platforms from enterprises that get value from them.
-- This page shows the five patterns that make coexistence work, and the anti-patterns that break it.
+Both platforms exist because they solve different problems with different architectures. The work is not choosing between them; it is connecting them well. This page covers the five integration patterns that make coexistence work and the anti-patterns that break it. Getting this right is what separates enterprises that have data platforms from enterprises that get value from them.
 
 ## The Closed Loop
 
@@ -43,7 +37,7 @@ graph LR
     E --> F["Bronze Layer<br/>(raw events, full fidelity)"]
 ```
 
-**Key principle:** Operational systems are unaware of the EDP. They emit events because events are part of their domain model. The EDP subscribes. This means operational systems never need to change when the EDP adds new consumers, new transformations, or new data products.
+Operational systems are unaware of the EDP. They emit events because events are part of their domain model, and the EDP subscribes. Operational systems never need to change when the EDP adds new consumers, new transformations, or new data products.
 
 This is the most important pattern. If you get nothing else right, get this one right.
 
@@ -56,7 +50,7 @@ This is the most important pattern. If you get nothing else right, get this one 
 
 ## Pattern 2: Reverse ETL / Operational Sync
 
-The EDP computes things that operational systems cannot compute on their own: Customer 360 profiles, risk scores, segmentation labels, propensity models, lifetime value calculations. These computations require joining data across domains, applying complex business logic, and processing historical data -- none of which operational systems are designed for.
+The EDP computes things that operational systems cannot compute on their own: Customer 360 profiles, risk scores, segmentation labels, propensity models, lifetime value calculations. These computations require joining data across domains, applying complex business logic, and processing historical data, none of which operational systems are designed for.
 
 Selected datasets are pushed back to operational systems via reverse ETL.
 
@@ -69,11 +63,11 @@ graph LR
     C --> F["Underwriting System<br/>(risk scores)"]
 ```
 
-**Key principle:** The EDP is the source of truth for the computed data. The operational system receives a copy. If the CRM shows a customer's risk score, that score was computed by the EDP and pushed to the CRM. The CRM does not compute it.
+The EDP is the source of truth for the computed data; the operational system receives a copy. If the CRM shows a customer's risk score, that score was computed by the EDP and pushed to the CRM. The CRM does not compute it.
 
 | Concern | Guidance |
 |---------|----------|
-| **Freshness** | Batch is fine for most use cases (hourly, daily). Near real-time reverse ETL adds complexity -- justify it with a real business requirement. |
+| **Freshness** | Batch is fine for most use cases (hourly, daily). Near real-time reverse ETL adds complexity; justify it with a real business requirement. |
 | **Conflict resolution** | The EDP-computed field overwrites the operational field. There is no merge. If there is ambiguity about which system owns a field, you have a governance problem, not a technical one. |
 | **Scope** | Push only what the operational system needs. Do not replicate the entire gold layer into every downstream system. |
 
@@ -90,7 +84,7 @@ graph LR
     F["Real-Time Events"] --> D
 ```
 
-**Key principle:** EDP computes, the serving layer delivers. The EDP is never queried at inference time. A model that needs a customer's 90-day transaction summary does not query BigQuery in the request path. That summary was precomputed by the EDP, materialized to an online store, and is fetched in milliseconds when the model needs it.
+The EDP computes, the serving layer delivers, and the EDP is never queried at inference time. A model that needs a customer's 90-day transaction summary does not query BigQuery in the request path. That summary was precomputed by the EDP, materialized to an online store, and is fetched in milliseconds when the model needs it.
 
 | Aspect | Offline (EDP) | Online (Serving) |
 |--------|--------------|-----------------|
@@ -113,7 +107,7 @@ graph LR
     B -.-> |"auth, rate limiting,<br/>caching, versioning"| B
 ```
 
-**Key principle:** The API layer decouples consumers from the EDP's internal structure. When the EDP migrates from one storage engine to another, refactors its medallion layers, or restructures its data products, the API contract stays stable. Consumers call APIs, not query the lakehouse.
+The API layer decouples consumers from the EDP's internal structure. When the EDP migrates from one storage engine to another, refactors its medallion layers, or restructures its data products, the API contract stays stable. Consumers call APIs, not query the lakehouse.
 
 | Concern | Guidance |
 |---------|----------|
@@ -124,7 +118,7 @@ graph LR
 
 ## Pattern 5: Shared Reference Data
 
-Master data -- customer, product, location, organizational hierarchy -- is consumed by both platforms. The source of truth is typically an MDM system or a designated source system. Both the EDP and the operational platform consume from that same source.
+Master data (customer, product, location, organizational hierarchy) is consumed by both platforms. The source of truth is typically an MDM system or a designated source system. Both the EDP and the operational platform consume from that same source.
 
 ```mermaid
 graph TD
@@ -133,7 +127,7 @@ graph TD
     B --> D["EDP<br/>(historized, versioned)"]
 ```
 
-**Key principle:** One authoritative source, two consumption patterns. The operational platform uses the current version of a customer record for live transactions. The EDP historizes every version for analytics, regulatory reporting, and audit. Neither platform tries to be the master. The master is the master.
+One authoritative source, two consumption patterns. The operational platform uses the current version of a customer record for live transactions. The EDP historizes every version for analytics, regulatory reporting, and audit. Neither platform tries to be the master.
 
 | Concern | Operational Platform | EDP |
 |---------|---------------------|-----|
@@ -146,10 +140,10 @@ graph TD
 
 These are the patterns that look like shortcuts and end up as long-term liabilities.
 
-**Direct database connections between platforms.** When the operational platform queries the EDP's database directly -- or vice versa -- you have created a coupling that makes independent evolution impossible. Schema changes in one platform break the other. Maintenance windows collide. Performance degrades unpredictably.
+**Direct database connections between platforms.** When the operational platform queries the EDP's database directly, or vice versa, you have created a coupling that makes independent evolution impossible. Schema changes in one platform break the other. Maintenance windows collide. Performance degrades unpredictably.
 
 **Operational systems querying the EDP for live decisions.** The EDP is optimized for analytical throughput, not transactional latency. When an operational system queries the EDP in a user-facing request path, you get inconsistent response times, query queuing during peak analytical workloads, and an architecture that is fragile under load. Use a serving layer (Pattern 3, Pattern 4).
 
-**Batch file transfers as the primary integration mechanism.** CSV files on SFTP servers, shared NFS mounts, nightly database dumps. These are not integration patterns -- they are the absence of an integration pattern. No schema contracts, no delivery guarantees, no observability, no error handling beyond "the file didn't show up."
+**Batch file transfers as the primary integration mechanism.** CSV files on SFTP servers, shared NFS mounts, nightly database dumps. These are not integration patterns; they are the absence of one. No schema contracts, no delivery guarantees, no observability, no error handling beyond "the file didn't show up."
 
 **Shared databases between operational and analytical workloads.** The single worst architectural decision in enterprise data. Operational workloads need transactional consistency, low latency, and high concurrency. Analytical workloads need full scans, complex joins, and high throughput. Running both against the same database means neither gets what it needs. This is the problem the EDP exists to solve.

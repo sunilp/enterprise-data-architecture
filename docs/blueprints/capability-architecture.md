@@ -4,15 +4,7 @@ description: "EDP capability architecture: 35+ capabilities across 7 groups. Dat
 
 # EDP Capability Architecture
 
-An enterprise data platform is not just a storage and transformation stack. It is a governed capability system with explicit operational, control, and service responsibilities.
-
-## Executive Summary
-
-- An EDP must deliver 7 distinct capability groups spanning acquisition, management, processing, storage, access, governance, and observability
-- Capabilities are durable design concerns. Components (tools, products, services) are replaceable implementations of those capabilities.
-- Most platform failures are not technology failures. They are capability gaps -- missing lineage, absent quality controls, no reprocessing path, no cost visibility.
-- This model works as a gap assessment, vendor evaluation framework, team structure blueprint, and maturity scorecard.
-- If you cannot name the component that delivers a capability, you have a gap. If you have a component but no one owns it, you have a risk.
+An enterprise data platform is not just a storage and transformation stack. It is a governed capability system with explicit operational, control, and service responsibilities: seven capability groups spanning acquisition, management, processing, storage, access, governance, and observability. Most platform failures trace to capability gaps (missing lineage, absent quality controls, no reprocessing path, no cost visibility) rather than to technology choices. Use this model as a gap assessment, a vendor evaluation frame, a team structure blueprint, or a maturity scorecard. If you cannot name the component that delivers a capability, you have a gap; a component nobody owns is a risk.
 
 ```mermaid
 graph TB
@@ -139,7 +131,7 @@ A capability is what the platform must do. A component is one way to do it. Conf
 | Transformation | Data cleaning and business logic | dbt, Spark, Dataform |
 | Freshness monitoring | Data age tracking | Custom dashboards, Monte Carlo, Bigeye |
 
-**Capabilities are durable. Components change. Design for the capability, select the component.**
+Capabilities are durable; components change. Design for the capability, then select the component.
 
 ## How to Use This Model
 
@@ -149,4 +141,4 @@ A capability is what the platform must do. A component is one way to do it. Conf
 
 **Team structure.** Each capability group suggests a team ownership boundary. Data acquisition is not the same team as governance. Observability is not the same team as transformation. Align teams to capability groups, not to tools.
 
-**Maturity assessment.** For each sub-capability, score your current state: (0) absent, (1) manual/ad-hoc, (2) partially automated, (3) fully automated with monitoring. The distribution tells you where to invest. A platform that scores 3 on transformation but 0 on lineage is not mature -- it is blind.
+**Maturity assessment.** For each sub-capability, score your current state: (0) absent, (1) manual/ad-hoc, (2) partially automated, (3) fully automated with monitoring. The distribution tells you where to invest. A platform that scores 3 on transformation but 0 on lineage is blind, whatever its maturity score says.
