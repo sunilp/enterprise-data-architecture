@@ -60,6 +60,8 @@ nav:
     - What EDP Is: position/what-edp-is.md
     - EDP vs Operational: position/edp-vs-operational.md
     - Anti-Patterns: position/anti-patterns.md
+    - EDP Is Not an ODS: position/edp-is-not-an-ods.md
+    - The New Data Architecture: position/new-data-architecture.md
   - Blueprints:
     - Target State Architecture: blueprints/target-state.md
     - Capability Architecture: blueprints/capability-architecture.md

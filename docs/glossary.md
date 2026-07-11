@@ -62,7 +62,7 @@ Table metadata specifications (Apache Iceberg, Delta Lake) that let multiple eng
 
 ### Operational Data Store (ODS)
 
-A purpose-built store for current-state, operational access patterns with low latency and transactional consistency. Holds denormalized, access-optimized data for operational use. **Not:** the EDP. Not a data warehouse. **Architecture layer:** Layer 3a.
+A purpose-built store for current-state, operational access patterns with low latency and transactional consistency. Holds denormalized, access-optimized data for operational use. **Not:** the EDP. Not a data warehouse. See [EDP Is Not an ODS](position/edp-is-not-an-ods.md). **Architecture layer:** Layer 3a.
 
 ### Raw / Curated / Consumption
 

@@ -9,7 +9,7 @@ description: Enterprise data architecture guide with decision frameworks, refere
 Built to help organizations avoid the most expensive data architecture mistake: turning the enterprise data platform into a general-purpose runtime.
 
 <div class="proof-strip" markdown>
-33 pages · 7-layer architecture · 35+ capabilities · 4 compliance regimes · agent access patterns · 3 case studies · 5 review checklists
+35 pages · 7-layer architecture · 35+ capabilities · 4 compliance regimes · agent access patterns · 3 case studies · 5 review checklists
 </div>
 
 Every enterprise builds a data platform. Most of them also accidentally try to make it run their business operations. This is the guide to not doing that.
@@ -25,6 +25,8 @@ Your stakeholders think the data platform should run everything. Start with the 
 - [**What EDP Is**](position/what-edp-is.md): The problems an enterprise data platform solves and the problems it must not solve
 - [**EDP vs Operational Platform**](position/edp-vs-operational.md): Side-by-side comparison across 12 dimensions
 - [**Anti-Patterns**](position/anti-patterns.md): What breaks when EDP becomes everything
+- [**EDP Is Not an ODS**](position/edp-is-not-an-ods.md): The most common misuse, the five differences that bite, and how to spot it
+- [**The New Data Architecture**](position/new-data-architecture.md): The four 2026 shifts worth designing for, and what did not change
 
 ### I need a reference blueprint
 
