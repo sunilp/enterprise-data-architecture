@@ -47,11 +47,13 @@ Purpose-built stores for operational access patterns. Low-latency lookups, trans
 
 ### Layer 4: EDP / Lakehouse / Warehouse
 
-The analytical heart. Raw ingestion (bronze), cleansed and conformed (silver), business-ready (gold). Historical, governed, integrated. Everything here is optimized for analytical throughput, historical depth, and governance, not for transactional workloads, point lookups, or sub-second responses.
+The analytical heart. Raw ingestion (bronze), cleansed and conformed (silver), business-ready (gold). Historical, governed, integrated. Everything here is optimized for analytical throughput, historical depth, and governance, not for transactional workloads, point lookups, or sub-second responses. Storage at this layer is increasingly open table formats with a catalog in front; see [Open Formats and Catalogs](../patterns/open-formats.md) for why the catalog choice now matters as much as the engine choice.
 
 ### Layer 5: Semantic / Data Product Layer
 
 Governed, documented, discoverable data products. Each product has a defined owner, schema, SLA, and quality contract. Data products are the interface between the EDP and its consumers: stable, versioned datasets that hide the complexity of the layers beneath them.
+
+The semantic half of this layer is gaining weight. Metric and entity definitions, once a BI-tool convenience, are becoming governed artifacts in their own right, because they are the interface BI copilots and AI agents consume. The Open Semantic Interchange (OSI) specification, published in early 2026, aims to make those definitions portable across tools. Treat business definitions like schemas: owned, versioned, and reviewed. [Agents as Consumers](agent-access.md) covers why this matters more once agents query the platform.
 
 ### Layer 6: AI / ML / Analytics Consumption
 
@@ -99,7 +101,21 @@ Governance, lineage, security, and observability span all layers:
 | Event backbone | Event Hubs, Service Bus |
 | Operational services | Azure Functions, AKS, Logic Apps |
 | Operational data store | Azure SQL, Cosmos DB, Redis Cache |
-| EDP / Warehouse | Azure Databricks (Unity Catalog), Synapse, ADLS Gen2 |
-| Semantic / Data products | Unity Catalog datasets, Databricks SQL |
+| EDP / Warehouse | Azure Databricks (Unity Catalog), ADLS Gen2, Microsoft Fabric / OneLake (Synapse's successor path) |
+| Semantic / Data products | Unity Catalog datasets, Databricks SQL, Power BI semantic models |
 | AI / ML | Azure ML, Databricks Feature Store, Azure OpenAI |
 | Governance | Microsoft Purview, Unity Catalog |
+
+### Amazon Web Services
+
+| Layer | AWS Services |
+|-------|-------------|
+| Event backbone | MSK (managed Kafka), Kinesis |
+| Operational services | Lambda, EKS, Step Functions |
+| Operational data store | Aurora / RDS, DynamoDB, ElastiCache |
+| EDP / Warehouse | S3 with Iceberg tables, Redshift, Athena, EMR |
+| Semantic / Data products | Glue Data Catalog, Lake Formation grants, DataZone |
+| AI / ML | SageMaker, Bedrock |
+| Governance | Lake Formation, Glue Data Catalog, DataZone |
+
+The GCP and Azure variants include architecture diagrams; the AWS mapping is provided as a table. The layer responsibilities are identical across all three.

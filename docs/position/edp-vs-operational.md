@@ -81,6 +81,14 @@ graph LR
     end
 ```
 
+## The Convergence Argument
+
+The obvious objection to this page, as of 2026, is that the vendors are collapsing the boundary it draws. Databricks ships Lakebase, a managed Postgres inside the lakehouse, and markets transactional-plus-analytical processing on the same governed data. Snowflake ships its own managed Postgres. Both pitch one platform for both sides of this comparison table. If the infrastructure is converging, is the distinction obsolete?
+
+No, because the boundary was never about boxes. Read the table above again: latency expectations, mutation models, failure tolerance, SLA structures, cost models, scaling patterns. Those are properties of workloads and of the teams accountable for them, not of vendor platforms. A converged platform runs both workload types under one contract and one catalog, which is genuinely useful: shared governance, less data movement, one vendor conversation. What it does not do is merge the disciplines. The payment service still must not lose a transaction during the analytical platform's maintenance window, which means it still needs its own failure domain, its own SLOs, its own on-call, and its own budget line, whatever logo is on the infrastructure.
+
+The practical test survives convergence intact. For any workload, ask which failure domain it lives in and which SLO regime it answers to. If the answer is "operational," it needs operational discipline, and running it adjacent to your analytics on a converged platform is a deployment choice, not an exemption. Buying convergence is a procurement decision; operating convergence is an organizational one, and the second does not follow from the first.
+
 ## Common Mistakes
 
 These are explored in depth in [What Breaks When EDP Becomes Everything](anti-patterns.md):

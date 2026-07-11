@@ -69,64 +69,70 @@ Where the data comes from:
 
 ## Contract Example
 
-A concrete contract for a customer analytics data product:
+There is now a standard for this. The Open Data Contract Standard (ODCS), maintained by the Linux Foundation's Bitol project, has become the de facto baseline: catalogs, quality tools, and contract registries increasingly validate and import ODCS documents natively. Its sibling, the Open Data Product Standard (ODPS), describes the surrounding data product. Having a contract at all matters more than the exact shape, but writing it in the standard shape buys you the tooling.
+
+A concrete contract for a customer analytics data product, in the ODCS v3 shape:
 
 ```yaml
-contract:
-  name: customer_360
-  version: 2.1.0
-  owner:
-    team: customer-domain
-    contact: customer-data@example.com
-    escalation: head-of-customer-data@example.com
-  description: Integrated customer view across all product lines
-  schema:
-    fields:
+apiVersion: v3.1.0
+kind: DataContract
+id: customer-360
+name: Customer 360
+version: 2.1.0
+status: active
+domain: customer
+description:
+  purpose: Integrated customer view across all product lines
+schema:
+  - name: customer_360
+    physicalName: gold.customer_360
+    properties:
       - name: customer_id
-        type: STRING
-        nullable: false
+        logicalType: string
+        required: true
+        unique: true
         description: Global customer identifier (MDM-issued)
       - name: full_name
-        type: STRING
-        nullable: false
-        pii: true
+        logicalType: string
+        required: true
+        classification: pii
       - name: lifetime_revenue
-        type: DECIMAL(18,2)
-        nullable: true
+        logicalType: number
         description: Total revenue across all products, lifetime
       - name: risk_score
-        type: FLOAT
-        nullable: true
-        description: Composite risk score (0-1), updated daily
+        logicalType: number
+        description: Composite risk score, updated daily
+        quality:
+          - rule: validValues
+            description: risk_score between 0 and 1
       - name: segment
-        type: STRING
-        nullable: false
+        logicalType: string
+        required: true
         description: Customer segment (premium/standard/basic)
       - name: last_activity_date
-        type: DATE
-        nullable: true
+        logicalType: date
       - name: active_products
-        type: INTEGER
-        nullable: false
-  quality:
-    freshness_sla: "daily by 06:00 UTC"
-    completeness: ">= 99.5%"
-    uniqueness: "customer_id is unique"
-    validity: "risk_score between 0 and 1"
-  sla:
-    availability: "99.9%"
-    refresh_frequency: "daily"
-    support_hours: "business hours (UTC+0)"
-  evolution:
-    policy: "additive-only for minor versions, breaking changes require major version bump"
-    deprecation_window: "90 days"
-    notification: "Slack #data-contracts, email to registered consumers"
-  lineage:
-    sources:
-      - "crm.customers (CDC via Debezium)"
-      - "core_banking.accounts (daily batch)"
-      - "payments.transactions (streaming via Kafka)"
-    transformations: "Deduplicated on MDM customer_id, revenue aggregated from transactions, risk score from ML model output"
+        logicalType: integer
+        required: true
+slaProperties:
+  - property: frequency
+    value: daily
+  - property: timeOfAvailability
+    value: "06:00"
+    unit: UTC
+  - property: generalAvailability
+    value: "99.9%"
+team:
+  - role: owner
+    name: customer-domain
+    email: customer-data@example.com
+  - role: escalation
+    email: head-of-customer-data@example.com
+customProperties:
+  - property: evolutionPolicy
+    value: additive-only for minor versions; breaking changes require a major version bump and a 90-day deprecation window
+  - property: sources
+    value: crm.customers (CDC), core_banking.accounts (daily batch), payments.transactions (streaming)
 ```
 
 ## Who Owns What

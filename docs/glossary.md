@@ -1,5 +1,5 @@
 ---
-description: "Enterprise data architecture glossary. 14 terms defined with disambiguation and target-state architecture layer mapping. EDP, data products, ODS, and more."
+description: "Enterprise data architecture glossary. 20 terms defined with disambiguation and target-state architecture layer mapping. EDP, data products, catalogs, and more."
 ---
 
 # Glossary
@@ -8,9 +8,17 @@ Precise definitions for terms that are commonly confused, conflated, or misused 
 
 ---
 
+### Agent Access
+
+Consumption of platform data by AI agents through governed interfaces: semantic layers, data products exposed as tools, or guarded text-to-SQL. **Not:** a mandate to run agents on the EDP; agents are consumers, not tenants. See [Agents as Consumers](blueprints/agent-access.md). **Architecture layer:** Layer 6 (consumption).
+
 ### Bronze / Silver / Gold
 
 Data refinement stages within the EDP: raw ingestion (bronze), cleansed and conformed (silver), business-ready (gold). **Not:** business process stages or a workflow model. **Architecture layer:** Layer 4 (EDP).
+
+### Catalog
+
+The service that tracks tables, vends storage credentials, and enforces access policy across query engines, typically speaking the Iceberg REST API (Apache Polaris, Unity Catalog, AWS Glue, BigLake metastore). **Not:** just a metadata directory; it is a control point and a lock-in surface. See [Open Formats and Catalogs](patterns/open-formats.md). **Architecture layer:** control plane.
 
 ### Data Fabric
 
@@ -44,6 +52,14 @@ An ML-specific data system that manages the computation, storage, and serving of
 
 A platform combining data lake storage flexibility with data warehouse query capabilities, typically using open table formats (Delta Lake, Apache Iceberg). **Not:** a replacement for operational databases. **Architecture layer:** Layer 4 (EDP).
 
+### MCP (Model Context Protocol)
+
+The open standard for connecting AI agents to tools and data, under Linux Foundation governance since late 2025. Warehouse vendors expose governed query tools through managed MCP servers. **Not:** a security or authorization model; it standardizes connection and discovery only. **Architecture layer:** consumption interface at Layer 6.
+
+### Open Table Format
+
+Table metadata specifications (Apache Iceberg, Delta Lake) that let multiple engines read and write the same data on object storage with transactional guarantees. **Not:** a database or a query engine. **Architecture layer:** Layer 4 (EDP) storage.
+
 ### Operational Data Store (ODS)
 
 A purpose-built store for current-state, operational access patterns with low latency and transactional consistency. Holds denormalized, access-optimized data for operational use. **Not:** the EDP. Not a data warehouse. **Architecture layer:** Layer 3a.
@@ -51,6 +67,10 @@ A purpose-built store for current-state, operational access patterns with low la
 ### Raw / Curated / Consumption
 
 Alternative naming for bronze/silver/gold. Same concept: data refinement stages within the EDP. Some organizations prefer this naming to avoid the "gold = final product" misconception. **Architecture layer:** Layer 4 (EDP).
+
+### Semantic Layer
+
+Governed business definitions (metrics, entities, blessed joins) served as an interface between data products and their consumers, human or agent. The Open Semantic Interchange (OSI) spec is the emerging portability standard. **Not:** a BI-tool convenience; it is access infrastructure. **Architecture layer:** Layer 5.
 
 ### Serving Layer
 
@@ -63,6 +83,10 @@ Systems designed for ACID-compliant, low-latency business transactions: payments
 ### Workflow Platform
 
 Systems for orchestrating multi-step business processes with state management, human tasks, exception handling, and SLA tracking. Temporal, Camunda, or purpose-built BPM. **Not:** dbt. Not Airflow (which is a pipeline orchestrator, not a business workflow engine). **Architecture layer:** Layer 3.
+
+### Zero-ETL
+
+Vendor-managed continuous replication from an operational database into an analytical store, with no pipeline to build. **Not:** a replacement for contracts and quality gates; it is a managed variant of CDC ingestion. **Architecture layer:** ingestion into Layer 4.
 
 ---
 

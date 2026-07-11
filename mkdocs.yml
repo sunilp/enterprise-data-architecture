@@ -65,6 +65,7 @@ nav:
     - Capability Architecture: blueprints/capability-architecture.md
     - Control Plane: blueprints/control-plane.md
     - AI/ML Platform Relationship: blueprints/ai-ml-platform.md
+    - Agents as Consumers: blueprints/agent-access.md
     - Coexistence Patterns: blueprints/coexistence-patterns.md
   - Decisions:
     - Decision Tree: decisions/decision-tree.md
@@ -76,11 +77,13 @@ nav:
   - Patterns:
     - Data Contracts: patterns/data-contracts.md
     - Cost Architecture: patterns/cost-architecture.md
+    - Open Formats and Catalogs: patterns/open-formats.md
   - Compliance:
     - Overview: compliance/overview.md
     - Banking: compliance/banking.md
     - Healthcare: compliance/healthcare.md
     - Insurance: compliance/insurance.md
+    - EU AI Act: compliance/eu-ai-act.md
   - Operations:
     - Operating Model: operations/operating-model.md
     - Reliability Model: operations/reliability.md

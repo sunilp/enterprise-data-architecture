@@ -48,6 +48,8 @@ This is the most important pattern. If you get nothing else right, get this one 
 | **Retention** | The backbone retains events long enough for the EDP to consume. The EDP provides long-term historization. |
 | **Ordering** | Per-entity ordering (partition key) is usually sufficient. Global ordering is rarely needed and expensive. |
 
+**Managed variant: zero-ETL and mirroring.** Cloud vendors now sell this pattern pre-built: zero-ETL integrations and mirroring replicate an operational database into the analytical store continuously, with no pipeline to write. It is a reasonable default when a single vendor-aligned source needs to reach the warehouse and no other consumer needs the change stream. Build the CDC-plus-backbone version when multiple consumers need the events or when contracts and quality gates must apply before data lands. The trade-offs are covered in [Open Formats and Catalogs](../patterns/open-formats.md).
+
 ## Pattern 2: Reverse ETL / Operational Sync
 
 The EDP computes things that operational systems cannot compute on their own: Customer 360 profiles, risk scores, segmentation labels, propensity models, lifetime value calculations. These computations require joining data across domains, applying complex business logic, and processing historical data, none of which operational systems are designed for.
