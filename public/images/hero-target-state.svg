@@ -199,6 +199,7 @@
   <rect x="880" y="750" width="920" height="100" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
   <text x="900" y="780" class="layer-label" fill="#999">LAYER 5</text>
   <text x="980" y="780" class="layer-title" fill="#1a1a1a">Semantic / Data Product Layer</text>
+  <text x="1280" y="780" class="layer-desc">products · semantic definitions · access interfaces (SQL / API / MCP)</text>
 
   <rect x="920" y="800" width="160" height="35" rx="3" fill="#f5f5f3" stroke="#1a1a1a" stroke-width="1"/>
   <text x="1000" y="822" text-anchor="middle" font-size="11" font-weight="500" fill="#1a1a1a">Customer 360</text>
@@ -249,9 +250,9 @@
   <text x="1005" y="993" text-anchor="middle" font-size="11" fill="#999">Ad-hoc Queries</text>
 
   <rect x="1110" y="935" width="170" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
-  <text x="1195" y="960" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Gen AI / RAG</text>
-  <text x="1195" y="978" text-anchor="middle" font-size="11" fill="#999">Vector Store</text>
-  <text x="1195" y="993" text-anchor="middle" font-size="11" fill="#999">Embeddings</text>
+  <text x="1195" y="960" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Gen AI / Agents</text>
+  <text x="1195" y="978" text-anchor="middle" font-size="11" fill="#999">RAG / Vector Store</text>
+  <text x="1195" y="993" text-anchor="middle" font-size="11" fill="#999">Agents via MCP</text>
 
   <rect x="1300" y="935" width="170" height="70" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
   <text x="1385" y="960" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Reverse ETL</text>
@@ -280,4 +281,15 @@
   <!-- Analytical boundary -->
   <text x="1340" y="344" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#999">ANALYTICAL PLATFORM (EDP)</text>
 
+
+  <!-- Contract points: every boundary crossing is a contract -->
+  <path d="M960,215 L965,220 L960,225 L955,220 Z" fill="#1f4e79"/>
+  <path d="M480,325 L485,330 L480,335 L475,330 Z" fill="#1f4e79"/>
+  <path d="M1200,325 L1205,330 L1200,335 L1195,330 Z" fill="#1f4e79"/>
+  <path d="M480,562 L485,567 L480,572 L475,567 Z" fill="#1f4e79"/>
+  <path d="M1340,725 L1345,730 L1340,735 L1335,730 Z" fill="#1f4e79"/>
+  <path d="M1340,860 L1345,865 L1340,870 L1335,865 Z" fill="#1f4e79"/>
+  <path d="M625,825 L630,830 L625,835 L620,830 Z" fill="#1f4e79"/>
+  <path d="M142,1052 L147,1057 L142,1062 L137,1057 Z" fill="#1f4e79"/>
+  <text x="158" y="1061" font-size="11" fill="#6b6b6b">contract point: schema · SLA · ownership, at every boundary crossing</text>
 </svg>

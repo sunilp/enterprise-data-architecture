@@ -515,6 +515,7 @@
   <rect x="840" y="735" width="960" height="120" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
   <text x="860" y="765" class="layer-label" fill="#999">LAYER 5</text>
   <text x="940" y="765" class="layer-title" fill="#1a1a1a">Data Products</text>
+  <text x="940" y="783" class="layer-desc" font-size="11">products · semantics · access (SQL / API / MCP)</text>
 
   <!-- Analytics Hub icon + label -->
   <g transform="translate(1100, 748)">
@@ -598,7 +599,7 @@
   </g>
   <rect x="890" y="975" width="165" height="42" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
   <text x="972" y="991" text-anchor="middle" font-size="11" font-weight="500" fill="#EA4335">Vector Search</text>
-  <text x="972" y="1007" text-anchor="middle" font-size="10" fill="#999">Gen AI / RAG</text>
+  <text x="972" y="1007" text-anchor="middle" font-size="10" fill="#999">RAG · Agents via MCP</text>
 
   <!-- Notebooks (Colab Enterprise) -->
   <g transform="translate(1110, 942)">
