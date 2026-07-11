@@ -6,6 +6,8 @@ description: "Data platform maturity model. Five levels (ad hoc to optimized) ac
 
 Five maturity levels (ad hoc, managed, standardized, governed, optimized) describe where an enterprise data platform actually is, not where a vendor pitch deck says it should be. Six dimensions are assessed at each level: data ingestion, governance, data products, platform operations, cost management, and AI/ML readiness. Each level has observable characteristics rather than vague aspirations, so leaders can say "we are here, we need to get there" with evidence for each claim. Jumping levels rarely works; each level builds the foundations for the next.
 
+This page is the organizational view: where the platform effort stands as a whole. For a per-capability scoring tool that surfaces the specific weak spots this altitude hides, use the [Capability Assessment](capability-maturity.md); its four assessment levels map onto the five here.
+
 ```mermaid
 graph LR
     L1[Level 1<br/>Ad Hoc] --> L2[Level 2<br/>Managed]

@@ -10,6 +10,8 @@ description: "Banking compliance for data platforms. BCBS 239 principles 3-6 and
 - DORA (Regulation (EU) 2022/2554, applying since January 2025) governs ICT risk management for EU financial entities: how platforms handle failure, testing, and vendor risk.
 - Both create architectural requirements, not just operational ones. The EDP's design properties (lineage, historization, quality gates, governed access) satisfy the hardest BCBS 239 principles by construction.
 
+Banks deploying high-risk AI systems (creditworthiness scoring is a named category) should also read the [EU AI Act mapping](eu-ai-act.md); its data-governance obligations apply from August 2026.
+
 ## BCBS 239: Risk Data Aggregation
 
 BCBS 239 (Principles for effective risk data aggregation and risk reporting) was published by the Basel Committee in 2013. Banks have had over a decade to comply. Most still struggle. The problem is not awareness. The problem is that compliance requires architectural decisions that many banks never made, and retrofitting them is expensive.

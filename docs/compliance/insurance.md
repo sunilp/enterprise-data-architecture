@@ -10,6 +10,8 @@ description: "Insurance Solvency II compliance for data platforms. Three pillars
 - Its data quality, reporting, and risk management requirements shape platform architecture structurally, not just as policy.
 - IFRS 17, the insurance contracts accounting standard, adds contract-level granularity and historization requirements that compound on top of Solvency II.
 
+Insurers using AI for risk assessment and pricing (a named high-risk category for life and health) should also read the [EU AI Act mapping](eu-ai-act.md); its obligations apply from August 2026.
+
 ## Solvency II Pillars Mapped to Platform Design
 
 Solvency II is not one regulation. It is three pillars, each with different data requirements. Teams that treat it as a single compliance checkbox end up building a platform that satisfies one pillar well and the others poorly. Map each pillar to specific platform design decisions.

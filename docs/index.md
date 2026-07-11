@@ -9,7 +9,7 @@ description: Enterprise data architecture guide with decision frameworks, refere
 Built to help organizations avoid the most expensive data architecture mistake: turning the enterprise data platform into a general-purpose runtime.
 
 <div class="proof-strip" markdown>
-32 pages · 7-layer architecture · 35+ capabilities · 3 industry compliance · 5 coexistence patterns · 3 case studies · 5 review checklists
+33 pages · 7-layer architecture · 35+ capabilities · 4 compliance regimes · agent access patterns · 3 case studies · 5 review checklists
 </div>
 
 Every enterprise builds a data platform. Most of them also accidentally try to make it run their business operations. This is the guide to not doing that.
@@ -30,25 +30,27 @@ Your stakeholders think the data platform should run everything. Start with the 
 
 You are designing a target-state architecture or evaluating how platforms coexist:
 
-- [**Target-State Architecture**](blueprints/target-state.md): Seven-layer reference architecture with GCP and Azure service mappings
+- [**Target-State Architecture**](blueprints/target-state.md): Seven-layer reference architecture with GCP, Azure, and AWS service mappings
 - [**Capability Architecture**](blueprints/capability-architecture.md): 35+ capabilities the EDP must provide, with components mapping
 - [**Control Plane**](blueprints/control-plane.md): Metadata, lineage, policy, contracts, audit, and observability infrastructure
-- [**AI/ML Platform Relationship**](blueprints/ai-ml-platform.md): How the EDP feeds ML/AI, feature stores, and the feedback loop
+- [**AI/ML Platform Relationship**](blueprints/ai-ml-platform.md): The classic ML and LLM data supply chains, from feature stores to RAG corpora
+- [**Agents as Consumers**](blueprints/agent-access.md): Governed agent access through MCP, semantic layers, and scoped identity
 - [**Coexistence Patterns**](blueprints/coexistence-patterns.md): How EDP and operational platforms connect through five integration patterns
 
 ### I need to make an architecture decision
 
 - [**Decision Tree**](decisions/decision-tree.md): "Where does this workload belong?" flowchart with quick reference table
-- [**Capability Map**](decisions/capability-map.md): 15 business capabilities mapped to platform owners
+- [**Business Capability Map**](decisions/capability-map.md): 15 business capabilities mapped to platform owners
 - [**Data Mesh**](decisions/data-mesh.md): When data mesh works, when it doesn't, and the pragmatic middle ground
 - [**Maturity Model**](decisions/maturity-model.md): Five levels across six dimensions
 - [**Vendor Evaluation**](decisions/vendor-framework.md): 10-dimension evaluation framework with platform archetypes
-- [**Capability Maturity**](decisions/capability-maturity.md): 15 capabilities x 4 maturity levels assessment
+- [**Capability Assessment**](decisions/capability-maturity.md): 15 capabilities x 4 maturity levels assessment
 
 ### I need integration patterns
 
 - [**Data Contracts**](patterns/data-contracts.md): Schema, SLAs, ownership, and evolution rules between producers and consumers
 - [**Cost Architecture**](patterns/cost-architecture.md): FinOps patterns for data platforms
+- [**Open Formats and Catalogs**](patterns/open-formats.md): Iceberg as the interchange layer, catalog selection, zero-ETL, and the streaming lakehouse
 
 ### I need regulatory compliance guidance
 
@@ -56,6 +58,7 @@ You are designing a target-state architecture or evaluating how platforms coexis
 - [**Banking**](compliance/banking.md): BCBS 239 and DORA mapped to architecture decisions
 - [**Healthcare**](compliance/healthcare.md): HIPAA mapped to data platform design
 - [**Insurance**](compliance/insurance.md): Solvency II and IFRS 17 data requirements
+- [**EU AI Act**](compliance/eu-ai-act.md): Article 10 data governance and Article 12 logging mapped to platform capabilities
 
 ### I need an operating model
 
@@ -68,15 +71,15 @@ You are designing a target-state architecture or evaluating how platforms coexis
 
 ### I need proof this works
 
-- [**Case Studies**](proof/case-studies.md): Three anonymized enterprise architecture transformations
+- [**Case Studies**](proof/case-studies.md): Three illustrative composite transformations
 - [**Evidence Tables**](proof/evidence.md): Claims, counter-arguments, failure modes, and measurable outcomes
 - [**Decision Records**](proof/decision-records.md): Worked ADR examples applying these frameworks
-- [**Metrics and Outcomes**](proof/metrics.md): Before/after measurements across 13 dimensions
+- [**Metrics and Outcomes**](proof/metrics.md): Target ranges across 13 dimensions, with what to measure
 - [**Review Checklists**](proof/checklists.md): Five operational checklists for architecture review boards
 
 ## Terminology
 
-If the terms in this guide are unclear, start with the [Glossary](glossary.md). It defines 14 commonly confused terms and maps each to the target-state architecture.
+If the terms in this guide are unclear, start with the [Glossary](glossary.md). It defines 20 commonly confused terms and maps each to the target-state architecture.
 
 ## Related Implementation
 

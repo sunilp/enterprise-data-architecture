@@ -7,7 +7,7 @@ description: "Regulatory compliance patterns for data platforms. Cross-industry 
 ## Executive Summary
 
 - Maps regulatory requirements to platform design choices, not to specific cloud controls.
-- Industries covered: banking (BCBS 239, DORA), healthcare (HIPAA), insurance (Solvency II, IFRS 17).
+- Industries covered: banking (BCBS 239, DORA), healthcare (HIPAA), insurance (Solvency II, IFRS 17), plus the cross-industry [EU AI Act](eu-ai-act.md).
 - The EDP's append-only, historized, lineage-tracked design satisfies many requirements that operational platforms struggle with. Compliance here is an architecture feature, not a bolt-on audit exercise.
 
 ```mermaid
@@ -63,6 +63,7 @@ Regulators across industries ask surprisingly similar questions. The specifics d
 | Incident reporting | Report breaches within mandated timeframes | Monitoring, alerting, incident workflows | Cross-cutting |
 | Third-party risk | Manage vendor and outsourcing risk | Vendor assessment, contract requirements | Governance |
 | Business continuity | Recover from failures | Backup, DR, multi-region redundancy | Infrastructure |
+| AI training data governance | Provenance, representativeness, bias examination (EU AI Act Art. 10) | Versioned datasets, lineage, quality gates, documented composition | Layer 4 (EDP) + cross-cutting |
 
 Notice that most themes map to cross-cutting concerns or Layer 4 (the EDP itself). This is not a coincidence. Regulators care about data governance, and governance is the EDP's primary job.
 
@@ -87,6 +88,7 @@ Each industry has unique regulatory requirements that go beyond the common theme
 - [Banking: BCBS 239 and DORA](banking.md): risk data aggregation, reporting accuracy, digital operational resilience
 - [Healthcare: HIPAA](healthcare.md): protected health information, minimum necessary standard, breach notification
 - [Insurance: Solvency II](insurance.md): risk capital reporting, data quality for actuarial models, regulatory submissions
+- [EU AI Act](eu-ai-act.md): data governance and record-keeping obligations for high-risk AI systems, applicable from August 2026
 
 ## Compliance vs Implementation
 

@@ -69,11 +69,11 @@ nav:
     - Coexistence Patterns: blueprints/coexistence-patterns.md
   - Decisions:
     - Decision Tree: decisions/decision-tree.md
-    - Capability Map: decisions/capability-map.md
+    - Business Capability Map: decisions/capability-map.md
     - Data Mesh: decisions/data-mesh.md
     - Maturity Model: decisions/maturity-model.md
     - Vendor Evaluation: decisions/vendor-framework.md
-    - Capability Maturity: decisions/capability-maturity.md
+    - Capability Assessment: decisions/capability-maturity.md
   - Patterns:
     - Data Contracts: patterns/data-contracts.md
     - Cost Architecture: patterns/cost-architecture.md

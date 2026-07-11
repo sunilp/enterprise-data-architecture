@@ -6,6 +6,8 @@ description: "Capability maturity assessment for enterprise data platforms. 15 c
 
 Platform maturity is not uniform. An organization can be Level 4 on batch ingestion and Level 1 on lineage, and a single platform-wide score hides exactly the gaps that hurt. This assessment scores 15 capabilities independently, so you can identify specific gaps and prioritize investment. The danger it guards against is real: leaders see a well-orchestrated pipeline and conclude the platform is mature, then a regulator asks for column-level lineage and nobody can produce it.
 
+This is the assessment-tool companion to the organizational [Maturity Model](maturity-model.md). The four levels here compress its five: Fragmented spans the model's Ad Hoc and Managed levels, Standardized and Governed correspond directly, and Enterprise-Grade maps to Optimized. Use the model to describe the platform to leadership; use this page to decide what to fix next.
+
 ## Capability Maturity Matrix
 
 Score each capability against four levels. Be honest; the value of this exercise is proportional to how uncomfortable the results make you.

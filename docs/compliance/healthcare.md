@@ -10,6 +10,8 @@ description: "Healthcare HIPAA compliance for data platforms. Privacy, security,
 - The Security Rule makes encryption at rest and in transit, minimum necessary access, and comprehensive audit trails non-negotiable technical safeguards.
 - HIPAA does not prohibit analytics and AI on health data; it constrains how they are done. A well-designed de-identification pipeline is the highest-leverage investment for healthcare data platforms.
 
+Providers deploying AI in clinical or coverage decisions should also read the [EU AI Act mapping](eu-ai-act.md) if they operate in or serve the EU.
+
 ## HIPAA Rules Mapped to Platform Design
 
 HIPAA has three rules that matter for data platform architecture. Each one translates directly into design decisions.
