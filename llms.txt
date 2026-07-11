@@ -16,6 +16,8 @@ Enterprise data platforms (EDP) exist to integrate, historize, and govern data f
 - [What EDP Is](https://sunilprakash.com/enterprise-data-architecture/position/what-edp-is/): Problems EDP solves and must not solve. Three Systems doctrine (record/insight/action). Bronze/silver/gold is data refinement, not business process.
 - [EDP vs Operational](https://sunilprakash.com/enterprise-data-architecture/position/edp-vs-operational/): Side-by-side comparison across 12 dimensions (purpose, latency, workload type, SLA, storage, governance, cost, scaling).
 - [Anti-Patterns](https://sunilprakash.com/enterprise-data-architecture/position/anti-patterns/): Six patterns that break when EDP becomes everything. Root cause is positioning, not technology.
+- [EDP Is Not an ODS](https://sunilprakash.com/enterprise-data-architecture/position/edp-is-not-an-ods/): Why the EDP gets mistaken for an operational data store, five differences that bite (freshness, mutation, latency, failure domain, consistency), and the fix.
+- [The New Data Architecture](https://sunilprakash.com/enterprise-data-architecture/position/new-data-architecture/): The four 2026 shifts (open formats and catalogs, operational-analytical convergence, agents as consumers, AI data as regulated evidence) and what did not change.
 
 ### Blueprints
 - [Target State Architecture](https://sunilprakash.com/enterprise-data-architecture/blueprints/target-state/): Seven-layer reference architecture with GCP, Azure, and AWS service mappings.
