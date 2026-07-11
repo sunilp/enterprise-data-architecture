@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionCard from '../components/SectionCard.astro';
 import { SECTIONS } from '../data/nav';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pageCount = (await getCollection('docs')).length + 1;
 const u = (slug: string) => `${base}/${slug}/`;
 
 const startHere: { heading: string; links: { title: string; slug: string; desc: string }[] }[] = [
@@ -98,13 +100,47 @@ const startHere: { heading: string; links: { title: string; slug: string; desc: 
       <p class="home__lede">
         Every enterprise builds a data platform. Most of them also accidentally try to make it run
         their business operations. This is the guide to not doing that: hard boundaries between
-        enterprise data platforms and operational platforms, decision frameworks backed by
-        evidence, and reference blueprints with real cloud provider mappings.
+        enterprise data platforms and operational platforms, decision frameworks, and reference
+        blueprints with real cloud provider mappings.
+      </p>
+      <figure class="home__systems" aria-label="Systems of record, insight, and action">
+        <svg viewBox="0 0 720 120" role="img" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="24" width="200" height="72" rx="4" fill="#ffffff" stroke="#e8e8e8"/>
+          <rect x="260" y="24" width="200" height="72" rx="4" fill="rgba(31,78,121,0.06)" stroke="#1f4e79"/>
+          <rect x="512" y="24" width="200" height="72" rx="4" fill="#ffffff" stroke="#e8e8e8"/>
+          <text x="108" y="56" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#6b6b6b">SYSTEMS OF</text>
+          <text x="108" y="78" text-anchor="middle" font-family="Fraunces Variable, Georgia, serif" font-size="20" fill="#1a1a1a">Record</text>
+          <text x="360" y="56" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#1f4e79">SYSTEMS OF</text>
+          <text x="360" y="78" text-anchor="middle" font-family="Fraunces Variable, Georgia, serif" font-size="20" fill="#1f4e79">Insight</text>
+          <text x="612" y="56" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#6b6b6b">SYSTEMS OF</text>
+          <text x="612" y="78" text-anchor="middle" font-family="Fraunces Variable, Georgia, serif" font-size="20" fill="#1a1a1a">Action</text>
+          <path d="M 212 60 L 256 60" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arr)"/>
+          <path d="M 464 60 L 508 60" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arr)"/>
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="none" stroke="#6b6b6b" stroke-width="1.2"/>
+            </marker>
+          </defs>
+        </svg>
+        <figcaption>
+          One flow, three responsibilities. The enterprise data platform is the system of insight;
+          the expensive failures start when it is asked to be the other two.
+        </figcaption>
+      </figure>
+      <p class="home__scope">
+        This pack covers one of enterprise data architecture's most consequential decisions: where
+        systems of record, insight, and action should remain separate, and where they may safely
+        share infrastructure. The position it argues is <strong>governed coexistence</strong>:
+        every workload gets an explicit architectural contract, and logical responsibility
+        boundaries survive even where the technology converges. It advocates responsibility
+        boundaries, not technology fragmentation, and it is deliberately not a complete treatment
+        of every data-management discipline.
       </p>
       <p class="proof-strip">
-        35 pages · 7-layer architecture · 35+ capabilities · 4 compliance regimes · agent access
-        patterns · 3 case studies · 5 review checklists
+        {pageCount} pages · 7-layer architecture · 35+ capabilities · 4 compliance regimes · agent
+        access patterns · 3 case studies · 5 review checklists
       </p>
+      <p class="home__edition rubric">Edition 2 · Updated July 2026</p>
     </section>
 
     <section class="home__sections">
@@ -133,6 +169,25 @@ const startHere: { heading: string; links: { title: string; slug: string; desc: 
           ))
         }
       </div>
+    </section>
+
+    <section class="home__author">
+      <h2 class="home__heading">About the Author</h2>
+      <p class="home__lede">
+        <a href="https://sunilprakash.com">Sunil Prakash</a> is an enterprise AI and data platform
+        architect working in global banking. His work spans governed data platforms, cloud
+        transformation, platform governance, and AI and agent architecture; the frameworks in this
+        pack come from applying and defending these boundaries inside large regulated enterprises.
+        He writes on agent infrastructure at
+        <a href="https://agenticlab.sunilprakash.com">the Agent Engineering Lab</a> and publishes
+        implementation companions to this guide on
+        <a href="https://github.com/sunilp">GitHub</a>. For architecture reviews, advisory
+        conversations, or speaking: <a href="mailto:sunil@sunilprakash.com">sunil@sunilprakash.com</a>.
+      </p>
+      <p class="home__cite">
+        Cite as: Prakash, Sunil. <em>Enterprise Data Architecture: A Position Pack for Governed
+        Coexistence.</em> 2026. sunilprakash.com/enterprise-data-architecture.
+      </p>
     </section>
 
     <section class="home__related">
@@ -229,5 +284,37 @@ const startHere: { heading: string; links: { title: string; slug: string; desc: 
     margin-top: 2px;
   }
 
-  .home__related { max-width: 780px; }
+  .home__related, .home__author { max-width: 780px; }
+
+  .home__scope {
+    font-size: var(--body-1);
+    line-height: var(--lh-base);
+    max-width: 70ch;
+    margin-bottom: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    background: var(--navy-wash);
+    border-left: 3px solid var(--navy);
+    border-radius: var(--radius-sm);
+  }
+
+  .home__systems { margin: 0 0 var(--space-6); max-width: 720px; }
+
+  .home__systems figcaption {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--body-2);
+    color: var(--fg-light);
+    margin-top: var(--space-2);
+  }
+
+  .home__edition { margin: var(--space-3) 0 0; }
+
+  .home__cite {
+    font-family: var(--font-mono);
+    font-size: var(--meta-1);
+    color: var(--fg-light);
+    border-top: 1px solid var(--fg-faint);
+    padding-top: var(--space-4);
+    margin-top: var(--space-4);
+  }
 </style>
