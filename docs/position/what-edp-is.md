@@ -2,15 +2,9 @@
 description: "What an enterprise data platform is and is not. Problems EDP solves, why bronze/silver/gold is not a business process layer, and the three systems doctrine."
 ---
 
-# What an Enterprise Data Platform Is -- and What It Is Not
+# What an Enterprise Data Platform Is, and What It Is Not
 
-## Executive Summary
-
-- An enterprise data platform (EDP) exists to integrate, historize, and govern data across business domains for analytics, AI, and regulatory reporting
-- An EDP is not a transaction processing system, a workflow engine, or an operational data store
-- Bronze/silver/gold (or raw/curated/consumption) is a data refinement pattern, not a business process layer
-- Analytical platforms and operational platforms have fundamentally different design goals -- conflating them creates architectural debt that compounds over years
-- If your stakeholders expect the EDP to "run the business," your problem is not technology. It is positioning.
+An enterprise data platform (EDP) exists to integrate, historize, and govern data across business domains for analytics, AI, and regulatory reporting. It is not a transaction processor, a workflow engine, or an operational data store. This page draws that line precisely, because the most expensive platform failures start with someone blurring it.
 
 ## What Problems EDP Solves
 
@@ -28,25 +22,25 @@ description: "What an enterprise data platform is and is not. Problems EDP solve
 
 ## What Problems EDP Must Not Solve
 
-**Real-time transaction processing.** Payments, order management, trade execution -- these require sub-second latency, ACID transactions, and strong consistency. The EDP is optimized for throughput and historical depth, not for processing individual transactions in real time.
+**Real-time transaction processing.** Payments, order management, and trade execution require sub-second latency, ACID transactions, and strong consistency. The EDP is optimized for throughput and historical depth, not for processing individual transactions in real time.
 
-*Example failure: Trade execution backed by warehouse serving layer. Stale state caused reconciliation breaks. Switching cost: 4 months.*
+*Illustrative failure (composite): trade execution backed by a warehouse serving layer. Stale state caused reconciliation breaks, and unwinding the dependency took months.*
 
 **Workflow orchestration and case management.** Business processes with human tasks, approval chains, exception queues, and SLA tracking need a workflow engine. A dbt pipeline cannot send an email, assign a task, or wait for a human decision.
 
-*Example failure: Claims approval modeled as dbt status flags (submitted/reviewed/approved). No human task routing, no SLA tracking, no exception queue. Rework: full workflow engine introduction.*
+*Illustrative failure (composite): claims approval modeled as dbt status flags (submitted/reviewed/approved). No human task routing, no SLA tracking, no exception queue. The rework meant introducing a full workflow engine.*
 
-**Mutable operational state.** The current account balance, live inventory count, or in-flight application status must be updated in place with transactional guarantees. The EDP's append-mostly model tracks history -- it does not serve as the authoritative current-state record.
+**Mutable operational state.** The current account balance, live inventory count, or in-flight application status must be updated in place with transactional guarantees. The EDP's append-mostly model tracks history; it does not serve as the authoritative current-state record.
 
-*Example failure: Live account balance served from gold table with 15-minute refresh. Customer saw stale balance, initiated duplicate payment. Root cause: freshness mismatch, not data quality.*
+*Illustrative failure (composite): live account balance served from a gold table on a 15-minute refresh. A customer saw a stale balance and initiated a duplicate payment. The root cause was a freshness mismatch, not data quality.*
 
 **Sub-second API serving for customer-facing applications.** Customer portals, mobile apps, and operational dashboards need millisecond response times and high concurrency. Analytical query engines are not designed for thousands of concurrent small lookups.
 
-*Example failure: Mobile app queried BigQuery for customer profile. p99 latency 2.1 seconds. Users abandoned before page loaded. Fix: serving store with <50ms reads.*
+*Illustrative failure (composite): a mobile app queried BigQuery for customer profiles. p99 latency ran to whole seconds and users abandoned before the page loaded. The fix was a serving store with sub-50ms reads.*
 
 **Event-driven command processing.** Reacting to business events in real time (fraud detection during a transaction, dynamic pricing updates, inventory reservation) requires a streaming or event-processing platform, not a batch-oriented analytical layer.
 
-*Example failure: Real-time fraud scoring via BigQuery ML query at transaction time. 3-second latency per score. Transactions queued, customer experience degraded. Fix: online feature store + model serving endpoint.*
+*Illustrative failure (composite): real-time fraud scoring via a BigQuery ML query at transaction time. Each score took seconds, transactions queued, and the customer experience degraded. The fix was an online feature store with a model serving endpoint.*
 
 ## Why Bronze/Silver/Gold Is Not a Business Process Layer
 
@@ -62,11 +56,11 @@ The right framing: bronze/silver/gold prepares data for analytical consumption. 
 
 Enterprise architecture has three distinct system types. Most failures happen when one platform is expected to serve all three:
 
-**Systems of Record** -- Source systems that own operational truth. ERP, core banking, CRM, claims management. They process transactions and manage current state.
+**Systems of Record.** Source systems that own operational truth. ERP, core banking, CRM, claims management. They process transactions and manage current state.
 
-**Systems of Insight** -- The enterprise data platform. It integrates, historizes, and governs data from systems of record for analytics, AI, and regulatory reporting. It does not own operational state.
+**Systems of Insight.** The enterprise data platform. It integrates, historizes, and governs data from systems of record for analytics, AI, and regulatory reporting. It does not own operational state.
 
-**Systems of Action** -- Operational services, workflow engines, serving layers, and APIs that execute business processes and serve live users. They consume insights but operate under their own SLAs.
+**Systems of Action.** Operational services, workflow engines, serving layers, and APIs that execute business processes and serve live users. They consume insights but operate under their own SLAs.
 
 The EDP is a system of insight. It is not a system of record and not a system of action. When organizations collapse all three into one platform, every system inherits the constraints of the other two. The result is a platform that is too slow for operations, too unstable for analytics, and too complex for anyone to own.
 
@@ -94,15 +88,15 @@ The confusion between analytical and operational platforms is not a technology f
 
 "Strategic platform" language attracts every workload. When leadership calls the EDP the "single source of truth" and the "strategic data platform," operational teams hear: "build against this." Platform teams, incentivized to maximize adoption and justify investment, rarely push back. The result is an EDP that becomes load-bearing for workloads it was never designed to support.
 
-Operational teams discover that the EDP has the best data -- integrated, governed, historized. They build against it because the data is there, not because the platform is designed for their access patterns. They inherit the wrong SLAs, the wrong latency, and the wrong mutation model. The platform degrades for everyone.
+Operational teams discover that the EDP has the best data in the company: integrated, governed, historized. They build against it because the data is there, not because the platform is designed for their access patterns. They inherit the wrong SLAs, the wrong latency, and the wrong mutation model. The platform degrades for everyone.
 
-The fix is positional, not technical. Define what the EDP is. Define what it is not. Enforce the boundary. Provide alternatives for operational needs. The rest of this guide shows how.
+The fix is positional rather than technical. Define what the EDP is. Define what it is not. Enforce the boundary. Provide alternatives for operational needs. The rest of this guide shows how.
 
 ## Platform Boundaries Are Funding Boundaries
 
-The confusion between analytical and operational platforms is not just an architecture problem. It is a funding problem.
+The confusion between analytical and operational platforms is also a funding problem.
 
-When the EDP is labeled the "strategic platform," it attracts every workload. It also attracts every cost. The result is a single budget line that covers analytics, operations, ML, compliance, and serving -- with no way to distinguish which workloads drive which costs.
+When the EDP is labeled the "strategic platform," it attracts every workload. It also attracts every cost. The result is a single budget line that covers analytics, operations, ML, compliance, and serving, with no way to distinguish which workloads drive which costs.
 
 Separating platforms creates clarity:
 

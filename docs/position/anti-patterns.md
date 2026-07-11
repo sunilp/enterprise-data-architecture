@@ -1,20 +1,14 @@
 ---
-description: "Six enterprise data platform anti-patterns. What breaks when EDP becomes everything -- lakehouse as system of record, analytical SLAs for operations, and more."
+description: "Six enterprise data platform anti-patterns. What breaks when EDP becomes everything: lakehouse as system of record, analytical SLAs for operations, and more."
 ---
 
 # What Breaks When EDP Becomes Everything
 
-## Executive Summary
-
-- Six architectural anti-patterns that emerge when enterprises overload their data platform with operational responsibilities
-- Each pattern follows the same structure: what it looks like, why teams do it, what breaks, what to do instead
-- These are not theoretical risks. They are patterns observed repeatedly in enterprise data programs.
-- Recognizing these patterns early saves millions in rework and years of architectural debt.
-- The root cause is almost always positioning, not technology.
+Six anti-patterns show up, over and over, when enterprises overload the data platform with operational responsibilities. Each follows the same arc: what it looks like, why teams do it, what breaks, and what to do instead. The root cause is almost always positioning, not technology.
 
 <figure markdown="span">
   ![Anti-Patterns](../images/hero-anti-patterns.svg){ width="100%" }
-  <figcaption>Six architectural anti-patterns -- root cause is positioning, not technology</figcaption>
+  <figcaption>Six architectural anti-patterns</figcaption>
 </figure>
 
 ## Anti-Pattern 1: The Lakehouse as System of Record
@@ -97,7 +91,7 @@ description: "Six enterprise data platform anti-patterns. What breaks when EDP b
 **What breaks:**
 
 - Planned downtime for analytical workloads becomes unplanned downtime for operations
-- Query performance varies by analytical load -- an expensive report can slow operational queries
+- Query performance varies with analytical load; an expensive report can slow operational queries
 - Scaling for analytical throughput is different from scaling for operational concurrency
 - Incident priority conflicts: is the analytical pipeline failure or the operational outage more urgent?
 
@@ -134,4 +128,4 @@ Every anti-pattern here follows the same root cause:
 5. The platform team scrambles to support workloads they did not design for
 6. The platform degrades for everyone
 
-The fix is not technical. It is positional. Define what the EDP is. Define what it is not. Enforce the boundary. Provide alternatives for operational needs.
+Breaking the cycle takes more than fixing the current incident. Teams reach for the EDP when it holds the only governed data within reach, so the durable defense is a sanctioned alternative: a serving layer that is easier to build against than the gold tables behind it. Name the boundary, publish it, and have that alternative ready before the next team needs it.

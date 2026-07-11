@@ -4,13 +4,7 @@ description: "Side-by-side comparison of enterprise data platforms vs operationa
 
 # EDP vs Operational Platform
 
-## Executive Summary
-
-- Enterprise data platforms and operational platforms solve fundamentally different problems and operate under different constraints
-- Confusing them leads to wrong SLAs, wrong funding models, and platforms that fail at both jobs
-- This page provides a side-by-side comparison across 12 dimensions so architects and leaders can draw a clear line
-- Neither platform is "better" -- they coexist. The question is which workload belongs where.
-- If you are building one platform to rule them all, you are building zero platforms that work.
+Enterprise data platforms and operational platforms solve different problems under different constraints. Confusing them leads to wrong SLAs, wrong funding models, and platforms that fail at both jobs. This page compares the two across 12 dimensions so architects and leaders can draw a clear line. Neither platform is better; they coexist, and the question is which workload belongs where. If you are building one platform to rule them all, you are building zero platforms that work.
 
 <figure markdown="span">
   ![EDP vs Operational Platform](../images/hero-edp-vs-operational.svg){ width="100%" }
@@ -30,7 +24,7 @@ description: "Side-by-side comparison of enterprise data platforms vs operationa
 | **Consumers** | Analysts, data scientists, BI tools, regulatory teams | Applications, APIs, workflow engines, end users |
 | **Storage pattern** | Columnar, partitioned, tiered (hot/warm/cold) | Row-oriented, indexed, optimized for point lookups |
 | **Governance style** | Centralized cataloging, lineage, access policies, data quality | Application-level validation, API contracts |
-| **Failure tolerance** | Retry, reprocess, backfill -- no data loss but delay acceptable | Must not lose a transaction, failover required |
+| **Failure tolerance** | Retry, reprocess, backfill; delay acceptable, data loss not | Must not lose a transaction, failover required |
 | **Cost model** | Storage-heavy, compute-on-demand, query-based billing | Compute-heavy, always-on, connection-based |
 | **Scaling pattern** | Scale storage and compute independently, elastic | Scale for concurrent connections and transaction throughput |
 
