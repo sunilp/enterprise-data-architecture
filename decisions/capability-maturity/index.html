@@ -147,13 +147,69 @@
 <p>The architecture is sound. The technology choices are defensible. The platform could handle ten times the current load. But nobody owns incident response. Alert fatigue has set in because every quality check fires a notification and nobody triages them. Pipeline failures are resolved by the person who happens to notice, not by a defined process. Technical excellence without operational discipline produces an impressive platform that is unreliable in practice.</p>
 <h2 id="sample-assessment-visualization">Sample Assessment Visualization</h2>
 <p>The chart below shows a typical enterprise assessment: strong in some areas, weak in others. The unevenness is the point. If your assessment produces a flat line, you either have a genuinely mature platform or you are not being honest.</p>
-<pre><code class="language-mermaid">%%{init: {'theme': 'neutral'}}%%
-xychart-beta
-    title "Sample Capability Maturity Assessment"
-    x-axis ["Batch Ingest", "CDC", "Lineage", "Quality", "Historizn", "Orchestrn", "Access Ctrl", "Contracts", "Cost Mgmt", "Metadata", "Monitoring", "Self-Serve", "ML/AI", "Reconcil", "Schema Mgmt"]
-    y-axis "Maturity Level" 0 --> 4
-    bar [3, 2, 1, 2, 2, 3, 3, 1, 2, 1, 2, 1, 1, 1, 2]
-</code></pre>
+<figure class="hero-figure">
+  <svg viewBox="0 0 780 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sample capability maturity assessment, 15 capabilities scored 0 to 4">
+  <rect width="780" height="540" fill="#fafaf8"></rect>
+  <text x="200" y="24" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3" fill="#6b6b6b">SAMPLE ASSESSMENT · STRONG INGESTION, WEAK GOVERNANCE</text>
+  <line x1="200" y1="38" x2="200" y2="496" stroke="#e8e8e8"></line>
+  <text x="200" y="518" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">0</text>
+  <line x1="335" y1="38" x2="335" y2="496" stroke="#e8e8e8"></line>
+  <text x="335" y="518" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <line x1="470" y1="38" x2="470" y2="496" stroke="#e8e8e8"></line>
+  <text x="470" y="518" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <line x1="605" y1="38" x2="605" y2="496" stroke="#e8e8e8"></line>
+  <text x="605" y="518" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">3</text>
+  <line x1="740" y1="38" x2="740" y2="496" stroke="#e8e8e8"></line>
+  <text x="740" y="518" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">4</text>
+  <text x="188" y="59" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Batch ingestion</text>
+  <rect x="200" y="46" width="405" height="16" fill="#c9c4b8"></rect>
+  <text x="613" y="59" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">3</text>
+  <text x="188" y="89" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">CDC</text>
+  <rect x="200" y="76" width="270" height="16" fill="#c9c4b8"></rect>
+  <text x="478" y="89" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <text x="188" y="119" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Lineage</text>
+  <rect x="200" y="106" width="135" height="16" fill="#1f4e79"></rect>
+  <text x="343" y="119" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <text x="188" y="149" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Quality controls</text>
+  <rect x="200" y="136" width="270" height="16" fill="#c9c4b8"></rect>
+  <text x="478" y="149" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <text x="188" y="179" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Historization</text>
+  <rect x="200" y="166" width="270" height="16" fill="#c9c4b8"></rect>
+  <text x="478" y="179" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <text x="188" y="209" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Orchestration</text>
+  <rect x="200" y="196" width="405" height="16" fill="#c9c4b8"></rect>
+  <text x="613" y="209" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">3</text>
+  <text x="188" y="239" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Access control</text>
+  <rect x="200" y="226" width="405" height="16" fill="#c9c4b8"></rect>
+  <text x="613" y="239" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">3</text>
+  <text x="188" y="269" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Data contracts</text>
+  <rect x="200" y="256" width="135" height="16" fill="#1f4e79"></rect>
+  <text x="343" y="269" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <text x="188" y="299" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Cost management</text>
+  <rect x="200" y="286" width="270" height="16" fill="#c9c4b8"></rect>
+  <text x="478" y="299" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <text x="188" y="329" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Metadata</text>
+  <rect x="200" y="316" width="135" height="16" fill="#1f4e79"></rect>
+  <text x="343" y="329" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <text x="188" y="359" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Pipeline monitoring</text>
+  <rect x="200" y="346" width="270" height="16" fill="#c9c4b8"></rect>
+  <text x="478" y="359" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <text x="188" y="389" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Self-service access</text>
+  <rect x="200" y="376" width="135" height="16" fill="#1f4e79"></rect>
+  <text x="343" y="389" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <text x="188" y="419" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">ML/AI integration</text>
+  <rect x="200" y="406" width="135" height="16" fill="#1f4e79"></rect>
+  <text x="343" y="419" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <text x="188" y="449" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Reconciliation</text>
+  <rect x="200" y="436" width="135" height="16" fill="#1f4e79"></rect>
+  <text x="343" y="449" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">1</text>
+  <text x="188" y="479" text-anchor="end" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#1a1a1a">Schema management</text>
+  <rect x="200" y="466" width="270" height="16" fill="#c9c4b8"></rect>
+  <text x="478" y="479" font-family="IBM Plex Mono, monospace" font-size="11" fill="#999">2</text>
+  <text x="470" y="536" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#999">MATURITY LEVEL · NAVY = AT LEVEL 1, THE INVESTMENT PRIORITIES</text>
+  </svg>
+  <figcaption>A typical uneven assessment: operational capabilities mature, governance capabilities at Level 1</figcaption>
+</figure>
 <p>This sample reflects the “strong ingestion, weak governance” pattern. Batch ingestion and orchestration are at Level 3. Access control is at Level 3 because security invested in it independently. But lineage, contracts, metadata, and self-service are all at Level 1: the platform ingests and secures data effectively, but nobody can find it, understand it, or trust it without asking the platform team.</p>
 <p>The fix is not to improve ingestion further. The fix is to raise lineage, metadata, and contracts to Level 2 before doing anything else. The highest-value investment is always in the weakest governance capability, not in the strongest operational one.</p>  </article> <p class="page-cta" data-astro-cid-sj4crmdy>
 Using this framework for an architecture review or a target-state design? Start with the
