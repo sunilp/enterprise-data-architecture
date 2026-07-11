@@ -1,16 +1,10 @@
 ---
-description: "Business capability map for enterprise data platforms. 15 capabilities mapped to platform owners -- EDP, operational, serving layer, or shared."
+description: "Business capability map for enterprise data platforms. 15 capabilities mapped to platform owners: EDP, operational, serving layer, or shared."
 ---
 
 # Business Capability Map
 
-## Executive Summary
-
-- This map answers one question for non-technical leaders: which platform owns which business capability
-- It eliminates the recurring debate where every new requirement defaults to "build it on the data platform"
-- Platform ownership is determined by workload characteristics (latency, mutation, SLA), not by where the best data lives
-- When a capability spans platforms, the map forces explicit ownership boundaries before anyone writes code
-- Print this. Reference it in steering committees. It saves months of architectural rework per misplaced workload.
+This map answers one question for non-technical leaders: which platform owns which business capability. It exists to end the recurring debate where every new requirement defaults to "build it on the data platform." Ownership is determined by workload characteristics (latency, mutation, SLA), not by where the best data lives, and when a capability spans platforms the map forces explicit boundaries before anyone writes code.
 
 ```mermaid
 graph LR
@@ -68,9 +62,9 @@ graph LR
 
 **EDP** means the enterprise data platform owns the data and the workload runs against it. The platform is optimized for throughput, historical depth, and governance. If a capability maps here, expect batch or near-real-time latency, not sub-second response times.
 
-**Operational** means a purpose-built operational system with its own SLAs, its own data model, and its own uptime guarantees. These systems process transactions, manage mutable state, and serve live business operations. The EDP ingests from them -- it does not replace them.
+**Operational** means a purpose-built operational system with its own SLAs, its own data model, and its own uptime guarantees. These systems process transactions, manage mutable state, and serve live business operations. The EDP ingests from them; it does not replace them.
 
-**Serving Layer** means data originates in the EDP but is served through purpose-built low-latency infrastructure. APIs, caches, materialized views, feature stores -- whatever the access pattern demands. The EDP computes; the serving layer delivers.
+**Serving Layer** means data originates in the EDP but is served through purpose-built low-latency infrastructure. APIs, caches, materialized views, feature stores, whatever the access pattern demands. The EDP computes; the serving layer delivers.
 
 **Shared** means explicit ownership boundaries between platforms with well-defined data flows. Neither platform fully owns the capability. When you see "Shared," the first question is always: who owns the data, and who owns the SLA?
 
@@ -78,7 +72,7 @@ graph LR
 
 Print it. Put it on the wall. Reference it when stakeholders request new capabilities.
 
-When a request comes in that maps to "EDP" but stakeholders expect operational SLAs -- sub-second latency, 99.99% uptime, real-time mutation -- that is a positioning conversation, not a technology decision. The data platform team does not need to evaluate new tools. Leadership needs to agree on which platform owns the workload.
+When a request comes in that maps to "EDP" but stakeholders expect operational SLAs (sub-second latency, 99.99% uptime, real-time mutation), that is a positioning conversation, not a technology decision. The data platform team does not need to evaluate new tools. Leadership needs to agree on which platform owns the workload.
 
 When a request maps to "Shared," define the boundary before building. Who owns the data? Who owns the SLA? How does data flow between platforms? Without these answers, both teams will build half a solution and blame each other when it breaks. Every "Shared" capability needs a one-page data flow agreement signed off by both platform owners before development starts.
 

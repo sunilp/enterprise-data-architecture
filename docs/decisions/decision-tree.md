@@ -4,13 +4,7 @@ description: "Where does this workload belong? Decision tree flowchart for routi
 
 # Where Does This Workload Belong?
 
-## Executive Summary
-
-- Not every workload belongs on the enterprise data platform. The EDP solves analytical, historical, and governance problems -- it is not a general-purpose runtime.
-- Latency requirements and mutation patterns are the two fastest ways to determine platform fit. Get these wrong and no amount of engineering will compensate.
-- This decision tree gives architects a repeatable, defensible process for routing workloads to the right platform instead of defaulting to "put it in the data lake."
-- Some workloads genuinely span both platforms. For those, the answer is not to pick one -- it is to define the boundary explicitly and connect them cleanly.
-- When the answer is unclear, separate and connect. It is always cheaper to build an integration than to untangle a platform that does both jobs poorly.
+Not every workload belongs on the enterprise data platform. The EDP solves analytical, historical, and governance problems; it is not a general-purpose runtime. Latency requirements and mutation patterns are the two fastest ways to determine platform fit, and this tree gives architects a repeatable, defensible process for routing workloads instead of defaulting to "put it in the data lake."
 
 ## Decision Tree
 
@@ -53,7 +47,7 @@ flowchart TD
     style DEFAULT fill:#7d7d7d,color:#fff
 ```
 
-The tree is deliberately sequential. Sub-second latency and ACID transactions are disqualifying factors for EDP -- they come first because they are non-negotiable. Only after ruling those out do you evaluate whether the workload fits EDP's strengths.
+The tree is deliberately sequential. Sub-second latency and ACID transactions are disqualifying factors for EDP; they come first because they are non-negotiable. Only after ruling those out do you evaluate whether the workload fits EDP's strengths.
 
 ## Quick Reference Table
 
@@ -87,7 +81,7 @@ If a workload needs sub-second response, the EDP is the wrong platform regardles
 
 ### 3. Governed does not mean operational
 
-Governance makes data trustworthy for analytics -- it does not make data suitable for transactions. A governed customer record in the EDP is excellent for reporting. It is not a replacement for the operational customer record that the CRM writes to and reads from in real time. These are different records serving different purposes.
+Governance makes data trustworthy for analytics; it does not make data suitable for transactions. A governed customer record in the EDP is excellent for reporting. It is not a replacement for the operational customer record that the CRM writes to and reads from in real time. These are different records serving different purposes.
 
 ### 4. When in doubt, separate and connect
 
@@ -99,7 +93,7 @@ Every EDP needs a strategy for how its outputs reach operational consumers. Pret
 
 ## The Gray Zone
 
-Some workloads do not have a clean answer. They span both platforms by nature. Acknowledging this is not a failure of the framework -- it is a prompt to define boundaries more precisely.
+Some workloads do not have a clean answer. They span both platforms by nature. Acknowledging this is not a failure of the framework. It is a prompt to define boundaries more precisely.
 
 **Feature serving.** The EDP computes and historizes features. The feature store serves them at inference time with low latency. The boundary is clear: EDP owns computation and storage of record, the serving layer owns delivery. The EDP pushes; the serving layer responds.
 
