@@ -120,6 +120,11 @@ Governance, lineage, security, and observability span all layers:
 
 ### Amazon Web Services
 
+<figure class="hero-figure">
+  <img src="../images/hero-target-state-aws.svg" alt="AWS Target State Architecture" />
+  <figcaption>Target-state architecture mapped to AWS services</figcaption>
+</figure>
+
 | Layer | AWS Services |
 |-------|-------------|
 | Event backbone | MSK (managed Kafka), Kinesis |
@@ -130,4 +135,4 @@ Governance, lineage, security, and observability span all layers:
 | AI / ML | SageMaker, Bedrock |
 | Governance | Lake Formation, Glue Data Catalog, DataZone |
 
-The GCP and Azure variants include architecture diagrams; the AWS mapping is provided as a table. The layer responsibilities are identical across all three.
+The layer responsibilities are identical across all three clouds; only the service names change. For worked applications of these mappings, see the scenario blueprints.

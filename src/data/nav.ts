@@ -39,6 +39,15 @@ export const SECTIONS: NavSection[] = [
     ],
   },
   {
+    label: 'Scenarios',
+    description: 'Worked example architectures: an EU insurer on Azure, a tier-1 bank on GCP, a US healthcare provider on AWS.',
+    pages: [
+      { title: 'Insurer on Azure', slug: 'scenarios/insurer-azure' },
+      { title: 'Bank on GCP', slug: 'scenarios/bank-gcp' },
+      { title: 'Healthcare on AWS', slug: 'scenarios/healthcare-aws' },
+    ],
+  },
+  {
     label: 'Decisions',
     description: 'Workload routing, capability maps, data mesh, maturity, and vendor evaluation frameworks.',
     pages: [

@@ -29,6 +29,11 @@ Enterprise data platforms (EDP) exist to integrate, historize, and govern data f
 - [Coexistence Patterns](https://sunilprakash.com/enterprise-data-architecture/blueprints/coexistence-patterns/): Five integration patterns for EDP and operational platform coexistence.
 - [The Serving Layer](https://sunilprakash.com/enterprise-data-architecture/blueprints/serving-layer/): Four serving shapes (API facade, read model, online feature store, search/vector index), feeding patterns, SLO regime, and the operational destination taxonomy.
 
+### Scenarios
+- [Insurer on Azure](https://sunilprakash.com/enterprise-data-architecture/scenarios/insurer-azure/): Worked example: EU insurer, Solvency II/IFRS 17/AI Act, Databricks + Fabric estate, accidental ODS unwound, governed claims copilot.
+- [Bank on GCP](https://sunilprakash.com/enterprise-data-architecture/scenarios/bank-gcp/): Worked example: tier-1 EU bank, BCBS 239/DORA, one-platform mandate rewritten, fraud feature store, credit-model datasets as regulated artifacts.
+- [Healthcare on AWS](https://sunilprakash.com/enterprise-data-architecture/scenarios/healthcare-aws/): Worked example: US covered entity, PHI/de-identified zones on S3+Iceberg, tokenized patient linking, research data products.
+
 ### Decisions
 - [Decision Tree](https://sunilprakash.com/enterprise-data-architecture/decisions/decision-tree/): Flowchart for routing workloads to the right platform.
 - [Business Capability Map](https://sunilprakash.com/enterprise-data-architecture/decisions/capability-map/): 15 business capabilities mapped to platform owners.
