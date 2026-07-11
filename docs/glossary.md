@@ -22,7 +22,7 @@ A storage system for raw, unprocessed data in native formats (Parquet, JSON, CSV
 
 ### Data Mesh
 
-An organizational model for decentralized data ownership where domain teams own and publish data products. **Not:** a technology platform. Not a replacement for centralized infrastructure. See [Data Mesh positioning](decisions/data-mesh.md) (Phase 2) for detailed treatment. **Architecture layer:** organizational overlay across Layers 4--5.
+An organizational model for decentralized data ownership where domain teams own and publish data products. **Not:** a technology platform. Not a replacement for centralized infrastructure. See [Data Mesh positioning](decisions/data-mesh.md) for detailed treatment. **Architecture layer:** organizational overlay across Layers 4--5.
 
 ### Data Products
 

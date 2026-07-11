@@ -11,7 +11,7 @@ A technically decent platform fails when there is no ownership, weak support mod
 - The EDP is a product, not a project. It has owners, consumers, SLAs, a release process, and a cost model. If any of these are missing, the platform is a liability.
 - Seven defined roles cover the full scope: strategy, engineering, data products, stewardship, governance, security, and support. Gaps in any role surface as unresolved incidents, ungoverned data, or uncontrolled costs.
 - Eight operational processes -- from onboarding to deprecation -- define how work flows through the platform. Each process has a trigger, an owner, and a documented output.
-- Fourteen KPIs across reliability, quality, cost, adoption, governance, and support prove whether the platform is well-operated or just well-built.
+- Thirteen KPIs across reliability, quality, cost, adoption, governance, and support prove whether the platform is well-operated or just well-built.
 - A tiered support model ensures consumers get help at the right level, with response and resolution SLAs that are measurable and enforceable.
 
 ```mermaid

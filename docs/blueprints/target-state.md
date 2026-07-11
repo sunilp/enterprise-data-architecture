@@ -123,7 +123,3 @@ Governance, lineage, security, and observability span all layers:
 | Semantic / Data products | Unity Catalog datasets, Databricks SQL |
 | AI / ML | Azure ML, Databricks Feature Store, Azure OpenAI |
 | Governance | Microsoft Purview, Unity Catalog |
-
-*AWS mapping deferred. GCP and Azure first based on implementation experience and primary audience context.*
-
-<!-- Detailed draw.io diagrams with official cloud provider icons: see diagrams/ directory -->

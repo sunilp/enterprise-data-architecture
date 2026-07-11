@@ -12,8 +12,6 @@ description: "What an enterprise data platform is and is not. Problems EDP solve
 - Analytical platforms and operational platforms have fundamentally different design goals -- conflating them creates architectural debt that compounds over years
 - If your stakeholders expect the EDP to "run the business," your problem is not technology. It is positioning.
 
-<!-- ![What EDP Is](../images/hero-what-edp-is.svg) -->
-
 ## What Problems EDP Solves
 
 **Historical analysis across business domains.** No single source system holds a complete picture. The EDP integrates data from CRM, ERP, core banking, payments, and product systems into a single governed layer. This makes cross-domain questions answerable: "What is the lifetime revenue of customers who opened accounts in Q3 and also hold a mortgage?"
