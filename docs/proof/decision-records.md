@@ -4,7 +4,7 @@ description: "Architecture decision record examples. Four worked ADRs: serving s
 
 # Architecture Decision Record Examples
 
-These worked examples show how the frameworks in this guide apply to real architecture decisions. Each follows the ADR format: context, decision drivers, options, decision, consequences.
+These worked examples show how the frameworks in this guide apply to recognizable architecture decisions. Like the case studies, they are teaching devices rather than records from a specific engagement. Each follows the ADR format: context, decision drivers, options, decision, consequences.
 
 ---
 
@@ -30,15 +30,15 @@ Customer 360 dataset computed in EDP gold layer. Customer-facing app needs to di
 
 ### Decision
 
-**Option C -- Dedicated serving store fed by EDP.**
+**Option C: dedicated serving store fed by EDP.**
 
 The warehouse is optimized for analytical throughput, not point lookups at app-serving concurrency. Materialized views help with query speed but do not solve the concurrency or SLA isolation problem. A dedicated serving store decouples the app SLA from the warehouse SLA entirely.
 
 ### Consequences
 
 - Adds a serving layer to build and maintain.
-- Decouples app SLA from warehouse SLA -- warehouse maintenance windows no longer cause app outages.
-- Customer profile latency drops from 1.2s to 35ms.
+- Decouples app SLA from warehouse SLA: warehouse maintenance windows no longer cause app outages.
+- Profile reads drop from seconds to tens of milliseconds.
 - Warehouse compute is no longer affected by app traffic patterns.
 
 ---
@@ -65,14 +65,14 @@ Marketing team needs customer segmentation scores (computed in EDP) pushed to CR
 
 ### Decision
 
-**Option C -- Reverse ETL to CRM, with a data contract.**
+**Option C: reverse ETL to CRM, with a data contract.**
 
 Marketing should not have to leave their primary tool to act on data. An API adds latency and integration complexity that is not justified for daily-refresh data. Reverse ETL is the right pattern here, provided a data contract governs the interface.
 
 ### Consequences
 
 - Segmentation scores refresh daily in CRM without manual intervention.
-- Marketing operates in their native tool -- no workflow change required.
+- Marketing operates in their native tool, with no workflow change required.
 - Data contract defines schema, freshness SLA (daily by 6am), and ownership (data platform team owns pipeline, marketing owns segment definitions).
 - If the contract breaks, both sides know immediately rather than discovering stale data weeks later.
 
@@ -100,14 +100,14 @@ Fraud detection model needs 15 features at transaction scoring time. Features ar
 
 ### Decision
 
-**Option C -- Online feature store.**
+**Option C: online feature store.**
 
-Querying the lakehouse at inference time adds 500ms-2s of latency per request -- 10x to 40x over budget. Application-level caching works at small scale but creates consistency problems between training and serving (training/serving skew). A feature store solves both problems: the offline store guarantees training and batch features come from the same computation, and the online store serves at single-digit millisecond latency.
+Querying the lakehouse at inference time adds hundreds of milliseconds to whole seconds of latency per request, far over the 50ms budget. Application-level caching works at small scale but creates consistency problems between training and serving (training/serving skew). A feature store solves both problems: the offline store guarantees training and batch features come from the same computation, and the online store serves at single-digit millisecond latency.
 
 ### Consequences
 
 - Offline feature store computes from EDP daily, ensuring training and serving use identical feature definitions.
-- Online store (Redis/Bigtable) serves at <5ms -- well within the 50ms budget.
+- Online store (Redis/Bigtable) serves at single-digit milliseconds, well within the 50ms budget.
 - Feature consistency between training and serving is guaranteed, eliminating a common source of model degradation.
 - Feature compute costs are shared across all models that use the same features, rather than each model recomputing independently.
 - Lakehouse compute is no longer affected by inference traffic.
@@ -137,15 +137,15 @@ Claims processing currently implemented as a series of dbt models with status fl
 
 ### Decision
 
-**Option C -- Introduce workflow engine.**
+**Option C: introduce a workflow engine.**
 
-dbt is a data transformation tool, not a workflow engine. Using status flags in SQL to model a business process with human tasks, exceptions, and SLA tracking is a category error. Airflow is better but still fundamentally a DAG scheduler -- it does not natively support human tasks, long-running workflows, or durable state. A workflow engine like Temporal or Camunda is purpose-built for exactly this problem.
+dbt is a data transformation tool, not a workflow engine. Using status flags in SQL to model a business process with human tasks, exceptions, and SLA tracking is a category error. Airflow is better but still fundamentally a DAG scheduler; it does not natively support human tasks, long-running workflows, or durable state. A workflow engine like Temporal or Camunda is purpose-built for exactly this problem.
 
 ### Consequences
 
 - Claims workflow moves to Temporal with explicit state machines, human task assignments, and SLA timers.
-- EDP ingests claim events (via CDC or event stream) for analytics and reporting -- the analytical use case is preserved.
-- Silver layer no longer carries operational state -- it returns to being a data refinement layer.
+- EDP ingests claim events (via CDC or event stream) for analytics and reporting; the analytical use case is preserved.
+- Silver layer no longer carries operational state; it returns to being a data refinement layer.
 - Pipeline complexity reduced: dbt models are simpler without conditional business logic.
 - Human task management properly supported: assignment, escalation, timeout, audit trail.
 - Regulatory SLA tracking is built into the workflow engine rather than approximated by query timestamps.
