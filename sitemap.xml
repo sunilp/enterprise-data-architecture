@@ -2,122 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/glossary/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilprakash.com/enterprise-data-architecture/blueprints/agent-access/</loc>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/blueprints/ai-ml-platform/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/blueprints/capability-architecture/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/blueprints/coexistence-patterns/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/blueprints/control-plane/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/blueprints/target-state/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/compliance/banking/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilprakash.com/enterprise-data-architecture/compliance/eu-ai-act/</loc>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/compliance/healthcare/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/compliance/insurance/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/compliance/overview/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/decisions/capability-map/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/decisions/capability-maturity/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/decisions/data-mesh/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/decisions/decision-tree/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/decisions/maturity-model/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/decisions/vendor-framework/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/operations/operating-model/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/operations/reliability/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/patterns/cost-architecture/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/patterns/data-contracts/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
+    </url>
+    <url>
+         <loc>https://sunilprakash.com/enterprise-data-architecture/patterns/open-formats/</loc>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/position/anti-patterns/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/position/edp-vs-operational/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/position/what-edp-is/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/proof/case-studies/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/proof/checklists/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/proof/decision-records/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/proof/evidence/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/proof/metrics/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
     <url>
          <loc>https://sunilprakash.com/enterprise-data-architecture/transformation/roadmap/</loc>
-         <lastmod>2026-03-22</lastmod>
+         <lastmod>2026-07-11</lastmod>
     </url>
 </urlset>
