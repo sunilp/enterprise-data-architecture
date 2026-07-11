@@ -6,8 +6,8 @@ description: "How enterprise data platforms feed AI: classic ML supply chains, L
 
 The EDP is the supply side of enterprise AI. Two generations of consumers now draw on it: classic model pipelines (feature engineering, training, batch scoring) and language-model systems (RAG, fine-tuning, agents). Both depend on the same governed, historized, integrated data. Neither gets to run inside the EDP. Getting this relationship right is the difference between AI experiments and AI in production.
 
-<figure markdown="span">
-  ![AI/ML Platform Relationship](../images/hero-ai-ml-platform.svg){ width="100%" }
+<figure class="hero-figure">
+  <img src="../images/hero-ai-ml-platform.svg" alt="AI/ML Platform Relationship" />
   <figcaption>Data flow from EDP through ML infrastructure to serving, with feedback loop</figcaption>
 </figure>
 

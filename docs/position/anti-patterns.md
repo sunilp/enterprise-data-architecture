@@ -6,8 +6,8 @@ description: "Six enterprise data platform anti-patterns. What breaks when EDP b
 
 Six anti-patterns show up, over and over, when enterprises overload the data platform with operational responsibilities. Each follows the same arc: what it looks like, why teams do it, what breaks, and what to do instead. The root cause is almost always positioning, not technology.
 
-<figure markdown="span">
-  ![Anti-Patterns](../images/hero-anti-patterns.svg){ width="100%" }
+<figure class="hero-figure">
+  <img src="../images/hero-anti-patterns.svg" alt="Anti-Patterns" />
   <figcaption>Six architectural anti-patterns</figcaption>
 </figure>
 

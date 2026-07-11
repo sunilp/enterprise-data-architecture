@@ -6,8 +6,8 @@ description: "Seven-layer enterprise data architecture blueprint with GCP and Az
 
 A reference architecture for how enterprise data platforms and operational platforms coexist. Seven layers, each with a distinct responsibility and distinct operational characteristics; governance, lineage, security, and observability cut across all of them. This is an architectural pattern rather than a vendor recommendation. The cloud mappings below show how the conceptual layers land on real services.
 
-<figure markdown="span">
-  ![Target State Architecture](../images/hero-target-state.svg){ width="100%" }
+<figure class="hero-figure">
+  <img src="../images/hero-target-state.svg" alt="Target State Architecture" />
   <figcaption>Seven-layer reference architecture: operational platform (left), enterprise data platform (right)</figcaption>
 </figure>
 
@@ -74,8 +74,8 @@ Governance, lineage, security, and observability span all layers:
 
 ### Google Cloud Platform
 
-<figure markdown="span">
-  ![GCP Target State Architecture](../images/hero-target-state-gcp.svg){ width="100%" }
+<figure class="hero-figure">
+  <img src="../images/hero-target-state-gcp.svg" alt="GCP Target State Architecture" />
   <figcaption>Target-state architecture mapped to GCP services</figcaption>
 </figure>
 
@@ -91,8 +91,8 @@ Governance, lineage, security, and observability span all layers:
 
 ### Microsoft Azure
 
-<figure markdown="span">
-  ![Azure Target State Architecture](../images/hero-target-state-azure.svg){ width="100%" }
+<figure class="hero-figure">
+  <img src="../images/hero-target-state-azure.svg" alt="Azure Target State Architecture" />
   <figcaption>Target-state architecture mapped to Azure services (Databricks + Unity Catalog)</figcaption>
 </figure>
 

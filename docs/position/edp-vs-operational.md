@@ -6,8 +6,8 @@ description: "Side-by-side comparison of enterprise data platforms vs operationa
 
 Enterprise data platforms and operational platforms solve different problems under different constraints. Confusing them leads to wrong SLAs, wrong funding models, and platforms that fail at both jobs. This page compares the two across 12 dimensions so architects and leaders can draw a clear line. Neither platform is better; they coexist, and the question is which workload belongs where. If you are building one platform to rule them all, you are building zero platforms that work.
 
-<figure markdown="span">
-  ![EDP vs Operational Platform](../images/hero-edp-vs-operational.svg){ width="100%" }
+<figure class="hero-figure">
+  <img src="../images/hero-edp-vs-operational.svg" alt="EDP vs Operational Platform" />
   <figcaption>Enterprise data platform (systems of insight) vs operational platform (systems of record)</figcaption>
 </figure>
 
