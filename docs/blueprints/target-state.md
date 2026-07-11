@@ -15,10 +15,6 @@ A reference architecture for how enterprise data platforms and operational platf
 
 ```mermaid
 graph TB
-    subgraph "Cross-Cutting: Governance, Lineage, Security, Observability"
-        direction TB
-    end
-
     A["Layer 1: Source Systems"] --> B["Layer 2: Event / Message Backbone"]
     B --> C["Layer 3: Operational Services & Workflows"]
     B --> E["Layer 4: EDP / Lakehouse / Warehouse"]
@@ -27,15 +23,21 @@ graph TB
     F --> G["Layer 6: AI / ML / Analytics Consumption"]
     G -.-> |"feedback loop"| E
     F -.-> |"serving"| D
+    XC["Cross-cutting: governance · lineage · security · observability"]
+    XC -.- B
+    XC -.- E
+    XC -.- F
 ```
 
 ### Layer 1: Source Systems
 
-The origin of all data. ERP, CRM, core banking, payments, custom applications. These systems own their operational data and emit changes via events, CDC, or batch extracts. Source systems are producers: they should not be aware of downstream consumers, and data flows out via events or CDC, never via direct queries from downstream platforms.
+The origin of all data. ERP, CRM, core banking, payments, custom applications. These systems own their operational data and emit changes via events, CDC, or batch extracts. Producers should not be technically coupled to individual downstream implementations: data flows out via events or CDC, never via direct queries from downstream platforms. Decoupling is not ignorance, though. Producers remain accountable for the contracts they publish (schema compatibility, quality SLOs, deprecation windows) and for managing consumer impact when those contracts change.
 
 ### Layer 2: Event / Message Backbone
 
 The connective tissue. Kafka, Pub/Sub, Event Hubs, or equivalent. Every operational event and data change flows through this layer, which decouples producers from consumers. Operational services and the EDP consume from the same backbone independently.
+
+*Decisions at this layer: [integration patterns](coexistence-patterns.md), [zero-ETL vs CDC](../patterns/open-formats.md).*
 
 ### Layer 3: Operational Services and Workflows
 
@@ -45,19 +47,29 @@ Business process execution. Workflow engines, microservices, case management, pa
 
 Purpose-built stores for operational access patterns. Low-latency lookups, transactional consistency, high concurrency. The ODS is not the EDP: it holds current-state, denormalized, access-optimized data for operational use, fed by the EDP or by source systems directly depending on the use case.
 
+*Decisions at this layer: [serving layer blueprint](serving-layer.md), [EDP Is Not an ODS](../position/edp-is-not-an-ods.md).*
+
 ### Layer 4: EDP / Lakehouse / Warehouse
 
 The analytical heart. Raw ingestion (bronze), cleansed and conformed (silver), business-ready (gold). Historical, governed, integrated. Everything here is optimized for analytical throughput, historical depth, and governance, not for transactional workloads, point lookups, or sub-second responses. Storage at this layer is increasingly open table formats with a catalog in front; see [Open Formats and Catalogs](../patterns/open-formats.md) for why the catalog choice now matters as much as the engine choice.
+
+*Decisions at this layer: [catalog selection](../patterns/open-formats.md), [cost architecture](../patterns/cost-architecture.md).*
 
 ### Layer 5: Semantic / Data Product Layer
 
 Governed, documented, discoverable data products. Each product has a defined owner, schema, SLA, and quality contract. Data products are the interface between the EDP and its consumers: stable, versioned datasets that hide the complexity of the layers beneath them.
 
-The semantic half of this layer is gaining weight. Metric and entity definitions, once a BI-tool convenience, are becoming governed artifacts in their own right, because they are the interface BI copilots and AI agents consume. The Open Semantic Interchange (OSI) specification, published in early 2026, aims to make those definitions portable across tools. Treat business definitions like schemas: owned, versioned, and reviewed. [Agents as Consumers](agent-access.md) covers why this matters more once agents query the platform.
+One layer, three distinct abstractions. It helps to separate them even when one product implements all three: **data products** are owned, governed consumption units with a defined consumer problem, lifecycle, and accountability; the **semantic layer** is the consistent business meaning (metrics, entities, blessed joins) those products expose; and **access interfaces** are the delivery mechanics (SQL, APIs, events, files, MCP resources, vector search). Conflating them is how "data product" degrades into "documented table."
+
+The semantic abstraction is gaining weight. Metric and entity definitions, once a BI-tool convenience, are becoming governed artifacts in their own right, because they are the interface BI copilots and AI agents consume. The Open Semantic Interchange (OSI) specification, published in early 2026, aims to make those definitions portable across tools. Treat business definitions like schemas: owned, versioned, and reviewed.
+
+*Decisions at this layer: [data contracts](../patterns/data-contracts.md), [agent access](agent-access.md).*
 
 ### Layer 6: AI / ML / Analytics Consumption
 
-The consumers. BI dashboards, data science notebooks, ML training pipelines, feature stores, analytics applications. Consumers access data through data products rather than querying raw layers directly. Feature stores bridge the gap between analytical data and low-latency serving for ML models.
+The consumers. BI dashboards, data science notebooks, ML training pipelines, feature stores, analytics applications, and now agents. Consumers access data through data products rather than querying raw layers directly. Feature stores bridge the gap between analytical data and low-latency serving for ML models.
+
+*Decisions at this layer: [workload routing](../decisions/decision-tree.md), [agents as consumers](agent-access.md).*
 
 ### Cross-Cutting Concerns
 

@@ -74,7 +74,7 @@
   <rect x="120" y="355" width="720" height="200" rx="4" fill="#fff" stroke="#e8e8e8" stroke-width="1"/>
   <text x="140" y="385" class="layer-label" fill="#999">LAYER 3</text>
   <text x="220" y="385" class="layer-title" fill="#1a1a1a">Operational Services and Workflows</text>
-  <text x="140" y="405" class="layer-desc">Business process execution -- the systems that run the business</text>
+  <text x="140" y="405" class="layer-desc">Business process execution: the systems that run the business</text>
 
   <!-- Operational service boxes -->
   <rect x="160" y="420" width="150" height="50" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
@@ -133,7 +133,7 @@
   <rect x="880" y="355" width="920" height="360" rx="4" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
   <text x="900" y="385" class="layer-label" fill="#999">LAYER 4</text>
   <text x="980" y="385" class="layer-title" fill="#1a1a1a">Enterprise Data Platform</text>
-  <text x="900" y="405" class="layer-desc">Analytical heart -- historical, governed, integrated</text>
+  <text x="900" y="405" class="layer-desc">Analytical heart: historical, governed, integrated</text>
 
   <!-- Bronze -->
   <rect x="920" y="425" width="260" height="110" rx="3" fill="#f5f5f3" stroke="#e8e8e8"/>
