@@ -1,0 +1,77 @@
+---
+import { SECTIONS, sectionFor } from '../data/nav';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentSection = sectionFor(currentSlug);
+---
+
+<nav class="section-nav" aria-label="Guide">
+  {
+    SECTIONS.map((s) => (
+      <details open={s.label === currentSection?.label} class="section-nav__group">
+        <summary class="section-nav__label rubric">{s.label}</summary>
+        <ul class="section-nav__list">
+          {s.pages.map((p) => (
+            <li>
+              <a
+                class:list={['section-nav__link', { 'is-active': p.slug === currentSlug }]}
+                href={`${base}/${p.slug}/`}
+                aria-current={p.slug === currentSlug ? 'page' : undefined}
+              >
+                {p.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))
+  }
+</nav>
+
+<style>
+  .section-nav {
+    font-family: var(--font-mono);
+    font-size: var(--meta-1);
+    position: sticky;
+    top: 88px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding-right: var(--space-3);
+  }
+
+  .section-nav__group { margin-bottom: var(--space-4); }
+
+  .section-nav__label {
+    cursor: pointer;
+    list-style: none;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-nav__label::-webkit-details-marker { display: none; }
+  .section-nav__label:hover { color: var(--navy); }
+
+  .section-nav__list { list-style: none; }
+
+  .section-nav__list li { margin-bottom: var(--space-1); }
+
+  .section-nav__link {
+    display: block;
+    color: var(--fg-light);
+    padding: 3px 0 3px var(--space-3);
+    border-left: 2px solid transparent;
+    line-height: 1.5;
+  }
+
+  .section-nav__link:hover { color: var(--navy); }
+
+  .section-nav__link.is-active {
+    color: var(--ink);
+    border-left-color: var(--navy);
+    font-weight: 500;
+  }
+</style>

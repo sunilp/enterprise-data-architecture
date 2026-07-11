@@ -1,0 +1,92 @@
+---
+import type { MarkdownHeading } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import SectionNav from '../components/SectionNav.astro';
+import Toc from '../components/Toc.astro';
+import PrevNext from '../components/PrevNext.astro';
+import { findPage, sectionFor } from '../data/nav';
+
+interface Props {
+  slug: string;
+  description?: string;
+  headings: MarkdownHeading[];
+}
+
+const { slug, description, headings } = Astro.props;
+const page = findPage(slug);
+const section = sectionFor(slug);
+const title = page?.title ?? slug;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="doc container">
+    <aside class="doc__sidenav">
+      <SectionNav currentSlug={slug} />
+    </aside>
+    <main class="doc__main">
+      <p class="doc__breadcrumb rubric">
+        {section && section.label !== title ? `${section.label} / ${title}` : title}
+      </p>
+      <h1 class="doc__title">{title}</h1>
+      {description && <p class="dek doc__dek">{description}</p>}
+      <article class="prose">
+        <slot />
+      </article>
+      <PrevNext currentSlug={slug} />
+    </main>
+    <aside class="doc__toc">
+      <Toc headings={headings} />
+    </aside>
+  </div>
+  <script src="../scripts/mermaid-init.js"></script>
+</BaseLayout>
+
+<style>
+  .doc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-7);
+    padding-top: var(--space-7);
+  }
+
+  .doc__sidenav,
+  .doc__toc { display: none; }
+
+  .doc__breadcrumb { margin-bottom: var(--space-4); }
+
+  .doc__title {
+    font-family: var(--font-display);
+    font-weight: 340;
+    font-size: var(--display-1);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-4);
+    color: var(--ink);
+  }
+
+  .doc__dek {
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--fg-faint);
+  }
+
+  .doc__main {
+    max-width: var(--reader-max);
+    margin: 0 auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (min-width: 1200px) {
+    .doc {
+      grid-template-columns: 240px minmax(0, var(--reader-max)) 220px;
+      justify-content: center;
+      gap: var(--space-7);
+    }
+
+    .doc__sidenav,
+    .doc__toc { display: block; }
+
+    .doc__main { margin: 0; }
+  }
+</style>

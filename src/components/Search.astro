@@ -1,0 +1,94 @@
+<dialog class="search" id="search-dialog">
+  <div class="search__panel">
+    <div class="search__head">
+      <p class="rubric">Search the guide</p>
+      <button class="search__close" id="search-close" aria-label="Close search">Esc</button>
+    </div>
+    <div id="pagefind-container"></div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('search-dialog') as HTMLDialogElement | null;
+  const openBtn = document.getElementById('search-open');
+  const closeBtn = document.getElementById('search-close');
+  let loaded = false;
+
+  async function openSearch() {
+    if (!dialog) return;
+    dialog.showModal();
+    if (!loaded) {
+      loaded = true;
+      // @ts-ignore - package has no types
+      const { PagefindUI } = await import('@pagefind/default-ui');
+      new PagefindUI({
+        element: '#pagefind-container',
+        baseUrl: '/enterprise-data-architecture/',
+        bundlePath: '/enterprise-data-architecture/pagefind/',
+        showImages: false,
+        showSubResults: true,
+      });
+    }
+    const input = dialog.querySelector('input');
+    input?.focus();
+  }
+
+  openBtn?.addEventListener('click', openSearch);
+  closeBtn?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      dialog?.open ? dialog.close() : openSearch();
+    }
+  });
+</script>
+
+<style is:global>
+  .search {
+    width: min(640px, 92vw);
+    border: 1px solid var(--fg-faint);
+    border-radius: var(--radius-md);
+    padding: 0;
+    background: var(--paper);
+    box-shadow: var(--shadow-card-hover);
+    margin-top: 10vh;
+  }
+
+  .search::backdrop { background: rgba(26, 26, 26, 0.45); }
+
+  .search__panel { padding: var(--space-5); }
+
+  .search__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .search__close {
+    font-family: var(--font-mono);
+    font-size: var(--meta-2);
+    color: var(--fg-light);
+    background: transparent;
+    border: 1px solid var(--fg-faint);
+    border-radius: var(--radius-sm);
+    padding: 2px 8px;
+  }
+
+  .search__close:hover { color: var(--navy); border-color: var(--navy); }
+
+  #pagefind-container {
+    --pagefind-ui-primary: var(--navy);
+    --pagefind-ui-text: var(--ink);
+    --pagefind-ui-background: var(--paper);
+    --pagefind-ui-border: var(--fg-faint);
+    --pagefind-ui-tag: var(--paper-recess);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: var(--radius-md);
+    --pagefind-ui-font: var(--font-body);
+    font-size: var(--body-2);
+  }
+</style>

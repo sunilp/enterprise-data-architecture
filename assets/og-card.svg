@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fafaf8"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#1f4e79"/>
+  <text x="96" y="200" font-family="Georgia, serif" font-size="26" letter-spacing="10" fill="#6b6b6b">AN ARCHITECTURE POSITION PACK</text>
+  <text x="92" y="310" font-family="Georgia, serif" font-size="76" fill="#1a1a1a">Enterprise Data</text>
+  <text x="92" y="400" font-family="Georgia, serif" font-size="76" fill="#1a1a1a">Architecture</text>
+  <line x1="96" y1="460" x2="500" y2="460" stroke="#1f4e79" stroke-width="3"/>
+  <text x="96" y="520" font-family="Georgia, serif" font-size="30" font-style="italic" fill="#6b6b6b">The boundary between analytical and operational systems</text>
+  <text x="96" y="580" font-family="Georgia, serif" font-size="24" fill="#1f4e79">sunilprakash.com/enterprise-data-architecture</text>
+</svg>

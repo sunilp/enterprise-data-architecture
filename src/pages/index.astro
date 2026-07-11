@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionCard from '../components/SectionCard.astro';
+import { SECTIONS } from '../data/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const u = (slug: string) => `${base}/${slug}/`;
+
+const startHere: { heading: string; links: { title: string; slug: string; desc: string }[] }[] = [
+  {
+    heading: 'I need to explain platform boundaries to leadership',
+    links: [
+      { title: 'What EDP Is', slug: 'position/what-edp-is', desc: 'The problems an enterprise data platform solves and the problems it must not solve' },
+      { title: 'EDP vs Operational Platform', slug: 'position/edp-vs-operational', desc: 'Side-by-side comparison across 12 dimensions, plus the 2026 convergence argument' },
+      { title: 'Anti-Patterns', slug: 'position/anti-patterns', desc: 'What breaks when EDP becomes everything' },
+      { title: 'EDP Is Not an ODS', slug: 'position/edp-is-not-an-ods', desc: 'The most common misuse, the five differences that bite, and how to spot it' },
+      { title: 'The New Data Architecture', slug: 'position/new-data-architecture', desc: 'The four 2026 shifts worth designing for, and what did not change' },
+    ],
+  },
+  {
+    heading: 'I need a reference blueprint',
+    links: [
+      { title: 'Target-State Architecture', slug: 'blueprints/target-state', desc: 'Seven-layer reference architecture with GCP, Azure, and AWS service mappings' },
+      { title: 'Capability Architecture', slug: 'blueprints/capability-architecture', desc: '35+ capabilities the EDP must provide, with components mapping' },
+      { title: 'Control Plane', slug: 'blueprints/control-plane', desc: 'Metadata, lineage, policy, contracts, audit, and observability infrastructure' },
+      { title: 'AI/ML Platform Relationship', slug: 'blueprints/ai-ml-platform', desc: 'The classic ML and LLM data supply chains, from feature stores to RAG corpora' },
+      { title: 'Agents as Consumers', slug: 'blueprints/agent-access', desc: 'Governed agent access through MCP, semantic layers, and scoped identity' },
+      { title: 'Coexistence Patterns', slug: 'blueprints/coexistence-patterns', desc: 'How EDP and operational platforms connect through five integration patterns' },
+    ],
+  },
+  {
+    heading: 'I need to make an architecture decision',
+    links: [
+      { title: 'Decision Tree', slug: 'decisions/decision-tree', desc: '"Where does this workload belong?" flowchart with quick reference table' },
+      { title: 'Business Capability Map', slug: 'decisions/capability-map', desc: '15 business capabilities mapped to platform owners' },
+      { title: 'Data Mesh', slug: 'decisions/data-mesh', desc: 'When data mesh works, when it does not, and the pragmatic middle ground' },
+      { title: 'Maturity Model', slug: 'decisions/maturity-model', desc: 'Five levels across six dimensions' },
+      { title: 'Vendor Evaluation', slug: 'decisions/vendor-framework', desc: '10-dimension evaluation framework with platform archetypes' },
+      { title: 'Capability Assessment', slug: 'decisions/capability-maturity', desc: '15 capabilities x 4 maturity levels assessment' },
+    ],
+  },
+  {
+    heading: 'I need integration patterns',
+    links: [
+      { title: 'Data Contracts', slug: 'patterns/data-contracts', desc: 'Schema, SLAs, ownership, and evolution rules between producers and consumers' },
+      { title: 'Cost Architecture', slug: 'patterns/cost-architecture', desc: 'FinOps patterns for data platforms' },
+      { title: 'Open Formats and Catalogs', slug: 'patterns/open-formats', desc: 'Iceberg as the interchange layer, catalog selection, zero-ETL, and the streaming lakehouse' },
+    ],
+  },
+  {
+    heading: 'I need regulatory compliance guidance',
+    links: [
+      { title: 'Compliance Overview', slug: 'compliance/overview', desc: 'Cross-industry regulatory matrix mapped to platform design' },
+      { title: 'Banking', slug: 'compliance/banking', desc: 'BCBS 239 and DORA mapped to architecture decisions' },
+      { title: 'Healthcare', slug: 'compliance/healthcare', desc: 'HIPAA mapped to data platform design' },
+      { title: 'Insurance', slug: 'compliance/insurance', desc: 'Solvency II and IFRS 17 data requirements' },
+      { title: 'EU AI Act', slug: 'compliance/eu-ai-act', desc: 'Article 10 data governance and Article 12 logging mapped to platform capabilities' },
+    ],
+  },
+  {
+    heading: 'I need an operating model',
+    links: [
+      { title: 'Operating Model', slug: 'operations/operating-model', desc: 'Roles, processes, measures, and support tiers for running the EDP' },
+      { title: 'Reliability Model', slug: 'operations/reliability', desc: 'Platform SLOs, incident classification, recovery patterns' },
+    ],
+  },
+  {
+    heading: 'I need a transformation plan',
+    links: [
+      { title: 'Transformation Roadmap', slug: 'transformation/roadmap', desc: 'Four stages from current-state confusion to governed coexistence' },
+    ],
+  },
+  {
+    heading: 'I need proof this works',
+    links: [
+      { title: 'Case Studies', slug: 'proof/case-studies', desc: 'Three illustrative composite transformations' },
+      { title: 'Evidence Tables', slug: 'proof/evidence', desc: 'Claims, counter-arguments, failure modes, and what good looks like' },
+      { title: 'Decision Records', slug: 'proof/decision-records', desc: 'Worked ADR examples applying these frameworks' },
+      { title: 'Metrics and Outcomes', slug: 'proof/metrics', desc: 'Target ranges across 13 dimensions, with what to measure' },
+      { title: 'Review Checklists', slug: 'proof/checklists', desc: 'Five operational checklists for architecture review boards' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Enterprise Data Architecture"
+  description="Enterprise data architecture guide with decision frameworks, reference blueprints, anti-patterns, compliance patterns, and operating models. For CIOs, CDOs, and enterprise architects separating data platforms from operational systems."
+>
+  <main class="home container">
+    <section class="home__hero">
+      <p class="rubric">An architecture position pack</p>
+      <h1 class="home__title">Enterprise Data Architecture</h1>
+      <p class="dek home__dek">
+        For CIOs, CDOs, enterprise architects, and platform leaders designing the boundary between
+        analytical and operational systems.
+      </p>
+      <p class="home__lede">
+        Every enterprise builds a data platform. Most of them also accidentally try to make it run
+        their business operations. This is the guide to not doing that: hard boundaries between
+        enterprise data platforms and operational platforms, decision frameworks backed by
+        evidence, and reference blueprints with real cloud provider mappings.
+      </p>
+      <p class="proof-strip">
+        35 pages · 7-layer architecture · 35+ capabilities · 4 compliance regimes · agent access
+        patterns · 3 case studies · 5 review checklists
+      </p>
+    </section>
+
+    <section class="home__sections">
+      <h2 class="home__heading">The Guide</h2>
+      <div class="home__grid">
+        {SECTIONS.map((s) => <SectionCard section={s} />)}
+      </div>
+    </section>
+
+    <section class="home__start">
+      <h2 class="home__heading">Start Here</h2>
+      <div class="home__start-grid">
+        {
+          startHere.map((group) => (
+            <div class="home__group">
+              <h3 class="home__group-heading">{group.heading}</h3>
+              <ul class="home__links">
+                {group.links.map((l) => (
+                  <li>
+                    <a href={u(l.slug)}>{l.title}</a>
+                    <span class="home__link-desc">{l.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="home__related">
+      <h2 class="home__heading">Related Implementation</h2>
+      <p class="home__lede">
+        This guide is the strategy layer. For working implementations:
+        <a href="https://github.com/sunilp/reference-data-platform-gcp">reference-data-platform-gcp</a>
+        (production-grade EDP on GCP: Data Vault 2.0, dbt, BigQuery, Terraform) and
+        <a href="https://github.com/sunilp/dbt-data-vault-starter">dbt-data-vault-starter</a>
+        (an opinionated dbt template for Data Vault 2.0). Unclear on a term? Start with the
+        <a href={u('glossary')}>glossary</a>.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .home { padding-top: var(--space-8); }
+
+  .home__hero { max-width: 780px; }
+
+  .home__title {
+    font-family: var(--font-display);
+    font-weight: 340;
+    font-size: var(--display-poster);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-tight);
+    margin: var(--space-3) 0 var(--space-4);
+    color: var(--ink);
+  }
+
+  .home__dek { margin-bottom: var(--space-5); }
+
+  .home__lede {
+    font-size: var(--body-1);
+    line-height: var(--lh-base);
+    max-width: 70ch;
+    margin-bottom: var(--space-6);
+  }
+
+  .home__lede a {
+    text-decoration: underline;
+    text-decoration-color: var(--navy);
+    text-underline-offset: 3px;
+  }
+
+  .home__heading {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: var(--display-2);
+    margin: var(--space-8) 0 var(--space-5);
+  }
+
+  .home__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .home__start-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-6) var(--space-7);
+  }
+
+  .home__group-heading {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--display-4);
+    margin-bottom: var(--space-3);
+  }
+
+  .home__links { list-style: none; }
+
+  .home__links li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--fg-faint);
+  }
+
+  .home__links a {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--navy);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+
+  .home__link-desc {
+    display: block;
+    font-size: var(--body-2);
+    color: var(--fg-light);
+    line-height: var(--lh-snug);
+    margin-top: 2px;
+  }
+
+  .home__related { max-width: 780px; }
+</style>

@@ -1,0 +1,45 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p class="site-footer__line">
+      Copyright 2026 <a href="https://sunilprakash.com">Sunil Prakash</a> ·
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    </p>
+    <p class="site-footer__line">
+      <a href={`${base}/`}>Home</a> ·
+      <a href={`${base}/glossary/`}>Glossary</a> ·
+      <a href="https://github.com/sunilp/enterprise-data-architecture">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/sunilprakash">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: var(--space-9);
+    border-top: 1px solid var(--fg-faint);
+    background: var(--paper);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-6);
+  }
+
+  .site-footer__line {
+    font-family: var(--font-mono);
+    font-size: var(--meta-1);
+    color: var(--fg-light);
+    margin: 0;
+  }
+
+  .site-footer__line a { color: var(--fg-light); text-decoration: none; }
+  .site-footer__line a:hover { color: var(--navy); }
+</style>

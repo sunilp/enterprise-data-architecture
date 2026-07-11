@@ -1,0 +1,64 @@
+---
+import { flatPages } from '../data/nav';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pages = flatPages();
+const i = pages.findIndex((p) => p.slug === currentSlug);
+const prev = i > 0 ? pages[i - 1] : undefined;
+const next = i >= 0 && i < pages.length - 1 ? pages[i + 1] : undefined;
+---
+
+<nav class="prev-next" aria-label="Adjacent pages">
+  <div>
+    {
+      prev && (
+        <a class="prev-next__link" href={`${base}/${prev.slug}/`} rel="prev">
+          <span class="rubric">Previous</span>
+          <span class="prev-next__title">{prev.title}</span>
+        </a>
+      )
+    }
+  </div>
+  <div class="prev-next__right">
+    {
+      next && (
+        <a class="prev-next__link" href={`${base}/${next.slug}/`} rel="next">
+          <span class="rubric">Next</span>
+          <span class="prev-next__title">{next.title}</span>
+        </a>
+      )
+    }
+  </div>
+</nav>
+
+<style>
+  .prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-top: 1px solid var(--fg-faint);
+    margin-top: var(--space-8);
+    padding-top: var(--space-5);
+  }
+
+  .prev-next__right { text-align: right; }
+
+  .prev-next__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .prev-next__title {
+    font-family: var(--font-display);
+    font-size: var(--display-4);
+    color: var(--ink);
+  }
+
+  .prev-next__link:hover .prev-next__title { color: var(--navy); }
+</style>

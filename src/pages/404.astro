@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Page not found">
+  <main class="container nf">
+    <p class="rubric">404</p>
+    <h1 class="nf__title">Page not found</h1>
+    <p class="nf__body">
+      The page you are looking for does not exist or has moved.
+      <a href={`${base}/`}>Back to the guide</a>.
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .nf { padding-top: var(--space-9); min-height: 50vh; }
+
+  .nf__title {
+    font-family: var(--font-display);
+    font-weight: 340;
+    font-size: var(--display-1);
+    margin: var(--space-3) 0 var(--space-4);
+  }
+
+  .nf__body a {
+    text-decoration: underline;
+    text-decoration-color: var(--navy);
+    text-underline-offset: 3px;
+  }
+</style>
