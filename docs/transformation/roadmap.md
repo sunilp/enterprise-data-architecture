@@ -147,36 +147,75 @@ An operating model for the dual-platform architecture. This is not a document th
 
 ## Roadmap Visualization
 
-```mermaid
-gantt
-    title Transformation Roadmap: Confusion to Coexistence
-    dateFormat  YYYY-MM
-    axisFormat  %b %Y
+<figure class="hero-figure">
+  <svg viewBox="0 0 1180 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four-stage transformation roadmap">
+  <rect width="1180" height="400" fill="#fafaf8"/>
+  <rect x="14" y="30" width="266" height="330" rx="4" fill="#ffffff" stroke="#e8e8e8"/>
+  <rect x="14" y="30" width="266" height="4" fill="#1f4e79" opacity="0.35"/>
+  <text x="36" y="70" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3" fill="#1f4e79">STAGE 1 · NOW</text>
+  <text x="36" y="106" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Understand</text>
+  <text x="36" y="134" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Current State</text>
+  <line x1="36" y1="152" x2="258" y2="152" stroke="#e8e8e8"/>
+  <path d="M36,180 L41,184 L36,188 Z" fill="#1f4e79"/>
+  <text x="52" y="189" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Audit every workload</text>
+  <path d="M36,214 L41,218 L36,222 Z" fill="#1f4e79"/>
+  <text x="52" y="223" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Classify each one</text>
+  <path d="M36,248 L41,252 L36,256 Z" fill="#1f4e79"/>
+  <text x="52" y="257" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Risk heat map</text>
+  <path d="M36,282 L41,286 L36,290 Z" fill="#1f4e79"/>
+  <text x="52" y="291" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Expectations vs design</text>
+  <path d="M284,195 L306,195" stroke="#999" stroke-width="1.5"/>
+  <path d="M300,190 L307,195 L300,200" fill="none" stroke="#999" stroke-width="1.5"/>
+  <rect x="310" y="30" width="266" height="330" rx="4" fill="#ffffff" stroke="#e8e8e8"/>
+  <rect x="310" y="30" width="266" height="4" fill="#1f4e79" opacity="0.55"/>
+  <text x="332" y="70" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3" fill="#1f4e79">STAGE 2 · GAP</text>
+  <text x="332" y="106" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Identify</text>
+  <text x="332" y="134" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Misalignments</text>
+  <line x1="332" y1="152" x2="554" y2="152" stroke="#e8e8e8"/>
+  <path d="M332,180 L337,184 L332,188 Z" fill="#1f4e79"/>
+  <text x="348" y="189" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Compare to design intent</text>
+  <path d="M332,214 L337,218 L332,222 Z" fill="#1f4e79"/>
+  <text x="348" y="223" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Quantify the cost</text>
+  <path d="M332,248 L337,252 L332,256 Z" fill="#1f4e79"/>
+  <text x="348" y="257" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Prioritized remediation list</text>
+  <path d="M580,195 L602,195" stroke="#999" stroke-width="1.5"/>
+  <path d="M596,190 L603,195 L596,200" fill="none" stroke="#999" stroke-width="1.5"/>
+  <rect x="606" y="30" width="266" height="330" rx="4" fill="#ffffff" stroke="#e8e8e8"/>
+  <rect x="606" y="30" width="266" height="4" fill="#1f4e79" opacity="0.75"/>
+  <text x="628" y="70" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3" fill="#1f4e79">STAGE 3 · NEXT</text>
+  <text x="628" y="106" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Introduce</text>
+  <text x="628" y="134" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Boundaries</text>
+  <line x1="628" y1="152" x2="850" y2="152" stroke="#e8e8e8"/>
+  <path d="M628,180 L633,184 L628,188 Z" fill="#1f4e79"/>
+  <text x="644" y="189" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Publish the boundary</text>
+  <path d="M628,214 L633,218 L628,222 Z" fill="#1f4e79"/>
+  <text x="644" y="223" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Stand up operational platform</text>
+  <path d="M628,248 L633,252 L628,256 Z" fill="#1f4e79"/>
+  <text x="644" y="257" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Migrate highest-risk workloads</text>
+  <path d="M628,282 L633,286 L628,290 Z" fill="#1f4e79"/>
+  <text x="644" y="291" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Contracts at the boundary</text>
+  <path d="M876,195 L898,195" stroke="#999" stroke-width="1.5"/>
+  <path d="M892,190 L899,195 L892,200" fill="none" stroke="#999" stroke-width="1.5"/>
+  <rect x="902" y="30" width="266" height="330" rx="4" fill="#ffffff" stroke="#e8e8e8"/>
+  <rect x="902" y="30" width="266" height="4" fill="#1f4e79" opacity="0.9500000000000001"/>
+  <text x="924" y="70" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="3" fill="#1f4e79">STAGE 4 · FUTURE</text>
+  <text x="924" y="106" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Governed</text>
+  <text x="924" y="134" font-family="Fraunces Variable, Georgia, serif" font-size="23" fill="#1a1a1a">Coexistence</text>
+  <line x1="924" y1="152" x2="1146" y2="152" stroke="#e8e8e8"/>
+  <path d="M924,180 L929,184 L924,188 Z" fill="#1f4e79"/>
+  <text x="940" y="189" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Standard integration patterns</text>
+  <path d="M924,214 L929,218 L924,222 Z" fill="#1f4e79"/>
+  <text x="940" y="223" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Cost governance, chargeback</text>
+  <path d="M924,248 L929,252 L924,256 Z" fill="#1f4e79"/>
+  <text x="940" y="257" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Maturity Level 4 and above</text>
+  <path d="M924,282 L929,286 L924,290 Z" fill="#1f4e79"/>
+  <text x="940" y="291" font-family="EB Garamond, Georgia, serif" font-size="16" fill="#6b6b6b">Operating model live</text>
+  <text x="590" y="388" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#999">SEQUENCE MATTERS MORE THAN DURATION</text>
+  </svg>
+  <figcaption>Four stages, in order: understand, quantify, introduce boundaries, operate the coexistence</figcaption>
+</figure>
 
-    section Stage 1: NOW
-    Workload audit and inventory           :s1a, 2026-01, 2M
-    Classify workloads                     :s1b, after s1a, 1M
-    Risk assessment and stakeholder mapping:s1c, after s1a, 2M
-
-    section Stage 2: GAP
-    Gap analysis vs platform design intent :s2a, after s1c, 2M
-    Quantify cost of misalignment          :s2b, after s2a, 1M
-    Prioritized remediation list           :s2c, after s2b, 1M
-
-    section Stage 3: NEXT
-    Define and publish platform boundaries :s3a, after s2c, 1M
-    Stand up operational platform          :s3b, after s2c, 3M
-    Migrate highest-risk workloads         :s3c, after s3b, 3M
-    Establish data contracts               :s3d, after s3a, 4M
-
-    section Stage 4: FUTURE
-    Standardize integration patterns       :s4a, after s3c, 3M
-    Cost governance and chargeback         :s4b, after s4a, 2M
-    Maturity assessment (Level 4+ target)  :s4c, after s4b, 2M
-    Operating model finalized              :s4d, after s4c, 1M
-```
-
-The timeline is illustrative. Some enterprises will move through Stage 1 in weeks. Others will spend six months in Stage 3 because the organizational change is harder than the technology. The sequence matters more than the duration.
+Durations are deliberately absent. Some enterprises will move through Stage 1 in weeks. Others will spend six months in Stage 3 because the organizational change is harder than the technology. The sequence matters more than the duration.
 
 ---
 
