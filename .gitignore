@@ -19,3 +19,6 @@ Thumbs.db
 # Claude
 .claude/
 .cache/
+node_modules/
+dist/
+.astro/
